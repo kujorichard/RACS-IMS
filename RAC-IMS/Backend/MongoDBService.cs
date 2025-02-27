@@ -20,30 +20,24 @@ namespace RAC_IMS.Backend
             _database = _client.GetDatabase(databaseName);
         }
 
-        // ✅ Test connection method
-        public async Task<bool> TestConnectionAsync()
-        {
-            try
-            {
-                Console.WriteLine("🔄 Testing MongoDB Connection...");
 
-                var databases = await _client.ListDatabaseNamesAsync();
-
-                Console.WriteLine("✅ Connection Successful!");
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("❌ MongoDB Connection Error: " + ex.Message);
-                return false;
-            }
-        }
-
-
-
+        // Product operations
         public IMongoCollection<Product> GetProductsCollection()
         {
             return _database.GetCollection<Product>("Products");
+        }
+
+        public void InsertProduct(Product product)
+        {
+            var productCollection = GetProductsCollection();
+            productCollection.InsertOne(product);  // Insert product into MongoDB
+        }
+
+
+        public List<Product> GetAllProducts()
+        {
+            var productCollection = GetProductsCollection();
+            return productCollection.Find(_ => true).ToList(); // Fetch all documents
         }
 
     }

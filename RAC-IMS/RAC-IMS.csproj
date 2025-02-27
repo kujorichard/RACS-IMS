@@ -154,7 +154,6 @@
   <ItemGroup>
     <Compile Include="Backend\MongoDBService.cs" />
     <Compile Include="Backend\ObjectModels\Product.cs" />
-    <Compile Include="Backend\ProductOperations.cs" />
     <Compile Include="Login and Register\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

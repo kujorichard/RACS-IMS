@@ -8,36 +8,61 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RAC_IMS.Backend.ObjectModels;
 
 namespace RAC_IMS.ProductsList
 {
     public partial class ProductList : Form
     {
+        private readonly MongoDBService _mongoService;
+        const string connection_uri = "mongodb://localhost:27017";
+        const string database_name = "RACS_IMS";
+
         public ProductList()
         {
             InitializeComponent();
+            _mongoService = new MongoDBService(connection_uri, database_name);
+        }
+
+        private void LoadProducts()
+        {
+            try
+            {
+                List<Product> products = _mongoService.GetAllProducts(); // Fetch products from MongoDB
+
+                // Bind to DataGridView
+                dataGridView1.DataSource = products;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading products: {ex.Message}");
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Button Clicked");
-            MongoDBService mongoService = new MongoDBService("mongodb://localhost:27017", "RACS_IMS");
-
-            bool isConnected = await mongoService.TestConnectionAsync(); // Await the async call
-
-            if (isConnected)
+            Product newProduct = new Product
             {
-                MessageBox.Show("✅ Connected to MongoDB successfully!", "MongoDB Connection", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("❌ Failed to connect to MongoDB!", "MongoDB Connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                name = "Test Product",
+                reseller_price = 50.0,
+                wholesale_price = 40.0,
+                retail_price = 60.0,
+                category = "Test Category",
+                supplier = "Test Supplier",
+                supplier_id = 99,
+                raw_material_id = new List<int> { 1, 2 }
+            };
+
+            MongoDBService mongo_service = new MongoDBService(connection_uri, database_name);
+            mongo_service.InsertProduct(newProduct);
+
+            MessageBox.Show("Product inserted successfully!");
+            LoadProducts();
         }
     }
 }
