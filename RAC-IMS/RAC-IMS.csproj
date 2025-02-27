@@ -152,15 +152,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backend MongoDB\MongoDBService.cs" />
-    <Compile Include="Backend MongoDB\ObjectModels.cs" />
+    <Compile Include="Backend\MongoDBService.cs" />
+    <Compile Include="Backend\ObjectModels\Product.cs" />
+    <Compile Include="Backend\ProductOperations.cs" />
     <Compile Include="Login and Register\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Products List\ProductList.cs">
+    <Compile Include="Login and Register\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login and Register\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsList\ProductList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Products List\ProductList.Designer.cs">
+    <Compile Include="ProductsList\ProductList.Designer.cs">
       <DependentUpon>ProductList.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -171,7 +178,7 @@
     <EmbeddedResource Include="Login and Register\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Products List\ProductList.resx">
+    <EmbeddedResource Include="ProductsList\ProductList.resx">
       <DependentUpon>ProductList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

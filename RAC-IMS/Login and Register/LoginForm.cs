@@ -39,18 +39,6 @@ namespace RAC_IMS
             Application.Exit();
         }
 
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // LoginForm
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "LoginForm";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
-            this.ResumeLayout(false);
-
-        }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
