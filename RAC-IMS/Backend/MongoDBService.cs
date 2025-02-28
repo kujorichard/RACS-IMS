@@ -10,34 +10,19 @@ namespace RAC_IMS.Backend
 {
     internal class MongoDBService
     {
-        const string connectionUri = "mongodb://localhost:27017";
         private readonly IMongoDatabase _database;
         private readonly MongoClient _client;
 
-        public MongoDBService(string connectionUri, string databaseName)
+        public MongoDBService(string connection_uri, string database_name)
         {
-            _client = new MongoClient(connectionUri);
-            _database = _client.GetDatabase(databaseName);
+            _client = new MongoClient(connection_uri);
+            _database = _client.GetDatabase(database_name);
         }
 
 
-        // Product operations
         public IMongoCollection<Product> GetProductsCollection()
         {
             return _database.GetCollection<Product>("Products");
-        }
-
-        public void InsertProduct(Product product)
-        {
-            var productCollection = GetProductsCollection();
-            productCollection.InsertOne(product);  // Insert product into MongoDB
-        }
-
-
-        public List<Product> GetAllProducts()
-        {
-            var productCollection = GetProductsCollection();
-            return productCollection.Find(_ => true).ToList(); // Fetch all documents
         }
 
     }
