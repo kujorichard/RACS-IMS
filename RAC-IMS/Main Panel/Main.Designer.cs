@@ -38,6 +38,8 @@
             this.tc_main_inventory = new System.Windows.Forms.TabControl();
             this.product_tab = new System.Windows.Forms.TabPage();
             this.suppliers_tab = new System.Windows.Forms.TabPage();
+            this.materials_tab = new System.Windows.Forms.TabPage();
+            this.orders_tab = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_login_logo)).BeginInit();
             this.tc_main_inventory.SuspendLayout();
@@ -54,7 +56,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(356, 744);
+            this.panel1.Size = new System.Drawing.Size(356, 743);
             this.panel1.TabIndex = 0;
             // 
             // lbl_login_inventorytext
@@ -141,12 +143,14 @@
             // 
             this.tc_main_inventory.Controls.Add(this.product_tab);
             this.tc_main_inventory.Controls.Add(this.suppliers_tab);
-            this.tc_main_inventory.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tc_main_inventory.Controls.Add(this.materials_tab);
+            this.tc_main_inventory.Controls.Add(this.orders_tab);
+            this.tc_main_inventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tc_main_inventory.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tc_main_inventory.Location = new System.Drawing.Point(356, 33);
             this.tc_main_inventory.Name = "tc_main_inventory";
             this.tc_main_inventory.SelectedIndex = 0;
-            this.tc_main_inventory.Size = new System.Drawing.Size(834, 711);
+            this.tc_main_inventory.Size = new System.Drawing.Size(834, 710);
             this.tc_main_inventory.TabIndex = 0;
             // 
             // product_tab
@@ -154,10 +158,11 @@
             this.product_tab.Location = new System.Drawing.Point(4, 29);
             this.product_tab.Name = "product_tab";
             this.product_tab.Padding = new System.Windows.Forms.Padding(3);
-            this.product_tab.Size = new System.Drawing.Size(826, 678);
+            this.product_tab.Size = new System.Drawing.Size(826, 677);
             this.product_tab.TabIndex = 0;
             this.product_tab.Text = "Products";
             this.product_tab.UseVisualStyleBackColor = true;
+            this.product_tab.Click += new System.EventHandler(this.product_tab_Click);
             // 
             // suppliers_tab
             // 
@@ -169,11 +174,29 @@
             this.suppliers_tab.Text = "Suppliers";
             this.suppliers_tab.UseVisualStyleBackColor = true;
             // 
+            // materials_tab
+            // 
+            this.materials_tab.Location = new System.Drawing.Point(4, 29);
+            this.materials_tab.Name = "materials_tab";
+            this.materials_tab.Size = new System.Drawing.Size(826, 678);
+            this.materials_tab.TabIndex = 2;
+            this.materials_tab.Text = "Materials";
+            this.materials_tab.UseVisualStyleBackColor = true;
+            // 
+            // orders_tab
+            // 
+            this.orders_tab.Location = new System.Drawing.Point(4, 29);
+            this.orders_tab.Name = "orders_tab";
+            this.orders_tab.Size = new System.Drawing.Size(826, 678);
+            this.orders_tab.TabIndex = 3;
+            this.orders_tab.Text = "Orders";
+            this.orders_tab.UseVisualStyleBackColor = true;
+            // 
             // btn_main_panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1190, 744);
+            this.ClientSize = new System.Drawing.Size(1190, 743);
             this.Controls.Add(this.tc_main_inventory);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -204,5 +227,7 @@
         private System.Windows.Forms.TabControl tc_main_inventory;
         private System.Windows.Forms.TabPage product_tab;
         private System.Windows.Forms.TabPage suppliers_tab;
+        private System.Windows.Forms.TabPage materials_tab;
+        private System.Windows.Forms.TabPage orders_tab;
     }
 }

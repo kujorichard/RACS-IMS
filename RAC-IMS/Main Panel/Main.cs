@@ -59,5 +59,10 @@ namespace RAC_IMS.Main_Panel
         {
             tc_main_inventory.Visible = false;
         }
+
+        private void product_tab_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
