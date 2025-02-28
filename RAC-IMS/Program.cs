@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RAC_IMS.Main_Panel;
 using RAC_IMS.ProductsList;
 
 namespace RAC_IMS
@@ -17,7 +18,7 @@ namespace RAC_IMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProductList()); // Startup form that will be displayed first
+            Application.Run(new btn_main_panel()); // Startup form that will be displayed first
         }
     }
 }
