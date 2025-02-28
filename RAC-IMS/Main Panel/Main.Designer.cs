@@ -39,15 +39,53 @@
             this.product_tab = new System.Windows.Forms.TabPage();
             this.suppliers_tab = new System.Windows.Forms.TabPage();
             this.materials_tab = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tc_main_sales = new System.Windows.Forms.TabControl();
             this.orders_tab = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgv_products_table = new System.Windows.Forms.DataGridView();
+            this.dgv_materials_table = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lbl_products_name = new System.Windows.Forms.Label();
+            this.lbl_products_resell = new System.Windows.Forms.Label();
+            this.lbl_products_wholesale = new System.Windows.Forms.Label();
+            this.lbl_products_retail = new System.Windows.Forms.Label();
+            this.lbl_products_category = new System.Windows.Forms.Label();
+            this.lbl_products_supplier = new System.Windows.Forms.Label();
+            this.lbl_products_materials = new System.Windows.Forms.Label();
+            this.txt_products_name = new System.Windows.Forms.TextBox();
+            this.txt_products_resell = new System.Windows.Forms.TextBox();
+            this.txt_products_wholesale = new System.Windows.Forms.TextBox();
+            this.txt_products_retail = new System.Windows.Forms.TextBox();
+            this.cmb_products_supplier = new System.Windows.Forms.ComboBox();
+            this.cmb_products_category = new System.Windows.Forms.ComboBox();
+            this.clb_products_materials = new System.Windows.Forms.CheckedListBox();
+            this.btn_products_update = new System.Windows.Forms.Button();
+            this.btn_products_select = new System.Windows.Forms.Button();
+            this.btn_products_add = new System.Windows.Forms.Button();
+            this.btn_products_delete = new System.Windows.Forms.Button();
+            this.btn_products_clear = new System.Windows.Forms.Button();
+            this.dgv_suppliers_table = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_login_logo)).BeginInit();
             this.tc_main_inventory.SuspendLayout();
+            this.product_tab.SuspendLayout();
+            this.suppliers_tab.SuspendLayout();
+            this.materials_tab.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tc_main_sales.SuspendLayout();
+            this.orders_tab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_products_table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_materials_table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_suppliers_table)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Controls.Add(this.btn_main_sales);
             this.panel1.Controls.Add(this.btn_main_exit);
             this.panel1.Controls.Add(this.btn_main_inventory);
@@ -56,7 +94,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(356, 743);
+            this.panel1.Size = new System.Drawing.Size(356, 783);
             this.panel1.TabIndex = 0;
             // 
             // lbl_login_inventorytext
@@ -76,7 +114,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(356, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(834, 33);
+            this.panel2.Size = new System.Drawing.Size(1061, 33);
             this.panel2.TabIndex = 1;
             // 
             // btn_main_sales
@@ -88,7 +126,7 @@
             this.btn_main_sales.ForeColor = System.Drawing.Color.White;
             this.btn_main_sales.Image = global::RAC_IMS.Properties.Resources.sales_32px;
             this.btn_main_sales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_main_sales.Location = new System.Drawing.Point(45, 369);
+            this.btn_main_sales.Location = new System.Drawing.Point(45, 287);
             this.btn_main_sales.Name = "btn_main_sales";
             this.btn_main_sales.Size = new System.Drawing.Size(267, 51);
             this.btn_main_sales.TabIndex = 8;
@@ -104,7 +142,7 @@
             this.btn_main_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_main_exit.ForeColor = System.Drawing.Color.Black;
             this.btn_main_exit.Image = global::RAC_IMS.Properties.Resources.exit_32px;
-            this.btn_main_exit.Location = new System.Drawing.Point(34, 672);
+            this.btn_main_exit.Location = new System.Drawing.Point(34, 720);
             this.btn_main_exit.Name = "btn_main_exit";
             this.btn_main_exit.Size = new System.Drawing.Size(63, 46);
             this.btn_main_exit.TabIndex = 7;
@@ -120,7 +158,7 @@
             this.btn_main_inventory.ForeColor = System.Drawing.Color.White;
             this.btn_main_inventory.Image = global::RAC_IMS.Properties.Resources.checklists_32px;
             this.btn_main_inventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_main_inventory.Location = new System.Drawing.Point(44, 294);
+            this.btn_main_inventory.Location = new System.Drawing.Point(44, 212);
             this.btn_main_inventory.Name = "btn_main_inventory";
             this.btn_main_inventory.Size = new System.Drawing.Size(268, 51);
             this.btn_main_inventory.TabIndex = 6;
@@ -144,60 +182,353 @@
             this.tc_main_inventory.Controls.Add(this.product_tab);
             this.tc_main_inventory.Controls.Add(this.suppliers_tab);
             this.tc_main_inventory.Controls.Add(this.materials_tab);
-            this.tc_main_inventory.Controls.Add(this.orders_tab);
-            this.tc_main_inventory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tc_main_inventory.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tc_main_inventory.Location = new System.Drawing.Point(356, 33);
+            this.tc_main_inventory.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tc_main_inventory.Location = new System.Drawing.Point(360, 412);
             this.tc_main_inventory.Name = "tc_main_inventory";
             this.tc_main_inventory.SelectedIndex = 0;
-            this.tc_main_inventory.Size = new System.Drawing.Size(834, 710);
+            this.tc_main_inventory.Size = new System.Drawing.Size(1058, 1018);
             this.tc_main_inventory.TabIndex = 0;
             // 
             // product_tab
             // 
-            this.product_tab.Location = new System.Drawing.Point(4, 29);
+            this.product_tab.AutoScroll = true;
+            this.product_tab.BackColor = System.Drawing.Color.Transparent;
+            this.product_tab.Controls.Add(this.btn_products_clear);
+            this.product_tab.Controls.Add(this.btn_products_delete);
+            this.product_tab.Controls.Add(this.btn_products_add);
+            this.product_tab.Controls.Add(this.btn_products_select);
+            this.product_tab.Controls.Add(this.btn_products_update);
+            this.product_tab.Controls.Add(this.clb_products_materials);
+            this.product_tab.Controls.Add(this.cmb_products_category);
+            this.product_tab.Controls.Add(this.cmb_products_supplier);
+            this.product_tab.Controls.Add(this.txt_products_retail);
+            this.product_tab.Controls.Add(this.txt_products_wholesale);
+            this.product_tab.Controls.Add(this.txt_products_resell);
+            this.product_tab.Controls.Add(this.txt_products_name);
+            this.product_tab.Controls.Add(this.lbl_products_materials);
+            this.product_tab.Controls.Add(this.lbl_products_supplier);
+            this.product_tab.Controls.Add(this.lbl_products_category);
+            this.product_tab.Controls.Add(this.lbl_products_retail);
+            this.product_tab.Controls.Add(this.lbl_products_wholesale);
+            this.product_tab.Controls.Add(this.lbl_products_resell);
+            this.product_tab.Controls.Add(this.lbl_products_name);
+            this.product_tab.Controls.Add(this.dgv_products_table);
+            this.product_tab.Controls.Add(this.label1);
+            this.product_tab.Location = new System.Drawing.Point(4, 36);
             this.product_tab.Name = "product_tab";
             this.product_tab.Padding = new System.Windows.Forms.Padding(3);
-            this.product_tab.Size = new System.Drawing.Size(826, 677);
+            this.product_tab.Size = new System.Drawing.Size(1050, 978);
             this.product_tab.TabIndex = 0;
             this.product_tab.Text = "Products";
-            this.product_tab.UseVisualStyleBackColor = true;
             this.product_tab.Click += new System.EventHandler(this.product_tab_Click);
             // 
             // suppliers_tab
             // 
-            this.suppliers_tab.Location = new System.Drawing.Point(4, 29);
+            this.suppliers_tab.AutoScroll = true;
+            this.suppliers_tab.Controls.Add(this.dgv_suppliers_table);
+            this.suppliers_tab.Location = new System.Drawing.Point(4, 36);
             this.suppliers_tab.Name = "suppliers_tab";
             this.suppliers_tab.Padding = new System.Windows.Forms.Padding(3);
-            this.suppliers_tab.Size = new System.Drawing.Size(826, 678);
+            this.suppliers_tab.Size = new System.Drawing.Size(1050, 1315);
             this.suppliers_tab.TabIndex = 1;
             this.suppliers_tab.Text = "Suppliers";
             this.suppliers_tab.UseVisualStyleBackColor = true;
             // 
             // materials_tab
             // 
-            this.materials_tab.Location = new System.Drawing.Point(4, 29);
+            this.materials_tab.AutoScroll = true;
+            this.materials_tab.BackColor = System.Drawing.Color.Transparent;
+            this.materials_tab.Controls.Add(this.dgv_materials_table);
+            this.materials_tab.Location = new System.Drawing.Point(4, 36);
             this.materials_tab.Name = "materials_tab";
-            this.materials_tab.Size = new System.Drawing.Size(826, 678);
+            this.materials_tab.Size = new System.Drawing.Size(1050, 1315);
             this.materials_tab.TabIndex = 2;
             this.materials_tab.Text = "Materials";
-            this.materials_tab.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(356, 39);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(200, 245);
+            this.tabControl1.TabIndex = 2;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 216);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tc_main_sales
+            // 
+            this.tc_main_sales.Controls.Add(this.orders_tab);
+            this.tc_main_sales.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tc_main_sales.Location = new System.Drawing.Point(356, 33);
+            this.tc_main_sales.Name = "tc_main_sales";
+            this.tc_main_sales.SelectedIndex = 0;
+            this.tc_main_sales.Size = new System.Drawing.Size(1061, 373);
+            this.tc_main_sales.TabIndex = 2;
             // 
             // orders_tab
             // 
-            this.orders_tab.Location = new System.Drawing.Point(4, 29);
+            this.orders_tab.AutoScroll = true;
+            this.orders_tab.Controls.Add(this.dataGridView1);
+            this.orders_tab.Location = new System.Drawing.Point(4, 36);
             this.orders_tab.Name = "orders_tab";
-            this.orders_tab.Size = new System.Drawing.Size(826, 678);
-            this.orders_tab.TabIndex = 3;
+            this.orders_tab.Padding = new System.Windows.Forms.Padding(3);
+            this.orders_tab.Size = new System.Drawing.Size(1053, 333);
+            this.orders_tab.TabIndex = 0;
             this.orders_tab.Text = "Orders";
             this.orders_tab.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(49, 151);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 27);
+            this.label1.TabIndex = 0;
+            // 
+            // dgv_products_table
+            // 
+            this.dgv_products_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_products_table.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgv_products_table.Location = new System.Drawing.Point(3, 3);
+            this.dgv_products_table.Name = "dgv_products_table";
+            this.dgv_products_table.RowHeadersWidth = 51;
+            this.dgv_products_table.RowTemplate.Height = 24;
+            this.dgv_products_table.Size = new System.Drawing.Size(1044, 325);
+            this.dgv_products_table.TabIndex = 1;
+            // 
+            // dgv_materials_table
+            // 
+            this.dgv_materials_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_materials_table.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgv_materials_table.Location = new System.Drawing.Point(0, 0);
+            this.dgv_materials_table.Name = "dgv_materials_table";
+            this.dgv_materials_table.RowHeadersWidth = 51;
+            this.dgv_materials_table.RowTemplate.Height = 24;
+            this.dgv_materials_table.Size = new System.Drawing.Size(1050, 325);
+            this.dgv_materials_table.TabIndex = 2;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1047, 325);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // lbl_products_name
+            // 
+            this.lbl_products_name.AutoSize = true;
+            this.lbl_products_name.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_name.Location = new System.Drawing.Point(38, 372);
+            this.lbl_products_name.Name = "lbl_products_name";
+            this.lbl_products_name.Size = new System.Drawing.Size(69, 23);
+            this.lbl_products_name.TabIndex = 2;
+            this.lbl_products_name.Text = "NAME";
+            // 
+            // lbl_products_resell
+            // 
+            this.lbl_products_resell.AutoSize = true;
+            this.lbl_products_resell.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_resell.Location = new System.Drawing.Point(38, 427);
+            this.lbl_products_resell.Name = "lbl_products_resell";
+            this.lbl_products_resell.Size = new System.Drawing.Size(153, 23);
+            this.lbl_products_resell.TabIndex = 3;
+            this.lbl_products_resell.Text = "RESELL PRICE";
+            // 
+            // lbl_products_wholesale
+            // 
+            this.lbl_products_wholesale.AutoSize = true;
+            this.lbl_products_wholesale.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_wholesale.Location = new System.Drawing.Point(38, 479);
+            this.lbl_products_wholesale.Name = "lbl_products_wholesale";
+            this.lbl_products_wholesale.Size = new System.Drawing.Size(203, 23);
+            this.lbl_products_wholesale.TabIndex = 4;
+            this.lbl_products_wholesale.Text = "WHOLESALE PRICE";
+            // 
+            // lbl_products_retail
+            // 
+            this.lbl_products_retail.AutoSize = true;
+            this.lbl_products_retail.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_retail.Location = new System.Drawing.Point(38, 533);
+            this.lbl_products_retail.Name = "lbl_products_retail";
+            this.lbl_products_retail.Size = new System.Drawing.Size(148, 23);
+            this.lbl_products_retail.TabIndex = 5;
+            this.lbl_products_retail.Text = "RETAIL PRICE";
+            // 
+            // lbl_products_category
+            // 
+            this.lbl_products_category.AutoSize = true;
+            this.lbl_products_category.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_category.Location = new System.Drawing.Point(559, 372);
+            this.lbl_products_category.Name = "lbl_products_category";
+            this.lbl_products_category.Size = new System.Drawing.Size(124, 23);
+            this.lbl_products_category.TabIndex = 6;
+            this.lbl_products_category.Text = "CATEGORY";
+            // 
+            // lbl_products_supplier
+            // 
+            this.lbl_products_supplier.AutoSize = true;
+            this.lbl_products_supplier.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_supplier.Location = new System.Drawing.Point(559, 427);
+            this.lbl_products_supplier.Name = "lbl_products_supplier";
+            this.lbl_products_supplier.Size = new System.Drawing.Size(109, 23);
+            this.lbl_products_supplier.TabIndex = 7;
+            this.lbl_products_supplier.Text = "SUPPLIER";
+            // 
+            // lbl_products_materials
+            // 
+            this.lbl_products_materials.AutoSize = true;
+            this.lbl_products_materials.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_materials.Location = new System.Drawing.Point(559, 479);
+            this.lbl_products_materials.Name = "lbl_products_materials";
+            this.lbl_products_materials.Size = new System.Drawing.Size(126, 23);
+            this.lbl_products_materials.TabIndex = 8;
+            this.lbl_products_materials.Text = "MATERIALS";
+            // 
+            // txt_products_name
+            // 
+            this.txt_products_name.Location = new System.Drawing.Point(260, 361);
+            this.txt_products_name.Name = "txt_products_name";
+            this.txt_products_name.Size = new System.Drawing.Size(263, 34);
+            this.txt_products_name.TabIndex = 9;
+            // 
+            // txt_products_resell
+            // 
+            this.txt_products_resell.Location = new System.Drawing.Point(260, 416);
+            this.txt_products_resell.Name = "txt_products_resell";
+            this.txt_products_resell.Size = new System.Drawing.Size(263, 34);
+            this.txt_products_resell.TabIndex = 10;
+            // 
+            // txt_products_wholesale
+            // 
+            this.txt_products_wholesale.Location = new System.Drawing.Point(260, 468);
+            this.txt_products_wholesale.Name = "txt_products_wholesale";
+            this.txt_products_wholesale.Size = new System.Drawing.Size(263, 34);
+            this.txt_products_wholesale.TabIndex = 11;
+            // 
+            // txt_products_retail
+            // 
+            this.txt_products_retail.Location = new System.Drawing.Point(260, 522);
+            this.txt_products_retail.Name = "txt_products_retail";
+            this.txt_products_retail.Size = new System.Drawing.Size(263, 34);
+            this.txt_products_retail.TabIndex = 12;
+            // 
+            // cmb_products_supplier
+            // 
+            this.cmb_products_supplier.FormattingEnabled = true;
+            this.cmb_products_supplier.Location = new System.Drawing.Point(733, 415);
+            this.cmb_products_supplier.Name = "cmb_products_supplier";
+            this.cmb_products_supplier.Size = new System.Drawing.Size(263, 35);
+            this.cmb_products_supplier.TabIndex = 16;
+            // 
+            // cmb_products_category
+            // 
+            this.cmb_products_category.FormattingEnabled = true;
+            this.cmb_products_category.Location = new System.Drawing.Point(733, 360);
+            this.cmb_products_category.Name = "cmb_products_category";
+            this.cmb_products_category.Size = new System.Drawing.Size(263, 35);
+            this.cmb_products_category.TabIndex = 18;
+            // 
+            // clb_products_materials
+            // 
+            this.clb_products_materials.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clb_products_materials.FormattingEnabled = true;
+            this.clb_products_materials.IntegralHeight = false;
+            this.clb_products_materials.Location = new System.Drawing.Point(733, 468);
+            this.clb_products_materials.Name = "clb_products_materials";
+            this.clb_products_materials.Size = new System.Drawing.Size(263, 88);
+            this.clb_products_materials.TabIndex = 19;
+            // 
+            // btn_products_update
+            // 
+            this.btn_products_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_products_update.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_update.ForeColor = System.Drawing.Color.Black;
+            this.btn_products_update.Location = new System.Drawing.Point(655, 600);
+            this.btn_products_update.Name = "btn_products_update";
+            this.btn_products_update.Size = new System.Drawing.Size(144, 42);
+            this.btn_products_update.TabIndex = 20;
+            this.btn_products_update.Text = "UPDATE";
+            this.btn_products_update.UseVisualStyleBackColor = false;
+            // 
+            // btn_products_select
+            // 
+            this.btn_products_select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_products_select.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_select.ForeColor = System.Drawing.Color.Black;
+            this.btn_products_select.Location = new System.Drawing.Point(42, 600);
+            this.btn_products_select.Name = "btn_products_select";
+            this.btn_products_select.Size = new System.Drawing.Size(144, 42);
+            this.btn_products_select.TabIndex = 21;
+            this.btn_products_select.Text = "SELECT";
+            this.btn_products_select.UseVisualStyleBackColor = false;
+            // 
+            // btn_products_add
+            // 
+            this.btn_products_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_products_add.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_add.ForeColor = System.Drawing.Color.Black;
+            this.btn_products_add.Location = new System.Drawing.Point(242, 600);
+            this.btn_products_add.Name = "btn_products_add";
+            this.btn_products_add.Size = new System.Drawing.Size(144, 42);
+            this.btn_products_add.TabIndex = 22;
+            this.btn_products_add.Text = "ADD";
+            this.btn_products_add.UseVisualStyleBackColor = false;
+            // 
+            // btn_products_delete
+            // 
+            this.btn_products_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_products_delete.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_delete.ForeColor = System.Drawing.Color.Black;
+            this.btn_products_delete.Location = new System.Drawing.Point(450, 600);
+            this.btn_products_delete.Name = "btn_products_delete";
+            this.btn_products_delete.Size = new System.Drawing.Size(144, 42);
+            this.btn_products_delete.TabIndex = 23;
+            this.btn_products_delete.Text = "DELETE";
+            this.btn_products_delete.UseVisualStyleBackColor = false;
+            // 
+            // btn_products_clear
+            // 
+            this.btn_products_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_products_clear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_clear.ForeColor = System.Drawing.Color.Black;
+            this.btn_products_clear.Location = new System.Drawing.Point(852, 600);
+            this.btn_products_clear.Name = "btn_products_clear";
+            this.btn_products_clear.Size = new System.Drawing.Size(144, 42);
+            this.btn_products_clear.TabIndex = 24;
+            this.btn_products_clear.Text = "CLEAR";
+            this.btn_products_clear.UseVisualStyleBackColor = false;
+            // 
+            // dgv_suppliers_table
+            // 
+            this.dgv_suppliers_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_suppliers_table.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgv_suppliers_table.Location = new System.Drawing.Point(3, 3);
+            this.dgv_suppliers_table.Name = "dgv_suppliers_table";
+            this.dgv_suppliers_table.RowHeadersWidth = 51;
+            this.dgv_suppliers_table.RowTemplate.Height = 24;
+            this.dgv_suppliers_table.Size = new System.Drawing.Size(1044, 325);
+            this.dgv_suppliers_table.TabIndex = 3;
             // 
             // btn_main_panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1190, 743);
+            this.ClientSize = new System.Drawing.Size(1417, 783);
             this.Controls.Add(this.tc_main_inventory);
+            this.Controls.Add(this.tc_main_sales);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -211,6 +542,17 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_login_logo)).EndInit();
             this.tc_main_inventory.ResumeLayout(false);
+            this.product_tab.ResumeLayout(false);
+            this.product_tab.PerformLayout();
+            this.suppliers_tab.ResumeLayout(false);
+            this.materials_tab.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tc_main_sales.ResumeLayout(false);
+            this.orders_tab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_products_table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_materials_table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_suppliers_table)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,6 +570,33 @@
         private System.Windows.Forms.TabPage product_tab;
         private System.Windows.Forms.TabPage suppliers_tab;
         private System.Windows.Forms.TabPage materials_tab;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tc_main_sales;
         private System.Windows.Forms.TabPage orders_tab;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgv_products_table;
+        private System.Windows.Forms.DataGridView dgv_materials_table;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lbl_products_name;
+        private System.Windows.Forms.Label lbl_products_retail;
+        private System.Windows.Forms.Label lbl_products_wholesale;
+        private System.Windows.Forms.Label lbl_products_resell;
+        private System.Windows.Forms.Label lbl_products_supplier;
+        private System.Windows.Forms.Label lbl_products_category;
+        private System.Windows.Forms.Label lbl_products_materials;
+        private System.Windows.Forms.TextBox txt_products_retail;
+        private System.Windows.Forms.TextBox txt_products_wholesale;
+        private System.Windows.Forms.TextBox txt_products_resell;
+        private System.Windows.Forms.TextBox txt_products_name;
+        private System.Windows.Forms.ComboBox cmb_products_supplier;
+        private System.Windows.Forms.ComboBox cmb_products_category;
+        private System.Windows.Forms.CheckedListBox clb_products_materials;
+        private System.Windows.Forms.Button btn_products_update;
+        private System.Windows.Forms.Button btn_products_clear;
+        private System.Windows.Forms.Button btn_products_delete;
+        private System.Windows.Forms.Button btn_products_add;
+        private System.Windows.Forms.Button btn_products_select;
+        private System.Windows.Forms.DataGridView dgv_suppliers_table;
     }
 }

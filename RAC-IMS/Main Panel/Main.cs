@@ -52,12 +52,16 @@ namespace RAC_IMS.Main_Panel
 
         private void btn_main_inventory_Click(object sender, EventArgs e)
         {
+            tc_main_sales.Visible = false;
             tc_main_inventory.Visible = true;
+            tc_main_inventory.Dock = DockStyle.Fill;
         }
 
         private void btn_main_sales_Click(object sender, EventArgs e)
         {
             tc_main_inventory.Visible = false;
+            tc_main_sales.Visible = true;
+            tc_main_sales.Dock = DockStyle.Fill;
         }
 
         private void product_tab_Click(object sender, EventArgs e)
