@@ -9,34 +9,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RAC_IMS.Backend.ObjectModels;
+using MongoDB.Driver;
+using RAC_IMS.Backend.ObjectServices;
 
 namespace RAC_IMS.ProductsList
 {
     public partial class ProductList : Form
     {
-        private readonly MongoDBService _mongoService;
-        const string connection_uri = "mongodb://localhost:27017";
-        const string database_name = "RACS_IMS";
+        private readonly MongoDBService mongoDBService;
+        private readonly ProductsService productService;
 
         public ProductList()
         {
             InitializeComponent();
-            _mongoService = new MongoDBService(connection_uri, database_name);
+            string connectionUri = "mongodb://localhost:27017";
+            string databaseName = "RACS_IMS";
+
+            mongoDBService = new MongoDBService(connectionUri, databaseName);
+            productService = new ProductsService(mongoDBService);
         }
 
         private void LoadProducts()
         {
-            try
-            {
-                List<Product> products = _mongoService.GetAllProducts(); // Fetch products from MongoDB
-
-                // Bind to DataGridView
-                dataGridView1.DataSource = products;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading products: {ex.Message}");
-            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -44,25 +38,23 @@ namespace RAC_IMS.ProductsList
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             Product newProduct = new Product
             {
-                name = "Test Product",
-                reseller_price = 50.0,
-                wholesale_price = 40.0,
-                retail_price = 60.0,
-                category = "Test Category",
-                supplier = "Test Supplier",
-                supplier_id = 99,
-                raw_material_id = new List<int> { 1, 2 }
+                name = textBox1.Text,
+                reseller_price = double.Parse(textBox2.Text),
+                wholesale_price = double.Parse(textBox3.Text),
+                retail_price = double.Parse(textBox4.Text),
+                category = textBox5.Text,
+                supplier = textBox6.Text,
+                supplier_id = int.Parse(textBox7.Text),
+                raw_material_id = new List<int> { int.Parse(textBox8.Text) }
             };
 
-            MongoDBService mongo_service = new MongoDBService(connection_uri, database_name);
-            mongo_service.InsertProduct(newProduct);
-
-            MessageBox.Show("Product inserted successfully!");
-            LoadProducts();
+            await productService.InsertProduct(newProduct);
+            MessageBox.Show("Product added successfully!");
+            dataGridView1.DataSource = await productService.GetAllProducts();
         }
     }
 }
