@@ -312,9 +312,37 @@ namespace RAC_IMS.Main_Panel
 
         }
 
-        private async void btn_products_select_Click(object sender, EventArgs e)
+        private void btn_products_select_Click(object sender, EventArgs e)
         {
+            Product searchProduct = new Product
+            {
+                name = txt_products_name.Text.Trim()
+            };
+
+            if (string.IsNullOrEmpty(searchProduct.name))
+            {
+                MessageBox.Show("Please enter a product name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            bool isFound = false;
+
+            foreach (DataGridViewRow row in dgv_products_table.Rows)
+            {
+                if (row.Cells["name"].Value != null &&
+                    row.Cells["name"].Value.ToString().Equals(searchProduct.name, StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Selected = true;
+                    isFound = true;
+                    dgv_products_table.CurrentCell = row.Cells[0];
+                    break;
+                }
+            }
             
+            if (!isFound)
+            {
+                MessageBox.Show("Product not found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
