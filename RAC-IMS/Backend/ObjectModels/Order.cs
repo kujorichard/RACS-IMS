@@ -32,19 +32,19 @@ namespace RAC_IMS.Backend.ObjectModels
                     int quantity = product.Value;
 
                     // Fetch product price 
-                    double price = GetProductPriceById(product_id);
-                    total += price * quantity;
+                    //double price = GetProductPriceById(product_id);
+                    //total += price * quantity;
                 }
                 return total;
             }
         }
 
 
-        private double GetProductPriceById(int productId)
-        {
-            // Example: Fetch from database (Replace this with actual MongoDB query)
-            var product = ProductsService.GetProductById(product_id);
-            return product != null ? product.retail_price : 0;
-        }
+        //private double GetProductPriceById(int productId)
+        //{
+        //    Example: Fetch from database (Replace this with actual MongoDB query)
+        //    var product = ProductsService.GetProductById(product_id);
+        //    return product != null ? product.retail_price : 0;
+        //}
     }
 }

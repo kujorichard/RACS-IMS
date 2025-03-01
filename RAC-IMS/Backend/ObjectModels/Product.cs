@@ -14,7 +14,7 @@ namespace RAC_IMS.Backend.ObjectModels
         [BsonId] // Marks this as the MongoDB document ID
         [BsonRepresentation(BsonType.ObjectId)] // Ensures it works as a string
         public string _id { get; set; }
-
+        public string category { get; set; }
 
         public string name { get; set; }
         public double reseller_price { get; set; }

@@ -68,5 +68,21 @@ namespace RAC_IMS.Main_Panel
         {
 
         }
+
+        private void btn_products_add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_products_clear_Click(object sender, EventArgs e)
+        {
+            txt_products_name.Text = "";
+            txt_products_resell.Text = "";
+            txt_products_retail.Text = "";
+            txt_products_wholesale.Text = "";
+            cmb_products_category.Text = "";
+            cmb_products_supplier.Text = "";
+            dgv_products_table.Rows.Clear();
+        }
     }
 }
