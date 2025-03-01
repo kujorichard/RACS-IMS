@@ -230,6 +230,7 @@
     <Content Include="Assets\checklists_32px.png" />
     <Content Include="Assets\exit_32px.png" />
     <Content Include="Assets\sales_32px.png" />
+    <Content Include="Assets\table_32px.png" />
     <Content Include="mongocrypt.dll" />
   </ItemGroup>
   <ItemGroup>

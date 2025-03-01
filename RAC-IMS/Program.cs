@@ -18,7 +18,7 @@ namespace RAC_IMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new btn_main_panel()); // Startup form that will be displayed first
+            Application.Run(new Main()); // Startup form that will be displayed first
         }
     }
 }

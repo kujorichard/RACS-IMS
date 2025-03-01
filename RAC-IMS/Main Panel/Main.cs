@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RAC_IMS.Main_Panel
 {
-    public partial class btn_main_panel : Form
+    public partial class Main : Form
     {
-        public btn_main_panel()
+        public Main()
         {
             InitializeComponent();
         }
@@ -83,6 +83,19 @@ namespace RAC_IMS.Main_Panel
             cmb_products_category.Text = "";
             cmb_products_supplier.Text = "";
             dgv_products_table.Rows.Clear();
+        }
+
+        private void btn_main_overview_Click(object sender, EventArgs e)
+        {
+            tc_main_inventory.Visible = true;
+            tc_main_inventory.Dock = DockStyle.None;
+            tc_main_inventory.Size = new Size(798, 1022);
+            tc_main_inventory.Location = new Point(267,338);
+
+            tc_main_sales.Visible = true;
+            tc_main_sales.Dock = DockStyle.None;
+            tc_main_sales.Size = new Size(798,305);
+            tc_main_sales.Location = new Point(267,27);
         }
     }
 }
