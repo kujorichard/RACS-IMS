@@ -90,7 +90,7 @@
             this.lbl_materials_unit = new System.Windows.Forms.Label();
             this.lbl_materials_price = new System.Windows.Forms.Label();
             this.lbl_materials_name = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgv_rawmaterials_table = new System.Windows.Forms.DataGridView();
             this.tc_main_sales = new System.Windows.Forms.TabControl();
             this.orders_tab = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -103,7 +103,7 @@
             this.suppliers_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_suppliers_table)).BeginInit();
             this.materials_tab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_rawmaterials_table)).BeginInit();
             this.tc_main_sales.SuspendLayout();
             this.orders_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -131,7 +131,7 @@
             this.btn_main_overview.BackColor = System.Drawing.Color.Black;
             this.btn_main_overview.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_main_overview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_main_overview.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_main_overview.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_main_overview.ForeColor = System.Drawing.Color.White;
             this.btn_main_overview.Image = global::RAC_IMS.Properties.Resources.table_32px;
             this.btn_main_overview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -171,7 +171,7 @@
             this.btn_main_sales.BackColor = System.Drawing.Color.Black;
             this.btn_main_sales.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_main_sales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_main_sales.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_main_sales.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_main_sales.ForeColor = System.Drawing.Color.White;
             this.btn_main_sales.Image = global::RAC_IMS.Properties.Resources.sales_32px;
             this.btn_main_sales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -205,7 +205,7 @@
             this.btn_main_inventory.BackColor = System.Drawing.Color.Black;
             this.btn_main_inventory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_main_inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_main_inventory.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_main_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_main_inventory.ForeColor = System.Drawing.Color.White;
             this.btn_main_inventory.Image = global::RAC_IMS.Properties.Resources.checklists_32px;
             this.btn_main_inventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -257,7 +257,7 @@
             this.tc_main_inventory.Controls.Add(this.product_tab);
             this.tc_main_inventory.Controls.Add(this.suppliers_tab);
             this.tc_main_inventory.Controls.Add(this.materials_tab);
-            this.tc_main_inventory.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tc_main_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tc_main_inventory.Location = new System.Drawing.Point(270, 32);
             this.tc_main_inventory.Margin = new System.Windows.Forms.Padding(2);
             this.tc_main_inventory.Name = "tc_main_inventory";
@@ -292,11 +292,11 @@
             this.product_tab.Controls.Add(this.lbl_products_name);
             this.product_tab.Controls.Add(this.dgv_products_table);
             this.product_tab.Controls.Add(this.label1);
-            this.product_tab.Location = new System.Drawing.Point(4, 30);
+            this.product_tab.Location = new System.Drawing.Point(4, 31);
             this.product_tab.Margin = new System.Windows.Forms.Padding(2);
             this.product_tab.Name = "product_tab";
             this.product_tab.Padding = new System.Windows.Forms.Padding(2);
-            this.product_tab.Size = new System.Drawing.Size(786, 1099);
+            this.product_tab.Size = new System.Drawing.Size(786, 1098);
             this.product_tab.TabIndex = 0;
             this.product_tab.Text = "Products";
             this.product_tab.Click += new System.EventHandler(this.product_tab_Click);
@@ -306,17 +306,17 @@
             this.txt_products_stock.Location = new System.Drawing.Point(550, 380);
             this.txt_products_stock.Margin = new System.Windows.Forms.Padding(2);
             this.txt_products_stock.Name = "txt_products_stock";
-            this.txt_products_stock.Size = new System.Drawing.Size(198, 29);
+            this.txt_products_stock.Size = new System.Drawing.Size(198, 28);
             this.txt_products_stock.TabIndex = 26;
             // 
             // lbl_products_stock
             // 
             this.lbl_products_stock.AutoSize = true;
-            this.lbl_products_stock.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_products_stock.Location = new System.Drawing.Point(419, 391);
             this.lbl_products_stock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_stock.Name = "lbl_products_stock";
-            this.lbl_products_stock.Size = new System.Drawing.Size(66, 18);
+            this.lbl_products_stock.Size = new System.Drawing.Size(62, 20);
             this.lbl_products_stock.TabIndex = 25;
             this.lbl_products_stock.Text = "STOCK";
             this.lbl_products_stock.Click += new System.EventHandler(this.label2_Click);
@@ -324,7 +324,7 @@
             // btn_products_clear
             // 
             this.btn_products_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_products_clear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products_clear.ForeColor = System.Drawing.Color.Black;
             this.btn_products_clear.Location = new System.Drawing.Point(639, 550);
             this.btn_products_clear.Margin = new System.Windows.Forms.Padding(2);
@@ -338,7 +338,7 @@
             // btn_products_delete
             // 
             this.btn_products_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btn_products_delete.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products_delete.ForeColor = System.Drawing.Color.Black;
             this.btn_products_delete.Location = new System.Drawing.Point(338, 550);
             this.btn_products_delete.Margin = new System.Windows.Forms.Padding(2);
@@ -352,7 +352,7 @@
             // btn_products_add
             // 
             this.btn_products_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btn_products_add.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products_add.ForeColor = System.Drawing.Color.Black;
             this.btn_products_add.Location = new System.Drawing.Point(182, 550);
             this.btn_products_add.Margin = new System.Windows.Forms.Padding(2);
@@ -366,7 +366,7 @@
             // btn_products_select
             // 
             this.btn_products_select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_products_select.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_select.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products_select.ForeColor = System.Drawing.Color.Black;
             this.btn_products_select.Location = new System.Drawing.Point(32, 550);
             this.btn_products_select.Margin = new System.Windows.Forms.Padding(2);
@@ -379,7 +379,7 @@
             // btn_products_update
             // 
             this.btn_products_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btn_products_update.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products_update.ForeColor = System.Drawing.Color.Black;
             this.btn_products_update.Location = new System.Drawing.Point(491, 550);
             this.btn_products_update.Margin = new System.Windows.Forms.Padding(2);
@@ -391,7 +391,7 @@
             // 
             // clb_products_materials
             // 
-            this.clb_products_materials.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clb_products_materials.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clb_products_materials.FormattingEnabled = true;
             this.clb_products_materials.IntegralHeight = false;
             this.clb_products_materials.Location = new System.Drawing.Point(550, 423);
@@ -406,7 +406,7 @@
             this.cmb_products_category.Location = new System.Drawing.Point(550, 292);
             this.cmb_products_category.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_products_category.Name = "cmb_products_category";
-            this.cmb_products_category.Size = new System.Drawing.Size(198, 29);
+            this.cmb_products_category.Size = new System.Drawing.Size(198, 30);
             this.cmb_products_category.TabIndex = 18;
             // 
             // cmb_products_supplier
@@ -417,7 +417,7 @@
             this.cmb_products_supplier.Location = new System.Drawing.Point(550, 337);
             this.cmb_products_supplier.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_products_supplier.Name = "cmb_products_supplier";
-            this.cmb_products_supplier.Size = new System.Drawing.Size(198, 29);
+            this.cmb_products_supplier.Size = new System.Drawing.Size(198, 30);
             this.cmb_products_supplier.TabIndex = 16;
             // 
             // txt_products_retail
@@ -425,7 +425,7 @@
             this.txt_products_retail.Location = new System.Drawing.Point(195, 424);
             this.txt_products_retail.Margin = new System.Windows.Forms.Padding(2);
             this.txt_products_retail.Name = "txt_products_retail";
-            this.txt_products_retail.Size = new System.Drawing.Size(198, 29);
+            this.txt_products_retail.Size = new System.Drawing.Size(198, 28);
             this.txt_products_retail.TabIndex = 12;
             // 
             // txt_products_wholesale
@@ -433,7 +433,7 @@
             this.txt_products_wholesale.Location = new System.Drawing.Point(195, 380);
             this.txt_products_wholesale.Margin = new System.Windows.Forms.Padding(2);
             this.txt_products_wholesale.Name = "txt_products_wholesale";
-            this.txt_products_wholesale.Size = new System.Drawing.Size(198, 29);
+            this.txt_products_wholesale.Size = new System.Drawing.Size(198, 28);
             this.txt_products_wholesale.TabIndex = 11;
             // 
             // txt_products_resell
@@ -441,7 +441,7 @@
             this.txt_products_resell.Location = new System.Drawing.Point(195, 338);
             this.txt_products_resell.Margin = new System.Windows.Forms.Padding(2);
             this.txt_products_resell.Name = "txt_products_resell";
-            this.txt_products_resell.Size = new System.Drawing.Size(198, 29);
+            this.txt_products_resell.Size = new System.Drawing.Size(198, 28);
             this.txt_products_resell.TabIndex = 10;
             // 
             // txt_products_name
@@ -449,83 +449,83 @@
             this.txt_products_name.Location = new System.Drawing.Point(195, 293);
             this.txt_products_name.Margin = new System.Windows.Forms.Padding(2);
             this.txt_products_name.Name = "txt_products_name";
-            this.txt_products_name.Size = new System.Drawing.Size(198, 29);
+            this.txt_products_name.Size = new System.Drawing.Size(198, 28);
             this.txt_products_name.TabIndex = 9;
             // 
             // lbl_products_materials
             // 
             this.lbl_products_materials.AutoSize = true;
-            this.lbl_products_materials.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_materials.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_products_materials.Location = new System.Drawing.Point(419, 432);
             this.lbl_products_materials.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_materials.Name = "lbl_products_materials";
-            this.lbl_products_materials.Size = new System.Drawing.Size(104, 18);
+            this.lbl_products_materials.Size = new System.Drawing.Size(101, 20);
             this.lbl_products_materials.TabIndex = 8;
             this.lbl_products_materials.Text = "MATERIALS";
             // 
             // lbl_products_supplier
             // 
             this.lbl_products_supplier.AutoSize = true;
-            this.lbl_products_supplier.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_supplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_products_supplier.Location = new System.Drawing.Point(419, 347);
             this.lbl_products_supplier.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_supplier.Name = "lbl_products_supplier";
-            this.lbl_products_supplier.Size = new System.Drawing.Size(91, 18);
+            this.lbl_products_supplier.Size = new System.Drawing.Size(89, 20);
             this.lbl_products_supplier.TabIndex = 7;
             this.lbl_products_supplier.Text = "SUPPLIER";
             // 
             // lbl_products_category
             // 
             this.lbl_products_category.AutoSize = true;
-            this.lbl_products_category.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_products_category.Location = new System.Drawing.Point(419, 302);
             this.lbl_products_category.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_category.Name = "lbl_products_category";
-            this.lbl_products_category.Size = new System.Drawing.Size(101, 18);
+            this.lbl_products_category.Size = new System.Drawing.Size(99, 20);
             this.lbl_products_category.TabIndex = 6;
             this.lbl_products_category.Text = "CATEGORY";
             // 
             // lbl_products_retail
             // 
             this.lbl_products_retail.AutoSize = true;
-            this.lbl_products_retail.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_retail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_products_retail.Location = new System.Drawing.Point(28, 433);
             this.lbl_products_retail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_retail.Name = "lbl_products_retail";
-            this.lbl_products_retail.Size = new System.Drawing.Size(123, 18);
+            this.lbl_products_retail.Size = new System.Drawing.Size(119, 20);
             this.lbl_products_retail.TabIndex = 5;
             this.lbl_products_retail.Text = "RETAIL PRICE";
             // 
             // lbl_products_wholesale
             // 
             this.lbl_products_wholesale.AutoSize = true;
-            this.lbl_products_wholesale.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_wholesale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_products_wholesale.Location = new System.Drawing.Point(28, 389);
             this.lbl_products_wholesale.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_wholesale.Name = "lbl_products_wholesale";
-            this.lbl_products_wholesale.Size = new System.Drawing.Size(168, 18);
+            this.lbl_products_wholesale.Size = new System.Drawing.Size(163, 20);
             this.lbl_products_wholesale.TabIndex = 4;
             this.lbl_products_wholesale.Text = "WHOLESALE PRICE";
             // 
             // lbl_products_resell
             // 
             this.lbl_products_resell.AutoSize = true;
-            this.lbl_products_resell.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_resell.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_products_resell.Location = new System.Drawing.Point(28, 347);
             this.lbl_products_resell.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_resell.Name = "lbl_products_resell";
-            this.lbl_products_resell.Size = new System.Drawing.Size(128, 18);
+            this.lbl_products_resell.Size = new System.Drawing.Size(125, 20);
             this.lbl_products_resell.TabIndex = 3;
             this.lbl_products_resell.Text = "RESELL PRICE";
             // 
             // lbl_products_name
             // 
             this.lbl_products_name.AutoSize = true;
-            this.lbl_products_name.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_products_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_products_name.Location = new System.Drawing.Point(28, 302);
             this.lbl_products_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_name.Name = "lbl_products_name";
-            this.lbl_products_name.Size = new System.Drawing.Size(56, 18);
+            this.lbl_products_name.Size = new System.Drawing.Size(55, 20);
             this.lbl_products_name.TabIndex = 2;
             this.lbl_products_name.Text = "NAME";
             // 
@@ -547,7 +547,7 @@
             this.label1.Location = new System.Drawing.Point(37, 123);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 22);
+            this.label1.Size = new System.Drawing.Size(0, 24);
             this.label1.TabIndex = 0;
             // 
             // suppliers_tab
@@ -567,11 +567,11 @@
             this.suppliers_tab.Controls.Add(this.lbl_suppliers_contact);
             this.suppliers_tab.Controls.Add(this.lbl_suppliers_name);
             this.suppliers_tab.Controls.Add(this.dgv_suppliers_table);
-            this.suppliers_tab.Location = new System.Drawing.Point(4, 30);
+            this.suppliers_tab.Location = new System.Drawing.Point(4, 31);
             this.suppliers_tab.Margin = new System.Windows.Forms.Padding(2);
             this.suppliers_tab.Name = "suppliers_tab";
             this.suppliers_tab.Padding = new System.Windows.Forms.Padding(2);
-            this.suppliers_tab.Size = new System.Drawing.Size(786, 1099);
+            this.suppliers_tab.Size = new System.Drawing.Size(786, 1098);
             this.suppliers_tab.TabIndex = 1;
             this.suppliers_tab.Text = "Suppliers";
             this.suppliers_tab.UseVisualStyleBackColor = true;
@@ -581,24 +581,24 @@
             this.txt_suppliers_address.Location = new System.Drawing.Point(195, 424);
             this.txt_suppliers_address.Margin = new System.Windows.Forms.Padding(2);
             this.txt_suppliers_address.Name = "txt_suppliers_address";
-            this.txt_suppliers_address.Size = new System.Drawing.Size(198, 29);
+            this.txt_suppliers_address.Size = new System.Drawing.Size(198, 28);
             this.txt_suppliers_address.TabIndex = 31;
             // 
             // lbl_suppliers_address
             // 
             this.lbl_suppliers_address.AutoSize = true;
-            this.lbl_suppliers_address.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_suppliers_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_suppliers_address.Location = new System.Drawing.Point(28, 433);
             this.lbl_suppliers_address.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_suppliers_address.Name = "lbl_suppliers_address";
-            this.lbl_suppliers_address.Size = new System.Drawing.Size(89, 18);
+            this.lbl_suppliers_address.Size = new System.Drawing.Size(89, 20);
             this.lbl_suppliers_address.TabIndex = 30;
             this.lbl_suppliers_address.Text = "ADDRESS";
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(639, 488);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
@@ -611,7 +611,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(338, 488);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
@@ -624,7 +624,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(182, 488);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
@@ -637,7 +637,7 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Location = new System.Drawing.Point(32, 488);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
@@ -651,7 +651,7 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(491, 488);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
@@ -666,7 +666,7 @@
             this.txt_suppliers_contact.Location = new System.Drawing.Point(195, 380);
             this.txt_suppliers_contact.Margin = new System.Windows.Forms.Padding(2);
             this.txt_suppliers_contact.Name = "txt_suppliers_contact";
-            this.txt_suppliers_contact.Size = new System.Drawing.Size(198, 29);
+            this.txt_suppliers_contact.Size = new System.Drawing.Size(198, 28);
             this.txt_suppliers_contact.TabIndex = 17;
             // 
             // txt_suppliers_contactnum
@@ -674,7 +674,7 @@
             this.txt_suppliers_contactnum.Location = new System.Drawing.Point(195, 338);
             this.txt_suppliers_contactnum.Margin = new System.Windows.Forms.Padding(2);
             this.txt_suppliers_contactnum.Name = "txt_suppliers_contactnum";
-            this.txt_suppliers_contactnum.Size = new System.Drawing.Size(198, 29);
+            this.txt_suppliers_contactnum.Size = new System.Drawing.Size(198, 28);
             this.txt_suppliers_contactnum.TabIndex = 16;
             // 
             // txt_suppliers_name
@@ -682,39 +682,39 @@
             this.txt_suppliers_name.Location = new System.Drawing.Point(195, 293);
             this.txt_suppliers_name.Margin = new System.Windows.Forms.Padding(2);
             this.txt_suppliers_name.Name = "txt_suppliers_name";
-            this.txt_suppliers_name.Size = new System.Drawing.Size(198, 29);
+            this.txt_suppliers_name.Size = new System.Drawing.Size(198, 28);
             this.txt_suppliers_name.TabIndex = 15;
             // 
             // lbl_suppliers_person
             // 
             this.lbl_suppliers_person.AutoSize = true;
-            this.lbl_suppliers_person.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_suppliers_person.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_suppliers_person.Location = new System.Drawing.Point(28, 389);
             this.lbl_suppliers_person.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_suppliers_person.Name = "lbl_suppliers_person";
-            this.lbl_suppliers_person.Size = new System.Drawing.Size(163, 18);
+            this.lbl_suppliers_person.Size = new System.Drawing.Size(154, 20);
             this.lbl_suppliers_person.TabIndex = 14;
             this.lbl_suppliers_person.Text = "CONTACT PERSON";
             // 
             // lbl_suppliers_contact
             // 
             this.lbl_suppliers_contact.AutoSize = true;
-            this.lbl_suppliers_contact.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_suppliers_contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_suppliers_contact.Location = new System.Drawing.Point(28, 347);
             this.lbl_suppliers_contact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_suppliers_contact.Name = "lbl_suppliers_contact";
-            this.lbl_suppliers_contact.Size = new System.Drawing.Size(165, 18);
+            this.lbl_suppliers_contact.Size = new System.Drawing.Size(157, 20);
             this.lbl_suppliers_contact.TabIndex = 13;
             this.lbl_suppliers_contact.Text = "CONTACT NUMBER";
             // 
             // lbl_suppliers_name
             // 
             this.lbl_suppliers_name.AutoSize = true;
-            this.lbl_suppliers_name.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_suppliers_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_suppliers_name.Location = new System.Drawing.Point(28, 302);
             this.lbl_suppliers_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_suppliers_name.Name = "lbl_suppliers_name";
-            this.lbl_suppliers_name.Size = new System.Drawing.Size(56, 18);
+            this.lbl_suppliers_name.Size = new System.Drawing.Size(55, 20);
             this.lbl_suppliers_name.TabIndex = 12;
             this.lbl_suppliers_name.Text = "NAME";
             // 
@@ -745,18 +745,18 @@
             this.materials_tab.Controls.Add(this.lbl_materials_unit);
             this.materials_tab.Controls.Add(this.lbl_materials_price);
             this.materials_tab.Controls.Add(this.lbl_materials_name);
-            this.materials_tab.Controls.Add(this.dataGridView2);
-            this.materials_tab.Location = new System.Drawing.Point(4, 30);
+            this.materials_tab.Controls.Add(this.dgv_rawmaterials_table);
+            this.materials_tab.Location = new System.Drawing.Point(4, 31);
             this.materials_tab.Margin = new System.Windows.Forms.Padding(2);
             this.materials_tab.Name = "materials_tab";
-            this.materials_tab.Size = new System.Drawing.Size(786, 1099);
+            this.materials_tab.Size = new System.Drawing.Size(786, 1098);
             this.materials_tab.TabIndex = 2;
             this.materials_tab.Text = "Materials";
             // 
             // btn_materials_clear
             // 
             this.btn_materials_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_materials_clear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_materials_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_materials_clear.ForeColor = System.Drawing.Color.Black;
             this.btn_materials_clear.Location = new System.Drawing.Point(639, 488);
             this.btn_materials_clear.Margin = new System.Windows.Forms.Padding(2);
@@ -770,7 +770,7 @@
             // btn_materials_delete
             // 
             this.btn_materials_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btn_materials_delete.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_materials_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_materials_delete.ForeColor = System.Drawing.Color.Black;
             this.btn_materials_delete.Location = new System.Drawing.Point(338, 488);
             this.btn_materials_delete.Margin = new System.Windows.Forms.Padding(2);
@@ -784,7 +784,7 @@
             // btn_materials_add
             // 
             this.btn_materials_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btn_materials_add.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_materials_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_materials_add.ForeColor = System.Drawing.Color.Black;
             this.btn_materials_add.Location = new System.Drawing.Point(182, 488);
             this.btn_materials_add.Margin = new System.Windows.Forms.Padding(2);
@@ -798,7 +798,7 @@
             // btn_materials_select
             // 
             this.btn_materials_select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_materials_select.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_materials_select.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_materials_select.ForeColor = System.Drawing.Color.Black;
             this.btn_materials_select.Location = new System.Drawing.Point(32, 488);
             this.btn_materials_select.Margin = new System.Windows.Forms.Padding(2);
@@ -812,7 +812,7 @@
             // btn_materials_update
             // 
             this.btn_materials_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btn_materials_update.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_materials_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_materials_update.ForeColor = System.Drawing.Color.Black;
             this.btn_materials_update.Location = new System.Drawing.Point(491, 488);
             this.btn_materials_update.Margin = new System.Windows.Forms.Padding(2);
@@ -829,7 +829,7 @@
             this.cmb_materials_unit.Location = new System.Drawing.Point(195, 384);
             this.cmb_materials_unit.Margin = new System.Windows.Forms.Padding(2);
             this.cmb_materials_unit.Name = "cmb_materials_unit";
-            this.cmb_materials_unit.Size = new System.Drawing.Size(198, 29);
+            this.cmb_materials_unit.Size = new System.Drawing.Size(198, 30);
             this.cmb_materials_unit.TabIndex = 23;
             this.cmb_materials_unit.SelectedIndexChanged += new System.EventHandler(this.cmb_materials_unit_SelectedIndexChanged);
             // 
@@ -838,7 +838,7 @@
             this.txt_materials_price.Location = new System.Drawing.Point(195, 338);
             this.txt_materials_price.Margin = new System.Windows.Forms.Padding(2);
             this.txt_materials_price.Name = "txt_materials_price";
-            this.txt_materials_price.Size = new System.Drawing.Size(198, 29);
+            this.txt_materials_price.Size = new System.Drawing.Size(198, 28);
             this.txt_materials_price.TabIndex = 22;
             this.txt_materials_price.TextChanged += new System.EventHandler(this.txt_materials_price_TextChanged);
             // 
@@ -847,60 +847,60 @@
             this.txt_materials_name.Location = new System.Drawing.Point(195, 293);
             this.txt_materials_name.Margin = new System.Windows.Forms.Padding(2);
             this.txt_materials_name.Name = "txt_materials_name";
-            this.txt_materials_name.Size = new System.Drawing.Size(198, 29);
+            this.txt_materials_name.Size = new System.Drawing.Size(198, 28);
             this.txt_materials_name.TabIndex = 21;
             this.txt_materials_name.TextChanged += new System.EventHandler(this.txt_materials_name_TextChanged);
             // 
             // lbl_materials_unit
             // 
             this.lbl_materials_unit.AutoSize = true;
-            this.lbl_materials_unit.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_materials_unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_materials_unit.Location = new System.Drawing.Point(28, 389);
             this.lbl_materials_unit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_materials_unit.Name = "lbl_materials_unit";
-            this.lbl_materials_unit.Size = new System.Drawing.Size(47, 18);
+            this.lbl_materials_unit.Size = new System.Drawing.Size(46, 20);
             this.lbl_materials_unit.TabIndex = 20;
             this.lbl_materials_unit.Text = "UNIT";
             // 
             // lbl_materials_price
             // 
             this.lbl_materials_price.AutoSize = true;
-            this.lbl_materials_price.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_materials_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_materials_price.Location = new System.Drawing.Point(28, 347);
             this.lbl_materials_price.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_materials_price.Name = "lbl_materials_price";
-            this.lbl_materials_price.Size = new System.Drawing.Size(102, 18);
+            this.lbl_materials_price.Size = new System.Drawing.Size(99, 20);
             this.lbl_materials_price.TabIndex = 19;
             this.lbl_materials_price.Text = "UNIT PRICE";
             // 
             // lbl_materials_name
             // 
             this.lbl_materials_name.AutoSize = true;
-            this.lbl_materials_name.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_materials_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_materials_name.Location = new System.Drawing.Point(28, 302);
             this.lbl_materials_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_materials_name.Name = "lbl_materials_name";
-            this.lbl_materials_name.Size = new System.Drawing.Size(56, 18);
+            this.lbl_materials_name.Size = new System.Drawing.Size(55, 20);
             this.lbl_materials_name.TabIndex = 18;
             this.lbl_materials_name.Text = "NAME";
             this.lbl_materials_name.Click += new System.EventHandler(this.lbl_materials_name_Click);
             // 
-            // dataGridView2
+            // dgv_rawmaterials_table
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(786, 264);
-            this.dataGridView2.TabIndex = 4;
+            this.dgv_rawmaterials_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_rawmaterials_table.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgv_rawmaterials_table.Location = new System.Drawing.Point(0, 0);
+            this.dgv_rawmaterials_table.Margin = new System.Windows.Forms.Padding(2);
+            this.dgv_rawmaterials_table.Name = "dgv_rawmaterials_table";
+            this.dgv_rawmaterials_table.RowHeadersWidth = 51;
+            this.dgv_rawmaterials_table.RowTemplate.Height = 24;
+            this.dgv_rawmaterials_table.Size = new System.Drawing.Size(786, 264);
+            this.dgv_rawmaterials_table.TabIndex = 4;
             // 
             // tc_main_sales
             // 
             this.tc_main_sales.Controls.Add(this.orders_tab);
-            this.tc_main_sales.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tc_main_sales.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tc_main_sales.Location = new System.Drawing.Point(267, 27);
             this.tc_main_sales.Margin = new System.Windows.Forms.Padding(2);
             this.tc_main_sales.Name = "tc_main_sales";
@@ -912,11 +912,11 @@
             // 
             this.orders_tab.AutoScroll = true;
             this.orders_tab.Controls.Add(this.dataGridView1);
-            this.orders_tab.Location = new System.Drawing.Point(4, 30);
+            this.orders_tab.Location = new System.Drawing.Point(4, 31);
             this.orders_tab.Margin = new System.Windows.Forms.Padding(2);
             this.orders_tab.Name = "orders_tab";
             this.orders_tab.Padding = new System.Windows.Forms.Padding(2);
-            this.orders_tab.Size = new System.Drawing.Size(788, 269);
+            this.orders_tab.Size = new System.Drawing.Size(788, 268);
             this.orders_tab.TabIndex = 0;
             this.orders_tab.Text = "Orders";
             this.orders_tab.UseVisualStyleBackColor = true;
@@ -963,7 +963,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_suppliers_table)).EndInit();
             this.materials_tab.ResumeLayout(false);
             this.materials_tab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_rawmaterials_table)).EndInit();
             this.tc_main_sales.ResumeLayout(false);
             this.orders_tab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1024,7 +1024,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox txt_suppliers_address;
         private System.Windows.Forms.Label lbl_suppliers_address;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgv_rawmaterials_table;
         private System.Windows.Forms.TextBox txt_materials_price;
         private System.Windows.Forms.TextBox txt_materials_name;
         private System.Windows.Forms.Label lbl_materials_unit;

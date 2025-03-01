@@ -17,12 +17,27 @@ namespace RAC_IMS.Main_Panel
         private readonly MongoDBService mongoDBService;
         private readonly ProductsService productService;
         private readonly RawMaterialsService rawMaterialService;
+        private readonly SuppliersService supplierService;
 
         public Main()
         {
             InitializeComponent();
+            string connectionUri = "mongodb://localhost:27017";
+            string databaseName = "RACS_IMS";
+
+            mongoDBService = new MongoDBService(connectionUri, databaseName);
+            productService = new ProductsService(mongoDBService);
+            rawMaterialService = new RawMaterialsService(mongoDBService);
+            supplierService = new SuppliersService(mongoDBService);
+            Load_Tables();
         }
 
+        private async void Load_Tables()
+        {
+            dgv_products_table.DataSource = await productService.GetAllProducts();
+            dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
+            dgv_suppliers_table.DataSource = await supplierService.GetAllSuppliers();
+        }
         private void Main_Load(object sender, EventArgs e)
         {
 
