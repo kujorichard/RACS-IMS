@@ -35,5 +35,15 @@ namespace RAC_IMS.Backend
             return _database.GetCollection<Customer>("Customer");
         }
 
+        public IMongoCollection<Order> GetOrderCollection()
+        {
+            return _database.GetCollection<Order>("Order");
+        }
+
+        public IMongoCollection<RawMaterial> GetRawMaterialCollection()
+        {
+            return _database.GetCollection<RawMaterial>("RawMaterial");
+        }
+
     }
 }

@@ -56,5 +56,10 @@ namespace RAC_IMS.ProductsList
             MessageBox.Show("Product added successfully!");
             dataGridView1.DataSource = await productService.GetAllProducts();
         }
+
+        private void ProductList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RAC_IMS.Backend.ObjectServices;
+using RAC_IMS.Backend;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,10 @@ namespace RAC_IMS.Main_Panel
 {
     public partial class Main : Form
     {
+        private readonly MongoDBService mongoDBService;
+        private readonly ProductsService productService;
+        private readonly RawMaterialsService rawMaterialService;
+
         public Main()
         {
             InitializeComponent();
@@ -96,6 +102,69 @@ namespace RAC_IMS.Main_Panel
             tc_main_sales.Dock = DockStyle.None;
             tc_main_sales.Size = new Size(798,305);
             tc_main_sales.Location = new Point(267,27);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Materials tab
+        private void txt_materials_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e) // Select button in materials
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_materials_price_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_materials_unit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e) // Add button in materials
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e) // Delete button in materials
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e) // Update button in materials
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e) // Clear button in materials
+        {
+
+        }
+
+        private void lbl_materials_name_Click(object sender, EventArgs e)
+        {
+
+        }
+        // End of Materials Tab
+
+
+        private void btn_products_delete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RAC_IMS.Backend.ObjectServices;
+using MongoDB.Driver;
+using RAC_IMS.Backend;
 
 namespace RAC_IMS.Backend.ObjectModels
 {
@@ -16,35 +18,54 @@ namespace RAC_IMS.Backend.ObjectModels
         public string _id { get; set; }
 
         public int customer_id { get; set; }
-        public List<KeyValuePair<int, int>> products_id { get; set; }
+        public List<ProductOrder> products_ordered { get; set; }
         public string status { get; set; }
         public double total_price { get; set; }
 
-        [BsonIgnore] // This ensures MongoDB does NOT store this field
-        public double TotalPrice
-        {
-            get
-            {
-                double total = 0;
-                foreach (var product in products_id)
-                {
-                    int product_id = product.Key;
-                    int quantity = product.Value;
 
-                    // Fetch product price 
-                    //double price = GetProductPriceById(product_id);
-                    //total += price * quantity;
+        public class ProductOrder
+        {
+            public string product_id { get; set; }
+            public int quantity { get; set; }
+            public string price_type { get; set; }
+        }
+
+        public double ComputeTotalPrice(MongoDBService mongoDBService)
+        {
+            var productCollection = mongoDBService.GetProductsCollection(); // Get the MongoDB collection
+            double total = 0;
+
+            foreach (var po in products_ordered)
+            {
+                var product = productCollection.Find(p => p._id == po.product_id).FirstOrDefault();
+                if (product == null) continue; // Skip if product not found
+
+                double price = 0;
+
+                // Traditional switch statement for C# 8.0
+                switch (po.price_type)
+                {
+                    case "retail":
+                        price = product.retail_price;
+                        break;
+                    case "reseller":
+                        price = product.reseller_price;
+                        break;
+                    case "wholesale":
+                        price = product.wholesale_price;
+                        break;
+                    default:
+                        price = 0;
+                        break;
                 }
-                return total;
+
+                total += price * po.quantity; // Multiply price by quantity and add to total
             }
+
+            return total;
         }
 
 
-        //private double GetProductPriceById(int productId)
-        //{
-        //    Example: Fetch from database (Replace this with actual MongoDB query)
-        //    var product = ProductsService.GetProductById(product_id);
-        //    return product != null ? product.retail_price : 0;
-        //}
+
     }
 }
