@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RAC_IMS.Backend.ObjectModels;
 
 namespace RAC_IMS.Main_Panel
 {
@@ -90,9 +91,23 @@ namespace RAC_IMS.Main_Panel
 
         }
 
-        private void btn_products_add_Click(object sender, EventArgs e)
+        private async void btn_products_add_Click(object sender, EventArgs e)
         {
+            Product newProduct = new Product
+            {
+                name = txt_products_name.Text,
+                reseller_price = double.Parse(txt_products_resell.Text),
+                wholesale_price = double.Parse(txt_products_wholesale.Text),
+                retail_price = double.Parse(txt_products_retail.Text),
+                stock = int.Parse(txt_products_stock.Text),
+                supplier = cmb_products_supplier.Text,
+                
 
+            };
+
+            await productService.InsertProduct(newProduct);
+            MessageBox.Show("Product added successfully!");
+            dgv_products_table.DataSource = await productService.GetAllProducts();
         }
 
         private void btn_products_clear_Click(object sender, EventArgs e)
