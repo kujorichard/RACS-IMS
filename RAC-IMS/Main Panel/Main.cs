@@ -95,6 +95,36 @@ namespace RAC_IMS.Main_Panel
 
         private async void btn_products_add_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dgv_products_table.Rows)
+            {
+                if (row.Cells["name"].Value != null && row.Cells["Name"].Value.ToString() == txt_products_name.Text)
+                {
+                    MessageBox.Show("The product already exists in the database. Kindly update the desired product's data with Update button.");
+                    return;
+                }
+            }
+            if (string.IsNullOrWhiteSpace(txt_products_name.Text))
+            {
+                MessageBox.Show("Please enter a valid name.");
+            }
+            if (!double.TryParse(txt_products_resell.Text, out double reseller_price))
+            {
+                MessageBox.Show("Please enter a valid resell price.");
+            }
+            if (!double.TryParse(txt_products_wholesale.Text, out double wholesale_price))
+            {
+                MessageBox.Show("Please enter a valid wholesale price.");
+            }
+            if (!double.TryParse(txt_products_retail.Text, out double retail_price))
+            {
+                MessageBox.Show("Please enter a valid retail price.");
+            }
+            if (!double.TryParse(txt_products_stock.Text, out double stock))
+            {
+                MessageBox.Show("Please enter a valid stock quantity.");
+                return;
+            }
+
             Product newProduct = new Product
             {
                 name = txt_products_name.Text,
@@ -168,12 +198,28 @@ namespace RAC_IMS.Main_Panel
 
         private async void button8_Click(object sender, EventArgs e) // Add button in materials
         {
-
             try
             {
+                foreach (DataGridViewRow row in dgv_rawmaterials_table.Rows)
+                {
+                    if (row.Cells["name"].Value != null && row.Cells["name"].Value.ToString() == txt_materials_name.Text)
+                    {
+                        MessageBox.Show("The raw material already exists in the database. Kindly update the desired material's data with Update button.");
+                        return;
+                    }
+                }
+                if (string.IsNullOrWhiteSpace(txt_materials_name.Text))
+                {
+                    MessageBox.Show("Please enter a valid name.");
+                }
                 if (!double.TryParse(txt_materials_price.Text, out double price))
                 {
                     MessageBox.Show("Please enter a valid price.");
+                }
+
+                if (!double.TryParse(txt_materials_stock.Text, out double stock))
+                {
+                    MessageBox.Show("Please enter a valid stock quantity.");
                     return;
                 }
 
@@ -184,11 +230,39 @@ namespace RAC_IMS.Main_Panel
                     unit = cmb_materials_unit.Text.Trim()
                 };
 
+                await rawMaterialService.InsertRawMaterial(new_raw_material);
+                MessageBox.Show("Raw Material successfully inputted!");
+                dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
+
+            }
+            catch
+            {
+                MessageBox.Show("Invalid Entry");
+            }
         }
 
-        private void button7_Click(object sender, EventArgs e) // Delete button in materials
-        {
+        private async void button7_Click(object sender, EventArgs e) // Delete button in materials
+        {   
+            if (dgv_rawmaterials_table.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgv_rawmaterials_table.SelectedRows[0];
 
+                string id = row.Cells["_id"].Value.ToString();
+                    
+                try
+                {
+                    await rawMaterialService.DeleteRawMaterial(id);
+                    MessageBox.Show("Raw Material deleted successfully!");
+                }
+                catch
+                {
+                    MessageBox.Show("Deletion Error!");
+                }
+                dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
+            } else
+            {
+                MessageBox.Show("Select a data row first!");
+            }
         }
 
         private void button10_Click(object sender, EventArgs e) // Update button in materials
@@ -208,14 +282,39 @@ namespace RAC_IMS.Main_Panel
         // End of Materials Tab
 
 
-        private void btn_products_delete_Click(object sender, EventArgs e)
+        private async void btn_products_delete_Click(object sender, EventArgs e)
         {
+            if (dgv_products_table.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgv_products_table.SelectedRows[0];
 
+                string id = row.Cells["_id"].Value.ToString();
+
+                try
+                {
+                    await productService.DeleteProduct(id);
+                    MessageBox.Show("Selected Product deleted successfully!");
+                }
+                catch
+                {
+                    MessageBox.Show("Deletion Error!");
+                }
+                dgv_products_table.DataSource = await productService.GetAllProducts();
+            }
+            else
+            {
+                MessageBox.Show("Select a data row first!");
+            }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private async void btn_products_select_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

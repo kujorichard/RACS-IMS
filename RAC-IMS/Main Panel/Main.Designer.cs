@@ -377,6 +377,7 @@
             this.btn_products_select.TabIndex = 21;
             this.btn_products_select.Text = "SELECT";
             this.btn_products_select.UseVisualStyleBackColor = false;
+            this.btn_products_select.Click += new System.EventHandler(this.btn_products_select_Click);
             // 
             // btn_products_update
             // 
