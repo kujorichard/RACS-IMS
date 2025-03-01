@@ -66,9 +66,9 @@
             this.suppliers_tab = new System.Windows.Forms.TabPage();
             this.txt_suppliers_address = new System.Windows.Forms.TextBox();
             this.lbl_suppliers_address = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_suppliers_clear = new System.Windows.Forms.Button();
+            this.btn_suppliers_delete = new System.Windows.Forms.Button();
+            this.btn_suppliers_add = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.txt_suppliers_contact = new System.Windows.Forms.TextBox();
@@ -79,6 +79,8 @@
             this.lbl_suppliers_name = new System.Windows.Forms.Label();
             this.dgv_suppliers_table = new System.Windows.Forms.DataGridView();
             this.materials_tab = new System.Windows.Forms.TabPage();
+            this.txt_materials_stock = new System.Windows.Forms.TextBox();
+            this.lbl_materials_stock = new System.Windows.Forms.Label();
             this.btn_materials_clear = new System.Windows.Forms.Button();
             this.btn_materials_delete = new System.Windows.Forms.Button();
             this.btn_materials_add = new System.Windows.Forms.Button();
@@ -94,8 +96,6 @@
             this.tc_main_sales = new System.Windows.Forms.TabControl();
             this.orders_tab = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lbl_materials_stock = new System.Windows.Forms.Label();
-            this.txt_materials_stock = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_login_logo)).BeginInit();
@@ -558,9 +558,9 @@
             this.suppliers_tab.AutoScroll = true;
             this.suppliers_tab.Controls.Add(this.txt_suppliers_address);
             this.suppliers_tab.Controls.Add(this.lbl_suppliers_address);
-            this.suppliers_tab.Controls.Add(this.button1);
-            this.suppliers_tab.Controls.Add(this.button2);
-            this.suppliers_tab.Controls.Add(this.button3);
+            this.suppliers_tab.Controls.Add(this.btn_suppliers_clear);
+            this.suppliers_tab.Controls.Add(this.btn_suppliers_delete);
+            this.suppliers_tab.Controls.Add(this.btn_suppliers_add);
             this.suppliers_tab.Controls.Add(this.button4);
             this.suppliers_tab.Controls.Add(this.button5);
             this.suppliers_tab.Controls.Add(this.txt_suppliers_contact);
@@ -598,44 +598,47 @@
             this.lbl_suppliers_address.TabIndex = 30;
             this.lbl_suppliers_address.Text = "ADDRESS";
             // 
-            // button1
+            // btn_suppliers_clear
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(639, 488);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 34);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "CLEAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_suppliers_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_suppliers_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_suppliers_clear.ForeColor = System.Drawing.Color.Black;
+            this.btn_suppliers_clear.Location = new System.Drawing.Point(639, 488);
+            this.btn_suppliers_clear.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_suppliers_clear.Name = "btn_suppliers_clear";
+            this.btn_suppliers_clear.Size = new System.Drawing.Size(108, 34);
+            this.btn_suppliers_clear.TabIndex = 29;
+            this.btn_suppliers_clear.Text = "CLEAR";
+            this.btn_suppliers_clear.UseVisualStyleBackColor = false;
+            this.btn_suppliers_clear.Click += new System.EventHandler(this.btn_suppliers_clear_Click);
             // 
-            // button2
+            // btn_suppliers_delete
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(338, 488);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 34);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "DELETE";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_suppliers_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_suppliers_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_suppliers_delete.ForeColor = System.Drawing.Color.Black;
+            this.btn_suppliers_delete.Location = new System.Drawing.Point(338, 488);
+            this.btn_suppliers_delete.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_suppliers_delete.Name = "btn_suppliers_delete";
+            this.btn_suppliers_delete.Size = new System.Drawing.Size(108, 34);
+            this.btn_suppliers_delete.TabIndex = 28;
+            this.btn_suppliers_delete.Text = "DELETE";
+            this.btn_suppliers_delete.UseVisualStyleBackColor = false;
+            this.btn_suppliers_delete.Click += new System.EventHandler(this.btn_suppliers_delete_Click);
             // 
-            // button3
+            // btn_suppliers_add
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(182, 488);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 34);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "ADD";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btn_suppliers_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_suppliers_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_suppliers_add.ForeColor = System.Drawing.Color.Black;
+            this.btn_suppliers_add.Location = new System.Drawing.Point(182, 488);
+            this.btn_suppliers_add.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_suppliers_add.Name = "btn_suppliers_add";
+            this.btn_suppliers_add.Size = new System.Drawing.Size(108, 34);
+            this.btn_suppliers_add.TabIndex = 27;
+            this.btn_suppliers_add.Text = "ADD";
+            this.btn_suppliers_add.UseVisualStyleBackColor = false;
+            this.btn_suppliers_add.Click += new System.EventHandler(this.btn_suppliers_add_Click);
             // 
             // button4
             // 
@@ -757,6 +760,25 @@
             this.materials_tab.Size = new System.Drawing.Size(786, 1098);
             this.materials_tab.TabIndex = 2;
             this.materials_tab.Text = "Materials";
+            // 
+            // txt_materials_stock
+            // 
+            this.txt_materials_stock.Location = new System.Drawing.Point(195, 435);
+            this.txt_materials_stock.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_materials_stock.Name = "txt_materials_stock";
+            this.txt_materials_stock.Size = new System.Drawing.Size(198, 28);
+            this.txt_materials_stock.TabIndex = 36;
+            // 
+            // lbl_materials_stock
+            // 
+            this.lbl_materials_stock.AutoSize = true;
+            this.lbl_materials_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_materials_stock.Location = new System.Drawing.Point(28, 440);
+            this.lbl_materials_stock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_materials_stock.Name = "lbl_materials_stock";
+            this.lbl_materials_stock.Size = new System.Drawing.Size(62, 20);
+            this.lbl_materials_stock.TabIndex = 35;
+            this.lbl_materials_stock.Text = "STOCK";
             // 
             // btn_materials_clear
             // 
@@ -938,25 +960,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(784, 264);
             this.dataGridView1.TabIndex = 2;
             // 
-            // lbl_materials_stock
-            // 
-            this.lbl_materials_stock.AutoSize = true;
-            this.lbl_materials_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_materials_stock.Location = new System.Drawing.Point(28, 440);
-            this.lbl_materials_stock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_materials_stock.Name = "lbl_materials_stock";
-            this.lbl_materials_stock.Size = new System.Drawing.Size(62, 20);
-            this.lbl_materials_stock.TabIndex = 35;
-            this.lbl_materials_stock.Text = "STOCK";
-            // 
-            // txt_materials_stock
-            // 
-            this.txt_materials_stock.Location = new System.Drawing.Point(195, 435);
-            this.txt_materials_stock.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_materials_stock.Name = "txt_materials_stock";
-            this.txt_materials_stock.Size = new System.Drawing.Size(198, 28);
-            this.txt_materials_stock.TabIndex = 36;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1041,9 +1044,9 @@
         private System.Windows.Forms.Label lbl_suppliers_person;
         private System.Windows.Forms.Label lbl_suppliers_contact;
         private System.Windows.Forms.Label lbl_suppliers_name;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_suppliers_clear;
+        private System.Windows.Forms.Button btn_suppliers_delete;
+        private System.Windows.Forms.Button btn_suppliers_add;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox txt_suppliers_address;

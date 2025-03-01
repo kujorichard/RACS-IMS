@@ -1,7 +1,4 @@
-﻿using RAC_IMS.Backend.ObjectServices;
-using RAC_IMS.Backend.ObjectModels;
-using RAC_IMS.Backend;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RAC_IMS.Backend.ObjectModels;
 using System.Xml.Linq;
+using RAC_IMS.Backend.ObjectServices;
+using RAC_IMS.Backend.ObjectModels;
+using RAC_IMS.Backend;
 
 namespace RAC_IMS.Main_Panel
 {
@@ -342,6 +341,133 @@ namespace RAC_IMS.Main_Panel
             if (!isFound)
             {
                 MessageBox.Show("Product not found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btn_suppliers_clear_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        private async void btn_suppliers_add_Click(object sender, EventArgs e)
+        {
+            string suppliername = txt_suppliers_name.Text;
+            string contactnumber = txt_suppliers_contactnum.Text;
+            string contactperson = txt_suppliers_contact.Text;
+            string address = txt_suppliers_address.Text;
+
+            if (string.IsNullOrWhiteSpace(suppliername) || string.IsNullOrWhiteSpace(contactnumber))
+            {
+                MessageBox.Show("Please fill in all required fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Supplier newSupplier = new Supplier
+            {
+                name = suppliername,
+                contact_num = contactnumber,
+                contact_person = contactperson,
+                address = address
+            };
+
+            try
+            {
+                await supplierService.InsertSupplier(newSupplier);
+
+                if (dgv_suppliers_table.Rows.Count > 0)
+                {
+                    dgv_suppliers_table.ClearSelection();
+                    dgv_suppliers_table.Rows[dgv_suppliers_table.Rows.Count - 1].Selected = true;
+                    dgv_suppliers_table.FirstDisplayedScrollingRowIndex = dgv_suppliers_table.Rows.Count - 1;
+                }
+
+                ClearFields();
+                MessageBox.Show("Supplier added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await LoadSuppliers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error adding supplier: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void ClearFields()
+        {
+            txt_suppliers_name.Clear();
+            txt_suppliers_contactnum.Clear();
+            txt_suppliers_contact.Clear();
+            txt_suppliers_address.Clear();
+        }
+
+        private async void btn_suppliers_delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgv_suppliers_table.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Please select at least one supplier to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                List<string> supplierIdsToDelete = new List<string>();
+
+                foreach (DataGridViewRow row in dgv_suppliers_table.SelectedRows)
+                {
+                    if (row.Cells["_id"].Value != null)
+                    {
+                        string idString = row.Cells["_id"].Value.ToString();
+                        supplierIdsToDelete.Add(idString);
+                    }
+                }
+
+                if (supplierIdsToDelete.Count == 0)
+                {
+                    MessageBox.Show("Invalid supplier ID(s).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                DialogResult result = MessageBox.Show($"Are you sure you want to delete {supplierIdsToDelete.Count} supplier(s)?",
+                                                      "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    foreach (var supplierId in supplierIdsToDelete)
+                    {
+                        await supplierService.DeleteSupplier(supplierId);
+                    }
+                    MessageBox.Show("Supplier(s) deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await LoadSuppliers();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error deleting supplier(s): {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private async Task LoadSuppliers()
+        {
+            try
+            {
+                var suppliers = await supplierService.GetAllSuppliers();
+
+                if (suppliers != null && suppliers.Any())
+                {
+
+                    suppliers = suppliers.OrderByDescending(s => s._id).ToList();
+
+                    dgv_suppliers_table.DataSource = null;
+                    dgv_suppliers_table.DataSource = suppliers;
+                    dgv_suppliers_table.Refresh();
+
+
+                    dgv_suppliers_table.ClearSelection();
+                    dgv_suppliers_table.Rows[0].Selected = true;
+                    dgv_suppliers_table.FirstDisplayedScrollingRowIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading suppliers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
