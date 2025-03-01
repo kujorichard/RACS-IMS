@@ -94,6 +94,8 @@
             this.tc_main_sales = new System.Windows.Forms.TabControl();
             this.orders_tab = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lbl_materials_stock = new System.Windows.Forms.Label();
+            this.txt_materials_stock = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_login_logo)).BeginInit();
@@ -734,6 +736,8 @@
             // 
             this.materials_tab.AutoScroll = true;
             this.materials_tab.BackColor = System.Drawing.Color.Transparent;
+            this.materials_tab.Controls.Add(this.txt_materials_stock);
+            this.materials_tab.Controls.Add(this.lbl_materials_stock);
             this.materials_tab.Controls.Add(this.btn_materials_clear);
             this.materials_tab.Controls.Add(this.btn_materials_delete);
             this.materials_tab.Controls.Add(this.btn_materials_add);
@@ -933,6 +937,25 @@
             this.dataGridView1.Size = new System.Drawing.Size(784, 264);
             this.dataGridView1.TabIndex = 2;
             // 
+            // lbl_materials_stock
+            // 
+            this.lbl_materials_stock.AutoSize = true;
+            this.lbl_materials_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_materials_stock.Location = new System.Drawing.Point(28, 440);
+            this.lbl_materials_stock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_materials_stock.Name = "lbl_materials_stock";
+            this.lbl_materials_stock.Size = new System.Drawing.Size(62, 20);
+            this.lbl_materials_stock.TabIndex = 35;
+            this.lbl_materials_stock.Text = "STOCK";
+            // 
+            // txt_materials_stock
+            // 
+            this.txt_materials_stock.Location = new System.Drawing.Point(195, 435);
+            this.txt_materials_stock.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_materials_stock.Name = "txt_materials_stock";
+            this.txt_materials_stock.Size = new System.Drawing.Size(198, 28);
+            this.txt_materials_stock.TabIndex = 36;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1039,5 +1062,7 @@
         private System.Windows.Forms.Button btn_main_overview;
         private System.Windows.Forms.Label lbl_products_stock;
         private System.Windows.Forms.TextBox txt_products_stock;
+        private System.Windows.Forms.TextBox txt_materials_stock;
+        private System.Windows.Forms.Label lbl_materials_stock;
     }
 }

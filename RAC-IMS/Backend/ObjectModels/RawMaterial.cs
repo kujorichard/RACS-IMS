@@ -16,5 +16,7 @@ namespace RAC_IMS.Backend.ObjectModels
 
         public string name { get; set; }
         public double price_per_weight { get; set; }
+        public string unit { get; set; }
+        public int stock { get; set; }
     }
 }

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RAC_IMS.Backend.ObjectModels;
+using System.Xml.Linq;
 
 namespace RAC_IMS.Main_Panel
 {
@@ -102,7 +103,6 @@ namespace RAC_IMS.Main_Panel
                 stock = int.Parse(txt_products_stock.Text),
                 supplier = cmb_products_supplier.Text,
                 
-
             };
 
             await productService.InsertProduct(newProduct);
@@ -165,9 +165,20 @@ namespace RAC_IMS.Main_Panel
 
         }
 
-        private void button8_Click(object sender, EventArgs e) // Add button in materials
+        private async Task button8_Click(object sender, EventArgs e) // Add button in materials
         {
+            RawMaterial newRawMaterial = new RawMaterial {
 
+                name = txt_materials_name.Text,
+                price_per_weight = double.Parse(txt_materials_price.Text),
+                stock = int.Parse(txt_materials_stock.Text),
+                unit = cmb_materials_unit.Text
+
+            };
+
+            await rawMaterialService.InsertRawMaterial(newRawMaterial);
+            MessageBox.Show("Raw Material added successfully!");
+            dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
         }
 
         private void button7_Click(object sender, EventArgs e) // Delete button in materials
