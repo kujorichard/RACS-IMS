@@ -46,10 +46,9 @@ namespace RAC_IMS.ProductsList
                 reseller_price = double.Parse(textBox2.Text),
                 wholesale_price = double.Parse(textBox3.Text),
                 retail_price = double.Parse(textBox4.Text),
-                category = textBox5.Text,
                 supplier = textBox6.Text,
                 supplier_id = int.Parse(textBox7.Text),
-                raw_material_id = new List<int> { int.Parse(textBox8.Text) }
+                raw_material_id = new List<string> { textBox8.Text }
             };
 
             await productService.InsertProduct(newProduct);

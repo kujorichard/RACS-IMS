@@ -1,4 +1,5 @@
 ﻿using RAC_IMS.Backend.ObjectServices;
+using RAC_IMS.Backend.ObjectModels;
 using RAC_IMS.Backend;
 using System;
 using System.Collections.Generic;
@@ -150,9 +151,31 @@ namespace RAC_IMS.Main_Panel
 
         }
 
-        private void button8_Click(object sender, EventArgs e) // Add button in materials
+        private async void button8_Click(object sender, EventArgs e) // Add button in materials
         {
 
+            try
+            {
+                if (!double.TryParse(txt_materials_price.Text, out double price))
+                {
+                    MessageBox.Show("Please enter a valid price.");
+                    return;
+                }
+
+                RawMaterial new_raw_material = new RawMaterial
+                {
+                    name = txt_materials_name.Text.Trim(),
+                    price_per_weight = price,
+                    unit = cmb_materials_unit.Text.Trim()
+                };
+
+                await rawMaterialService.InsertRawMaterial(new_raw_material);
+                MessageBox.Show("Raw material added successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
         }
 
         private void button7_Click(object sender, EventArgs e) // Delete button in materials
@@ -178,6 +201,11 @@ namespace RAC_IMS.Main_Panel
 
 
         private void btn_products_delete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
