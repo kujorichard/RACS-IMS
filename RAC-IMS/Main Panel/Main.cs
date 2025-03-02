@@ -138,17 +138,12 @@ namespace RAC_IMS.Main_Panel
             await productService.InsertProduct(newProduct);
             MessageBox.Show("Product added successfully!");
             dgv_products_table.DataSource = await productService.GetAllProducts();
+            ClearFields();
         }
 
         private void btn_products_clear_Click(object sender, EventArgs e)
         {
-            txt_products_name.Text = "";
-            txt_products_resell.Text = "";
-            txt_products_retail.Text = "";
-            txt_products_wholesale.Text = "";
-            cmb_products_category.Text = "";
-            cmb_products_supplier.Text = "";
-            dgv_products_table.Rows.Clear();
+            ClearFields();
         }
 
         private void btn_main_overview_Click(object sender, EventArgs e)
@@ -336,6 +331,7 @@ namespace RAC_IMS.Main_Panel
                     dgv_products_table.CurrentCell = row.Cells[0];
                     break;
                 }
+                ClearFields();
             }
             
             if (!isFound)
@@ -380,22 +376,28 @@ namespace RAC_IMS.Main_Panel
                     dgv_suppliers_table.Rows[dgv_suppliers_table.Rows.Count - 1].Selected = true;
                     dgv_suppliers_table.FirstDisplayedScrollingRowIndex = dgv_suppliers_table.Rows.Count - 1;
                 }
-
-                ClearFields();
+            
                 MessageBox.Show("Supplier added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await LoadSuppliers();
+                ClearFields();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error adding supplier: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void ClearFields()
+        private async void ClearFields()
         {
-            txt_suppliers_name.Clear();
-            txt_suppliers_contactnum.Clear();
-            txt_suppliers_contact.Clear();
-            txt_suppliers_address.Clear();
+            txt_products_name.Text = "";
+            txt_products_resell.Text = "";
+            txt_products_retail.Text = "";
+            txt_products_wholesale.Text = "";
+            txt_products_stock.Text = "";
+            cmb_products_category.Text = "";
+            cmb_products_supplier.Text = "";
+
+            dgv_products_table.DataSource = null;
+            dgv_products_table.DataSource = await productService.GetAllProducts();
         }
 
         private async void btn_suppliers_delete_Click(object sender, EventArgs e)
@@ -470,5 +472,58 @@ namespace RAC_IMS.Main_Panel
                 MessageBox.Show($"Error loading suppliers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private async void btn_products_update_Click(object sender, EventArgs e)
+        {
+            if (dgv_products_table.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a product to update.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataGridViewRow row = dgv_products_table.SelectedRows[0];
+            string id = row.Cells["_id"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(id))
+            {
+                MessageBox.Show("Invalid product ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Product existingProduct = await productService.GetProductById(id);
+            if (existingProduct == null)
+            {
+                MessageBox.Show("Product not found in database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Update specific field
+            if (!string.IsNullOrWhiteSpace(txt_products_name.Text))
+                existingProduct.name = txt_products_name.Text.Trim();
+            if (double.TryParse(txt_products_resell.Text, out double reseller_price))
+                existingProduct.reseller_price = reseller_price;
+            if (double.TryParse(txt_products_wholesale.Text, out double wholesale_price))
+                existingProduct.wholesale_price = wholesale_price;
+            if (double.TryParse(txt_products_retail.Text, out double retail_price))
+                existingProduct.retail_price = retail_price;
+            if (int.TryParse(txt_products_stock.Text, out int stock))
+                existingProduct.stock = stock;
+            if (!string.IsNullOrWhiteSpace(cmb_products_supplier.Text))
+                existingProduct.supplier = cmb_products_supplier.Text.Trim();
+
+            try
+            {
+                await productService.UpdateProduct(id, existingProduct);
+                MessageBox.Show("Product updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgv_products_table.DataSource = await productService.GetAllProducts();
+
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating product: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
