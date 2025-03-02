@@ -672,6 +672,24 @@ namespace RAC_IMS.Main_Panel
                 MessageBox.Show("Product updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgv_products_table.DataSource = await productService.GetAllProducts();
 
+                // Update raw material stock - Additional properties in product class needs to be added for this to work such as how much does a product consume a raw material
+                /*
+                string productId = existingProduct._id;
+                int newStock = int.Parse(txt_products_stock.Text);
+
+                var product = await productService.GetProductById(productId);
+                if (product == null) return;
+
+                int stockDifference = newStock - product.stock; // Calculate change of stock
+
+                if (stockDifference != 0)
+                {
+                    await rawMaterialService.UpdateRawMaterialStock(productId, stockDifference);
+                    product.stock = newStock;
+                    await productService.UpdateProduct(productId, product);
+                }
+                */
+
                 ClearFields();
             }
             catch (Exception ex)
