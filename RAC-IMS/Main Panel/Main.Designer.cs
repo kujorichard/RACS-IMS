@@ -69,8 +69,8 @@
             this.btn_suppliers_clear = new System.Windows.Forms.Button();
             this.btn_suppliers_delete = new System.Windows.Forms.Button();
             this.btn_suppliers_add = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btn_suppliers_select = new System.Windows.Forms.Button();
+            this.btn_suppliers_update = new System.Windows.Forms.Button();
             this.txt_suppliers_contact = new System.Windows.Forms.TextBox();
             this.txt_suppliers_contactnum = new System.Windows.Forms.TextBox();
             this.txt_suppliers_name = new System.Windows.Forms.TextBox();
@@ -552,8 +552,8 @@
             this.suppliers_tab.Controls.Add(this.btn_suppliers_clear);
             this.suppliers_tab.Controls.Add(this.btn_suppliers_delete);
             this.suppliers_tab.Controls.Add(this.btn_suppliers_add);
-            this.suppliers_tab.Controls.Add(this.button4);
-            this.suppliers_tab.Controls.Add(this.button5);
+            this.suppliers_tab.Controls.Add(this.btn_suppliers_select);
+            this.suppliers_tab.Controls.Add(this.btn_suppliers_update);
             this.suppliers_tab.Controls.Add(this.txt_suppliers_contact);
             this.suppliers_tab.Controls.Add(this.txt_suppliers_contactnum);
             this.suppliers_tab.Controls.Add(this.txt_suppliers_name);
@@ -630,32 +630,33 @@
             this.btn_suppliers_add.UseVisualStyleBackColor = false;
             this.btn_suppliers_add.Click += new System.EventHandler(this.btn_suppliers_add_Click);
             // 
-            // button4
+            // btn_suppliers_select
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(43, 601);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(144, 42);
-            this.button4.TabIndex = 26;
-            this.button4.Text = "SELECT";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_suppliers_select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_suppliers_select.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_suppliers_select.ForeColor = System.Drawing.Color.Black;
+            this.btn_suppliers_select.Location = new System.Drawing.Point(43, 601);
+            this.btn_suppliers_select.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_suppliers_select.Name = "btn_suppliers_select";
+            this.btn_suppliers_select.Size = new System.Drawing.Size(144, 42);
+            this.btn_suppliers_select.TabIndex = 26;
+            this.btn_suppliers_select.Text = "SELECT";
+            this.btn_suppliers_select.UseVisualStyleBackColor = false;
+            this.btn_suppliers_select.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // btn_suppliers_update
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Location = new System.Drawing.Point(655, 601);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(144, 42);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "UPDATE";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btn_suppliers_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_suppliers_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_suppliers_update.ForeColor = System.Drawing.Color.Black;
+            this.btn_suppliers_update.Location = new System.Drawing.Point(655, 601);
+            this.btn_suppliers_update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_suppliers_update.Name = "btn_suppliers_update";
+            this.btn_suppliers_update.Size = new System.Drawing.Size(144, 42);
+            this.btn_suppliers_update.TabIndex = 25;
+            this.btn_suppliers_update.Text = "UPDATE";
+            this.btn_suppliers_update.UseVisualStyleBackColor = false;
+            this.btn_suppliers_update.Click += new System.EventHandler(this.btn_suppliers_update_Click);
             // 
             // txt_suppliers_contact
             // 
@@ -1030,8 +1031,8 @@
         private System.Windows.Forms.Button btn_suppliers_clear;
         private System.Windows.Forms.Button btn_suppliers_delete;
         private System.Windows.Forms.Button btn_suppliers_add;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_suppliers_select;
+        private System.Windows.Forms.Button btn_suppliers_update;
         private System.Windows.Forms.TextBox txt_suppliers_address;
         private System.Windows.Forms.Label lbl_suppliers_address;
         private System.Windows.Forms.DataGridView dgv_rawmaterials_table;

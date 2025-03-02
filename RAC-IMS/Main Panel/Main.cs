@@ -172,12 +172,68 @@ namespace RAC_IMS.Main_Panel
 
         private void button9_Click(object sender, EventArgs e) // Select button in materials
         {
+            RawMaterial searchMaterial = new RawMaterial
+            {
+                name = txt_materials_name.Text.Trim()
+            };
 
+            if (string.IsNullOrEmpty(searchMaterial.name))
+            {
+                MessageBox.Show("Please enter a raw material name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            bool isFound = false;
+
+            foreach (DataGridViewRow row in dgv_rawmaterials_table.Rows)
+            {
+                if (row.Cells["name"].Value != null &&
+                    row.Cells["name"].Value.ToString().Equals(searchMaterial.name, StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Selected = true;
+                    isFound = true;
+                    dgv_rawmaterials_table.CurrentCell = row.Cells[0];
+                    break;
+                }
+            }
+
+            if (!isFound)
+            {
+                MessageBox.Show("Raw material not found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) // Select button in suppliers
         {
+            Supplier searchSupplier = new Supplier
+            {
+                name = txt_suppliers_name.Text.Trim()
+            };
 
+            if (string.IsNullOrEmpty(searchSupplier.name))
+            {
+                MessageBox.Show("Please enter a supplier name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            bool isFound = false;
+
+            foreach (DataGridViewRow row in dgv_suppliers_table.Rows)
+            {
+                if (row.Cells["name"].Value != null &&
+                    row.Cells["name"].Value.ToString().Equals(searchSupplier.name, StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Selected = true;
+                    isFound = true;
+                    dgv_suppliers_table.CurrentCell = row.Cells[0];
+                    break;
+                }
+            }
+
+            if (!isFound)
+            {
+                MessageBox.Show("Supplier not found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void txt_materials_price_TextChanged(object sender, EventArgs e)
@@ -202,18 +258,28 @@ namespace RAC_IMS.Main_Panel
                         return;
                     }
                 }
+
                 if (string.IsNullOrWhiteSpace(txt_materials_name.Text))
                 {
                     MessageBox.Show("Please enter a valid name.");
+                    return;
                 }
+
                 if (!double.TryParse(txt_materials_price.Text, out double price))
                 {
                     MessageBox.Show("Please enter a valid price.");
+                    return;
                 }
 
-                if (!double.TryParse(txt_materials_stock.Text, out double stock))
+                if (!int.TryParse(txt_materials_stock.Text, out int stock))
                 {
                     MessageBox.Show("Please enter a valid stock quantity.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(cmb_materials_unit.Text))
+                {
+                    MessageBox.Show("Please select a unit of measurement.");
                     return;
                 }
 
@@ -221,52 +287,120 @@ namespace RAC_IMS.Main_Panel
                 {
                     name = txt_materials_name.Text.Trim(),
                     price_per_weight = price,
+                    stock = stock,
                     unit = cmb_materials_unit.Text.Trim()
                 };
 
                 await rawMaterialService.InsertRawMaterial(new_raw_material);
-                MessageBox.Show("Raw Material successfully inputted!");
+                MessageBox.Show("Raw Material successfully added!");
                 dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
-
+                ClearFields_Materials();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Invalid Entry");
+                MessageBox.Show($"Error adding raw material: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private async void button7_Click(object sender, EventArgs e) // Delete button in materials
-        {   
-            if (dgv_rawmaterials_table.SelectedRows.Count > 0)
+        {
+            if (dgv_rawmaterials_table.SelectedRows.Count == 0)
             {
-                DataGridViewRow row = dgv_rawmaterials_table.SelectedRows[0];
+                MessageBox.Show("Please select a raw material to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                string id = row.Cells["_id"].Value.ToString();
-                    
+            DataGridViewRow row = dgv_rawmaterials_table.SelectedRows[0];
+            string id = row.Cells["_id"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(id))
+            {
+                MessageBox.Show("Invalid raw material ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this raw material?",
+                                                  "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
                 try
                 {
                     await rawMaterialService.DeleteRawMaterial(id);
-                    MessageBox.Show("Raw Material deleted successfully!");
+                    MessageBox.Show("Raw material deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Deletion Error!");
+                    MessageBox.Show($"Error deleting raw material: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
-            } else
-            {
-                MessageBox.Show("Select a data row first!");
             }
         }
 
-        private void button10_Click(object sender, EventArgs e) // Update button in materials
+        private async void button10_Click(object sender, EventArgs e) // Update button in materials
         {
+            if (dgv_rawmaterials_table.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a raw material to update.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            DataGridViewRow row = dgv_rawmaterials_table.SelectedRows[0];
+            string id = row.Cells["_id"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(id))
+            {
+                MessageBox.Show("Invalid raw material ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            RawMaterial existingMaterial = await rawMaterialService.GetRawMaterialById(id);
+            if (existingMaterial == null)
+            {
+                MessageBox.Show("Raw material not found in database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Update specific fields
+            if (!string.IsNullOrWhiteSpace(txt_materials_name.Text))
+                existingMaterial.name = txt_materials_name.Text.Trim();
+
+            if (double.TryParse(txt_materials_price.Text, out double price))
+                existingMaterial.price_per_weight = price;
+
+            if (int.TryParse(txt_materials_stock.Text, out int stock))
+                existingMaterial.stock = stock;
+
+            if (!string.IsNullOrWhiteSpace(cmb_materials_unit.Text))
+                existingMaterial.unit = cmb_materials_unit.Text.Trim();
+
+            try
+            {
+                await rawMaterialService.UpdateRawMaterial(id, existingMaterial);
+                MessageBox.Show("Raw material updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
+                ClearFields_Materials();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating raw material: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button6_Click(object sender, EventArgs e) // Clear button in materials
         {
+            ClearFields_Materials();
+        }
 
+        private async void ClearFields_Materials()
+        {
+            txt_materials_name.Text = "";
+            txt_materials_price.Text = "";
+            txt_materials_stock.Text = "";
+            cmb_materials_unit.Text = "";
+
+            dgv_rawmaterials_table.DataSource = null;
+            dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
         }
 
         private void lbl_materials_name_Click(object sender, EventArgs e)
@@ -342,11 +476,31 @@ namespace RAC_IMS.Main_Panel
 
         private void btn_suppliers_clear_Click(object sender, EventArgs e)
         {
-            ClearFields();
+            ClearFields_Supplier();
+        }
+
+        private async void ClearFields_Supplier()
+        {
+            txt_suppliers_name.Text = "";
+            txt_suppliers_contactnum.Text = "";
+            txt_suppliers_contact.Text = "";
+            txt_suppliers_address.Text = "";
+
+            dgv_suppliers_table.DataSource = null;
+            dgv_suppliers_table.DataSource = await supplierService.GetAllSuppliers();
         }
 
         private async void btn_suppliers_add_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dgv_suppliers_table.Rows)
+            {
+                if (row.Cells["name"].Value != null && row.Cells["name"].Value.ToString() == txt_suppliers_name.Text)
+                {
+                    MessageBox.Show("The supplier already exists in the database. Kindly update the desired supplier's data with Update button.");
+                    return;
+                }
+            }
+
             string suppliername = txt_suppliers_name.Text;
             string contactnumber = txt_suppliers_contactnum.Text;
             string contactperson = txt_suppliers_contact.Text;
@@ -369,23 +523,16 @@ namespace RAC_IMS.Main_Panel
             try
             {
                 await supplierService.InsertSupplier(newSupplier);
-
-                if (dgv_suppliers_table.Rows.Count > 0)
-                {
-                    dgv_suppliers_table.ClearSelection();
-                    dgv_suppliers_table.Rows[dgv_suppliers_table.Rows.Count - 1].Selected = true;
-                    dgv_suppliers_table.FirstDisplayedScrollingRowIndex = dgv_suppliers_table.Rows.Count - 1;
-                }
-            
                 MessageBox.Show("Supplier added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                await LoadSuppliers();
-                ClearFields();
+                dgv_suppliers_table.DataSource = await supplierService.GetAllSuppliers();
+                ClearFields_Supplier();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error adding supplier: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private async void ClearFields()
         {
             txt_products_name.Text = "";
@@ -402,50 +549,40 @@ namespace RAC_IMS.Main_Panel
 
         private async void btn_suppliers_delete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (dgv_suppliers_table.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Please select at least one supplier to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                List<string> supplierIdsToDelete = new List<string>();
-
-                foreach (DataGridViewRow row in dgv_suppliers_table.SelectedRows)
-                {
-                    if (row.Cells["_id"].Value != null)
-                    {
-                        string idString = row.Cells["_id"].Value.ToString();
-                        supplierIdsToDelete.Add(idString);
-                    }
-                }
-
-                if (supplierIdsToDelete.Count == 0)
-                {
-                    MessageBox.Show("Invalid supplier ID(s).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-
-                DialogResult result = MessageBox.Show($"Are you sure you want to delete {supplierIdsToDelete.Count} supplier(s)?",
-                                                      "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (result == DialogResult.Yes)
-                {
-                    foreach (var supplierId in supplierIdsToDelete)
-                    {
-                        await supplierService.DeleteSupplier(supplierId);
-                    }
-                    MessageBox.Show("Supplier(s) deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    await LoadSuppliers();
-                }
+            if(dgv_suppliers_table.SelectedRows.Count == 0)
+    {
+                MessageBox.Show("Please select a supplier to delete.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            catch (Exception ex)
+
+            DataGridViewRow row = dgv_suppliers_table.SelectedRows[0];
+            string id = row.Cells["_id"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(id))
             {
-                MessageBox.Show($"Error deleting supplier(s): {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid supplier ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this supplier?",
+                                                  "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    await supplierService.DeleteSupplier(id);
+                    MessageBox.Show("Supplier deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgv_suppliers_table.DataSource = await supplierService.GetAllSuppliers();
+                    ClearFields_Supplier();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error deleting supplier: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
+
         private async Task LoadSuppliers()
         {
             try
@@ -525,5 +662,51 @@ namespace RAC_IMS.Main_Panel
             }
         }
 
+        private async void btn_suppliers_update_Click(object sender, EventArgs e)
+        {
+            if (dgv_suppliers_table.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a supplier to update.", "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataGridViewRow row = dgv_suppliers_table.SelectedRows[0];
+            string id = row.Cells["_id"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(id))
+            {
+                MessageBox.Show("Invalid supplier ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Supplier existingSupplier = await supplierService.GetSupplierById(id);
+            if (existingSupplier == null)
+            {
+                MessageBox.Show("Supplier not found in database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Update specific fields
+            if (!string.IsNullOrWhiteSpace(txt_suppliers_name.Text))
+                existingSupplier.name = txt_suppliers_name.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(txt_suppliers_contactnum.Text))
+                existingSupplier.contact_num = txt_suppliers_contactnum.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(txt_suppliers_contact.Text))
+                existingSupplier.contact_person = txt_suppliers_contact.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(txt_suppliers_address.Text))
+                existingSupplier.address = txt_suppliers_address.Text.Trim();
+
+            try
+            {
+                await supplierService.UpdateSupplier(id, existingSupplier);
+                MessageBox.Show("Supplier updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await LoadSuppliers();
+                ClearFields_Supplier();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating supplier: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
