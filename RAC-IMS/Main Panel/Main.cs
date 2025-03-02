@@ -34,6 +34,7 @@ namespace RAC_IMS.Main_Panel
             Load_Tables();
         }
 
+
         private async void Load_Tables()
         {
             dgv_products_table.DataSource = await productService.GetAllProducts();
@@ -42,7 +43,8 @@ namespace RAC_IMS.Main_Panel
         }
         private void Main_Load(object sender, EventArgs e)
         {
-
+            LoadRawMaterialsProductListBox();
+            LoadSupplierRawMaterialListBox();
         }
 
         private void pb_login_logo_Click(object sender, EventArgs e)
@@ -124,6 +126,17 @@ namespace RAC_IMS.Main_Panel
                 return;
             }
 
+            List<string> selectedRawMaterialIds = new List<string>();
+
+            foreach (var item in clb_products_materials.CheckedItems)
+            {
+                if (item is RawMaterial rawMaterial)
+                {
+                    selectedRawMaterialIds.Add(rawMaterial._id);
+                }
+            }
+
+
             Product newProduct = new Product
             {
                 name = txt_products_name.Text,
@@ -132,7 +145,8 @@ namespace RAC_IMS.Main_Panel
                 retail_price = double.Parse(txt_products_retail.Text),
                 stock = int.Parse(txt_products_stock.Text),
                 supplier = cmb_products_supplier.Text,
-                
+                raw_material_id = selectedRawMaterialIds
+
             };
 
             await productService.InsertProduct(newProduct);
@@ -294,6 +308,7 @@ namespace RAC_IMS.Main_Panel
                 await rawMaterialService.InsertRawMaterial(new_raw_material);
                 MessageBox.Show("Raw Material successfully added!");
                 dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
+                LoadRawMaterialsProductListBox();
                 ClearFields_Materials();
             }
             catch (Exception ex)
@@ -329,6 +344,7 @@ namespace RAC_IMS.Main_Panel
                     await rawMaterialService.DeleteRawMaterial(id);
                     MessageBox.Show("Raw material deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
+                    LoadRawMaterialsProductListBox();
                 }
                 catch (Exception ex)
                 {
@@ -379,6 +395,7 @@ namespace RAC_IMS.Main_Panel
                 await rawMaterialService.UpdateRawMaterial(id, existingMaterial);
                 MessageBox.Show("Raw material updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
+                LoadRawMaterialsProductListBox();
                 ClearFields_Materials();
             }
             catch (Exception ex)
@@ -525,6 +542,7 @@ namespace RAC_IMS.Main_Panel
                 await supplierService.InsertSupplier(newSupplier);
                 MessageBox.Show("Supplier added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgv_suppliers_table.DataSource = await supplierService.GetAllSuppliers();
+                LoadSupplierRawMaterialListBox();
                 ClearFields_Supplier();
             }
             catch (Exception ex)
@@ -540,7 +558,6 @@ namespace RAC_IMS.Main_Panel
             txt_products_retail.Text = "";
             txt_products_wholesale.Text = "";
             txt_products_stock.Text = "";
-            cmb_products_category.Text = "";
             cmb_products_supplier.Text = "";
 
             dgv_products_table.DataSource = null;
@@ -574,6 +591,7 @@ namespace RAC_IMS.Main_Panel
                     await supplierService.DeleteSupplier(id);
                     MessageBox.Show("Supplier deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dgv_suppliers_table.DataSource = await supplierService.GetAllSuppliers();
+                    LoadSupplierRawMaterialListBox();
                     ClearFields_Supplier();
                 }
                 catch (Exception ex)
@@ -701,12 +719,57 @@ namespace RAC_IMS.Main_Panel
                 await supplierService.UpdateSupplier(id, existingSupplier);
                 MessageBox.Show("Supplier updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await LoadSuppliers();
+                LoadSupplierRawMaterialListBox();
                 ClearFields_Supplier();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error updating supplier: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void clb_products_materials_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void LoadRawMaterialsProductListBox()
+        {
+            var rawMaterials = await rawMaterialService.GetAllRawMaterials();
+
+            if (rawMaterials == null || rawMaterials.Count == 0)
+            {
+                return;
+            }
+
+            clb_products_materials.DataSource = rawMaterials; 
+            clb_products_materials.DisplayMember = "name";  
+            clb_products_materials.ValueMember = "_id";  
+        }
+
+        private async void LoadSupplierRawMaterialListBox()
+        {
+            var suppliers = await supplierService.GetAllSuppliers();
+
+            if (suppliers == null || suppliers.Count == 0)
+            {
+                return;
+            }
+
+            clb_materials_supplier.DataSource = suppliers; 
+            clb_materials_supplier.DisplayMember = "name";  
+            clb_materials_supplier.ValueMember = "_id";  
+        }
+
+
+        private void dgv_products_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

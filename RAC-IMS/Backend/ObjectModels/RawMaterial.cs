@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RAC_IMS.Backend.ObjectModels;
 
 namespace RAC_IMS.Backend.ObjectModels
 {
@@ -18,5 +19,6 @@ namespace RAC_IMS.Backend.ObjectModels
         public double price_per_weight { get; set; }
         public string unit { get; set; }
         public int stock { get; set; }
+        public List<string> supplier_id { get; set; }
     }
 }
