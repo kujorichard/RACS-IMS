@@ -928,5 +928,24 @@ namespace RAC_IMS.Main_Panel
 
             LoadMaterialsComboBox();
         }
+
+        private void btn_orders_select_Click(object sender, EventArgs e)
+        {
+            if (dgv_orders_table.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an order.");
+                return;
+            }
+
+            // Get the selected order
+            Order selected_order = dgv_orders_table.SelectedRows[0].DataBoundItem as Order;
+
+            if (selected_order != null)
+            {
+                string order_id = selected_order._id;
+                OrderReceiptForm order_details_form = new OrderReceiptForm(order_id);
+                order_details_form.Show(); // Open the details form
+            }
+        }
     }
 }

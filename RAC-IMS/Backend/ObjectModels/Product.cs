@@ -15,11 +15,13 @@ namespace RAC_IMS.Backend.ObjectModels
         [BsonRepresentation(BsonType.ObjectId)] // Ensures it works as a string
         public string _id { get; set; }
 
+
         public string name { get; set; }
         public int stock { get; set; }
         public double reseller_price { get; set; }
         public double wholesale_price { get; set; }
         public double retail_price { get; set; }
         public Dictionary<string, double> raw_material_id { get; set; }
+
     }
 }

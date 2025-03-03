@@ -46,5 +46,17 @@ namespace RAC_IMS.Backend.ObjectServices
         {
             await _OrderCollection.DeleteOneAsync(p => p._id == id);
         }
+
+        //Update status
+        public async Task<bool> UpdateOrderStatus(string orderId, string newStatus)
+        {
+            var filter = Builders<Order>.Filter.Eq(o => o._id, orderId);
+            var update = Builders<Order>.Update.Set(o => o.status, newStatus);
+
+            var result = await _OrderCollection.UpdateOneAsync(filter, update);
+
+            return result.ModifiedCount > 0; // Returns true if the update was successful
+        }
+
     }
 }

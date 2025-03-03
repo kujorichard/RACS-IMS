@@ -30,6 +30,8 @@ namespace RAC_IMS.Backend.ObjectModels
         public string status { get; set; }
         public double total_price { get; set; }
 
+        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
+        public DateTime created_at { get; set; } = DateTime.UtcNow; // Automatically set when created
 
         public async void ComputeTotalPrice(ProductsService productsService)
         {
