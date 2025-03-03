@@ -38,10 +38,10 @@
             this.cmb_order_price_type = new System.Windows.Forms.ComboBox();
             this.btn_order_cancel = new System.Windows.Forms.Button();
             this.btn_order_finish = new System.Windows.Forms.Button();
-            this.cmb_order_product = new System.Windows.Forms.ComboBox();
             this.btn_order_add_item = new System.Windows.Forms.Button();
             this.btn_order_remove_item = new System.Windows.Forms.Button();
             this.dgv_order_products_selected = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_order_products_selected)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             this.label3.BackColor = System.Drawing.SystemColors.Desktop;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(13, 106);
+            this.label3.Location = new System.Drawing.Point(17, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 25);
             this.label3.TabIndex = 2;
@@ -87,7 +87,7 @@
             this.label4.BackColor = System.Drawing.SystemColors.Desktop;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(13, 182);
+            this.label4.Location = new System.Drawing.Point(17, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 25);
             this.label4.TabIndex = 4;
@@ -99,7 +99,7 @@
             this.label5.BackColor = System.Drawing.SystemColors.Desktop;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(13, 144);
+            this.label5.Location = new System.Drawing.Point(17, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 25);
             this.label5.TabIndex = 3;
@@ -143,9 +143,9 @@
             this.btn_order_cancel.BackColor = System.Drawing.Color.Firebrick;
             this.btn_order_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_order_cancel.ForeColor = System.Drawing.Color.White;
-            this.btn_order_cancel.Location = new System.Drawing.Point(641, 157);
+            this.btn_order_cancel.Location = new System.Drawing.Point(626, 157);
             this.btn_order_cancel.Name = "btn_order_cancel";
-            this.btn_order_cancel.Size = new System.Drawing.Size(147, 32);
+            this.btn_order_cancel.Size = new System.Drawing.Size(162, 50);
             this.btn_order_cancel.TabIndex = 9;
             this.btn_order_cancel.Text = "CANCEL ORDER";
             this.btn_order_cancel.UseVisualStyleBackColor = false;
@@ -156,22 +156,13 @@
             this.btn_order_finish.BackColor = System.Drawing.Color.ForestGreen;
             this.btn_order_finish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_order_finish.ForeColor = System.Drawing.Color.White;
-            this.btn_order_finish.Location = new System.Drawing.Point(641, 195);
+            this.btn_order_finish.Location = new System.Drawing.Point(626, 215);
             this.btn_order_finish.Name = "btn_order_finish";
-            this.btn_order_finish.Size = new System.Drawing.Size(147, 32);
+            this.btn_order_finish.Size = new System.Drawing.Size(162, 45);
             this.btn_order_finish.TabIndex = 10;
             this.btn_order_finish.Text = "FINISH ORDER";
             this.btn_order_finish.UseVisualStyleBackColor = false;
             this.btn_order_finish.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // cmb_order_product
-            // 
-            this.cmb_order_product.FormattingEnabled = true;
-            this.cmb_order_product.Location = new System.Drawing.Point(204, 106);
-            this.cmb_order_product.Name = "cmb_order_product";
-            this.cmb_order_product.Size = new System.Drawing.Size(273, 21);
-            this.cmb_order_product.TabIndex = 11;
-            this.cmb_order_product.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // btn_order_add_item
             // 
@@ -200,6 +191,7 @@
             // 
             // dgv_order_products_selected
             // 
+            this.dgv_order_products_selected.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_order_products_selected.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_order_products_selected.Location = new System.Drawing.Point(18, 266);
             this.dgv_order_products_selected.Name = "dgv_order_products_selected";
@@ -207,16 +199,25 @@
             this.dgv_order_products_selected.TabIndex = 14;
             this.dgv_order_products_selected.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderForm_Load_1);
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(204, 90);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(556, 33);
+            this.textBox1.TabIndex = 15;
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(800, 509);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgv_order_products_selected);
             this.Controls.Add(this.btn_order_remove_item);
             this.Controls.Add(this.btn_order_add_item);
-            this.Controls.Add(this.cmb_order_product);
             this.Controls.Add(this.btn_order_finish);
             this.Controls.Add(this.btn_order_cancel);
             this.Controls.Add(this.cmb_order_price_type);
@@ -249,9 +250,9 @@
         private System.Windows.Forms.ComboBox cmb_order_price_type;
         private System.Windows.Forms.Button btn_order_cancel;
         private System.Windows.Forms.Button btn_order_finish;
-        private System.Windows.Forms.ComboBox cmb_order_product;
         private System.Windows.Forms.Button btn_order_add_item;
         private System.Windows.Forms.Button btn_order_remove_item;
         private System.Windows.Forms.DataGridView dgv_order_products_selected;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
