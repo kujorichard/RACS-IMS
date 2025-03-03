@@ -158,10 +158,12 @@
     <Compile Include="Backend\ObjectModels\Product.cs" />
     <Compile Include="Backend\ObjectModels\RawMaterial.cs" />
     <Compile Include="Backend\ObjectModels\Supplier.cs" />
+    <Compile Include="Backend\ObjectModels\User.cs" />
     <Compile Include="Backend\ObjectServices\CustomersService.cs" />
     <Compile Include="Backend\ObjectServices\ProductsService.cs" />
     <Compile Include="Backend\ObjectServices\RawMaterialsService.cs" />
     <Compile Include="Backend\ObjectServices\SuppliersService.cs" />
+    <Compile Include="Backend\ObjectServices\UserService.cs" />
     <Compile Include="Login and Register\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -45,5 +45,9 @@ namespace RAC_IMS.Backend
             return _database.GetCollection<RawMaterial>("RawMaterial");
         }
 
+        public IMongoCollection<User> GetUserCollection()
+        {
+            return _database.GetCollection<User>("Users");
+        }
     }
 }
