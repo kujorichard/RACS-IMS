@@ -11,6 +11,8 @@ using System.Xml.Linq;
 using RAC_IMS.Backend.ObjectServices;
 using RAC_IMS.Backend.ObjectModels;
 using RAC_IMS.Backend;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace RAC_IMS.Main_Panel
 {
@@ -652,6 +654,16 @@ namespace RAC_IMS.Main_Panel
                 return;
             }
 
+            List<string> selectedRawMaterialIds = new List<string>();
+
+            foreach (var item in clb_products_materials.CheckedItems)
+            {
+                if (item is RawMaterial rawMaterial)
+                {
+                    selectedRawMaterialIds.Add(rawMaterial._id);
+                }
+            }
+
             // Update specific field
             if (!string.IsNullOrWhiteSpace(txt_products_name.Text))
                 existingProduct.name = txt_products_name.Text.Trim();
@@ -665,9 +677,13 @@ namespace RAC_IMS.Main_Panel
                 existingProduct.stock = stock;
             if (!string.IsNullOrWhiteSpace(cmb_products_supplier.Text))
                 existingProduct.supplier = cmb_products_supplier.Text.Trim();
+            if (selectedRawMaterialIds.Any())
+                existingProduct.raw_material_id.Clear();
+                existingProduct.raw_material_id = selectedRawMaterialIds;
+            
 
-            try
-            {
+                try
+                {
                 await productService.UpdateProduct(id, existingProduct);
                 MessageBox.Show("Product updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgv_products_table.DataSource = await productService.GetAllProducts();
