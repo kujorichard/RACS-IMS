@@ -11,7 +11,6 @@ using System.Xml.Linq;
 using RAC_IMS.Backend.ObjectServices;
 using RAC_IMS.Backend.ObjectModels;
 using RAC_IMS.Backend;
-
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -842,6 +841,20 @@ namespace RAC_IMS.Main_Panel
         private void label2_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void orders_tab_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ADD_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            OrderForm order = new OrderForm();
+            order.FormClosed += (s, args) => this.Show();
+            order.ShowDialog();
         }
     }
 }
