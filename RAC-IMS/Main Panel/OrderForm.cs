@@ -77,7 +77,7 @@ namespace RAC_IMS.Main_Panel
             // Variable to hold the ordered product
             ProductOrder new_product_order = new ProductOrder();
 
-            new_product_order.product_id = cmb_order_product.SelectedValue.ToString();
+            new_product_order.product_id = comboBox1.SelectedValue.ToString();
             new_product_order.quantity = Convert.ToInt32(txt_order_qty.Text);
             new_product_order.price_type = cmb_order_price_type.Text;
 
@@ -97,11 +97,11 @@ namespace RAC_IMS.Main_Panel
                 return;
             }
 
-            cmb_order_product.DataSource = null;
-            cmb_order_product.DataSource = products;
-            cmb_order_product.DisplayMember = "name";
-            cmb_order_product.ValueMember = "_id";
-            cmb_order_product.Refresh();
+            comboBox1.DataSource = null;
+            comboBox1.DataSource = products;
+            comboBox1.DisplayMember = "name";
+            comboBox1.ValueMember = "_id";
+            comboBox1.Refresh();
 
         }
 
