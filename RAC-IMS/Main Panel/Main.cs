@@ -295,13 +295,13 @@ namespace RAC_IMS.Main_Panel
                     return;
                 }
 
-                List<string> selectedSupplierIDs = new List<string>();
+                Dictionary<string, string> selectedSupplierIDs = new Dictionary<string, string>();
 
                 foreach (var item in clb_materials_supplier.CheckedItems)
                 {
                     if (item is Supplier supplier)
                     {
-                        selectedSupplierIDs.Add(supplier._id);
+                        selectedSupplierIDs.Add(supplier._id, supplier.name);
                     }
                 }
 
@@ -384,13 +384,13 @@ namespace RAC_IMS.Main_Panel
                 return;
             }
 
-            List<string> selectedSupplierIds = new List<string>();
+            Dictionary<string, string> selectedSupplierIds = new Dictionary<string, string>();
 
             foreach (var item in clb_materials_supplier.CheckedItems)
             {
                 if (item is Supplier supplier)
                 {
-                    selectedSupplierIds.Add(supplier._id);
+                    selectedSupplierIds.Add(supplier._id, supplier.name);
                 }
             }
 

@@ -18,11 +18,13 @@ namespace RAC_IMS.Backend.ObjectServices
         
         private readonly IMongoCollection<RawMaterial> _RawMaterialCollection;
         private readonly ProductsService productService;
+        private readonly SuppliersService supplierService;
 
         public RawMaterialsService(MongoDBService mongoDBService)
         {
             _RawMaterialCollection = mongoDBService.GetRawMaterialCollection();
-             productService = new ProductsService(new MongoDBService(connection_uri, database_name));
+            productService = new ProductsService(new MongoDBService(connection_uri, database_name));
+            supplierService = new SuppliersService(new MongoDBService(connection_uri, database_name));
         }
 
         // CREATE: Insert a new RawMaterial
@@ -83,5 +85,25 @@ namespace RAC_IMS.Backend.ObjectServices
             }
         }
 
+        public async Task UpdateRawMaterialSupplier(string rawMaterialId)
+        {
+            var material = await GetRawMaterialById(rawMaterialId);
+
+            if (material == null)
+                return; // Skip if raw material not found
+
+            foreach (var entry in material.supplier_id)
+            {
+                string supplierId = entry.Key;
+                string supplierName = entry.Value;
+
+                var rawMaterial = await GetRawMaterialById(rawMaterialId);
+
+                if (rawMaterial == null)
+                    continue; // Skip if supplier not found
+
+                await UpdateRawMaterial(supplierId, rawMaterial);
+            }
+        }
     }
 }
