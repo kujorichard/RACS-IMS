@@ -20,8 +20,6 @@ namespace RAC_IMS.Backend.ObjectModels
         public double reseller_price { get; set; }
         public double wholesale_price { get; set; }
         public double retail_price { get; set; }
-        public string supplier { get; set; }
-        public int supplier_id { get; set; }
-        public List<string> raw_material_id { get; set; }
+        public List<KeyValuePair<string, int>> raw_material_id { get; set; }
     }
 }
