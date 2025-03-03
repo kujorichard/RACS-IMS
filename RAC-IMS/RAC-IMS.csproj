@@ -178,12 +178,6 @@
     <Compile Include="Main Panel\OrderReceiptForm.Designer.cs">
       <DependentUpon>OrderReceiptForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main Panel\MaterialForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main Panel\MaterialForm.Designer.cs">
-      <DependentUpon>MaterialForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main Panel\OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,9 +206,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main Panel\OrderReceiptForm.resx">
       <DependentUpon>OrderReceiptForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main Panel\MaterialForm.resx">
-      <DependentUpon>MaterialForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main Panel\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>

@@ -13,6 +13,7 @@ using RAC_IMS.Backend.ObjectModels;
 using RAC_IMS.Backend;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using RAC_IMS.Main_Panel;
 
 namespace RAC_IMS.Main_Panel
 {
@@ -48,6 +49,7 @@ namespace RAC_IMS.Main_Panel
         }
         private void Main_Load(object sender, EventArgs e)
         {
+            LoadMaterialsComboBox();
             LoadSupplierRawMaterialListBox();
         }
 
@@ -138,7 +140,7 @@ namespace RAC_IMS.Main_Panel
                 wholesale_price = double.Parse(txt_products_wholesale.Text),
                 retail_price = double.Parse(txt_products_retail.Text),
                 stock = int.Parse(txt_products_stock.Text),
-                
+                raw_material_id = raw_materials_to_add
             };
 
             await productService.InsertProduct(newProduct);
@@ -326,6 +328,8 @@ namespace RAC_IMS.Main_Panel
             {
                 MessageBox.Show($"Error adding raw material: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            LoadMaterialsComboBox();
         }
 
         private async void button7_Click(object sender, EventArgs e) // Delete button in materials
@@ -361,6 +365,7 @@ namespace RAC_IMS.Main_Panel
                     MessageBox.Show($"Error deleting raw material: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            LoadMaterialsComboBox();
         }
 
         private async void button10_Click(object sender, EventArgs e) // Update button in materials
@@ -425,6 +430,8 @@ namespace RAC_IMS.Main_Panel
             {
                 MessageBox.Show($"Error updating raw material: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            LoadMaterialsComboBox();
         }
 
         private void button6_Click(object sender, EventArgs e) // Clear button in materials
@@ -818,11 +825,6 @@ namespace RAC_IMS.Main_Panel
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            MaterialForm material = new MaterialForm();
-            material.FormClosed += (s, args) => this.Show();
-            material.ShowDialog();
         }
 
 
@@ -835,6 +837,96 @@ namespace RAC_IMS.Main_Panel
         private void button2_Click(object sender, EventArgs e)
         {
             dgv_orders_table.DataSource = orderService.GetAllOrders();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click_3(object sender, EventArgs e)
+        {
+
+        }
+
+        public static Dictionary<string, double> raw_materials_to_add = new Dictionary<string, double>(); // List to hold raw materials for product
+
+        private async void LoadMaterialsComboBox() // load raw materials into combobox
+        {
+            var raw_materials = await rawMaterialService.GetAllRawMaterials();
+
+            if (raw_materials == null || raw_materials.Count == 0)
+            {
+                MessageBox.Show("No products found or failed to fetch data.");
+                return;
+            }
+
+            cmb_products_material.DataSource = null;
+            cmb_products_material.DataSource = raw_materials;
+            cmb_products_material.DisplayMember = "name";
+            cmb_products_material.ValueMember = "_id";
+            cmb_products_material.Refresh();
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e) // Add material
+        {
+            if (string.IsNullOrWhiteSpace(txt_products_material_quantity.Text) || cmb_products_material.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a material and enter a valid quantity.");
+                return;
+            }
+
+            string materialName = cmb_products_material.SelectedValue.ToString();
+            double quantity;
+
+            if (!double.TryParse(txt_products_material_quantity.Text, out quantity))
+            {
+                MessageBox.Show("Please enter a valid number for quantity.");
+                return;
+            }
+
+            // Add material to dictionary
+            if (!raw_materials_to_add.ContainsKey(materialName))
+            {
+                raw_materials_to_add.Add(materialName, quantity);
+            }
+            else
+            {
+                raw_materials_to_add[materialName] += quantity; // Update quantity if already exists
+            }
+
+            txt_products_material_quantity.Clear();
+
+            // Convert Dictionary to a List and Bind
+            dgv_materials_added.DataSource = new BindingSource(new BindingList<KeyValuePair<string, double>>(raw_materials_to_add.ToList()), null);
+            LoadMaterialsComboBox();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e) //Delete material
+        {
+            if (dgv_materials_added.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a material to remove.");
+                return;
+            }
+
+            // Assuming the material name is in the first column
+            string material_to_remove = dgv_materials_added.SelectedRows[0].Cells[0].Value.ToString();
+
+            if (raw_materials_to_add.ContainsKey(material_to_remove))
+            {
+                raw_materials_to_add.Remove(material_to_remove); // Remove from dictionary
+
+                // Refresh DataGridView
+                dgv_materials_added.DataSource = new BindingSource(raw_materials_to_add, null);
+            }
+            else
+            {
+                MessageBox.Show("Material not found in the list.");
+            }
+
+            LoadMaterialsComboBox();
         }
     }
 }

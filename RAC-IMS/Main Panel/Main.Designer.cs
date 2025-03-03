@@ -40,8 +40,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tc_main_inventory = new System.Windows.Forms.TabControl();
             this.product_tab = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
+            this.dgv_materials_added = new System.Windows.Forms.DataGridView();
             this.txt_products_stock = new System.Windows.Forms.TextBox();
             this.lbl_products_stock = new System.Windows.Forms.Label();
             this.btn_products_clear = new System.Windows.Forms.Button();
@@ -98,12 +97,18 @@
             this.dgv_orders_table = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.ADD = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmb_products_material = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_products_material_quantity = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_login_logo)).BeginInit();
             this.tc_main_inventory.SuspendLayout();
             this.product_tab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_materials_added)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_products_table)).BeginInit();
             this.suppliers_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_suppliers_table)).BeginInit();
@@ -128,7 +133,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 657);
+            this.panel1.Size = new System.Drawing.Size(267, 741);
             this.panel1.TabIndex = 0;
             // 
             // btn_main_overview
@@ -256,6 +261,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(796, 27);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // tc_main_inventory
             // 
@@ -274,8 +280,13 @@
             // 
             this.product_tab.AutoScroll = true;
             this.product_tab.BackColor = System.Drawing.Color.Transparent;
-            this.product_tab.Controls.Add(this.dataGridView2);
+            this.product_tab.Controls.Add(this.button4);
             this.product_tab.Controls.Add(this.button3);
+            this.product_tab.Controls.Add(this.txt_products_material_quantity);
+            this.product_tab.Controls.Add(this.label3);
+            this.product_tab.Controls.Add(this.cmb_products_material);
+            this.product_tab.Controls.Add(this.label2);
+            this.product_tab.Controls.Add(this.dgv_materials_added);
             this.product_tab.Controls.Add(this.txt_products_stock);
             this.product_tab.Controls.Add(this.lbl_products_stock);
             this.product_tab.Controls.Add(this.btn_products_clear);
@@ -303,27 +314,13 @@
             this.product_tab.Text = "Products";
             this.product_tab.Click += new System.EventHandler(this.product_tab_Click);
             // 
-            // dataGridView2
+            // dgv_materials_added
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(423, 389);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(347, 108);
-            this.dataGridView2.TabIndex = 28;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(550, 333);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(198, 34);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "Add Material";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.dgv_materials_added.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_materials_added.Location = new System.Drawing.Point(423, 473);
+            this.dgv_materials_added.Name = "dgv_materials_added";
+            this.dgv_materials_added.Size = new System.Drawing.Size(347, 114);
+            this.dgv_materials_added.TabIndex = 28;
             // 
             // txt_products_stock
             // 
@@ -350,7 +347,7 @@
             this.btn_products_clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_products_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products_clear.ForeColor = System.Drawing.Color.Black;
-            this.btn_products_clear.Location = new System.Drawing.Point(639, 550);
+            this.btn_products_clear.Location = new System.Drawing.Point(237, 527);
             this.btn_products_clear.Margin = new System.Windows.Forms.Padding(2);
             this.btn_products_clear.Name = "btn_products_clear";
             this.btn_products_clear.Size = new System.Drawing.Size(108, 34);
@@ -364,7 +361,7 @@
             this.btn_products_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_products_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products_delete.ForeColor = System.Drawing.Color.Black;
-            this.btn_products_delete.Location = new System.Drawing.Point(338, 550);
+            this.btn_products_delete.Location = new System.Drawing.Point(296, 473);
             this.btn_products_delete.Margin = new System.Windows.Forms.Padding(2);
             this.btn_products_delete.Name = "btn_products_delete";
             this.btn_products_delete.Size = new System.Drawing.Size(108, 34);
@@ -378,7 +375,7 @@
             this.btn_products_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_products_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products_add.ForeColor = System.Drawing.Color.Black;
-            this.btn_products_add.Location = new System.Drawing.Point(182, 550);
+            this.btn_products_add.Location = new System.Drawing.Point(162, 473);
             this.btn_products_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_products_add.Name = "btn_products_add";
             this.btn_products_add.Size = new System.Drawing.Size(108, 34);
@@ -392,7 +389,7 @@
             this.btn_products_select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_products_select.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products_select.ForeColor = System.Drawing.Color.Black;
-            this.btn_products_select.Location = new System.Drawing.Point(32, 550);
+            this.btn_products_select.Location = new System.Drawing.Point(32, 473);
             this.btn_products_select.Margin = new System.Windows.Forms.Padding(2);
             this.btn_products_select.Name = "btn_products_select";
             this.btn_products_select.Size = new System.Drawing.Size(108, 34);
@@ -406,7 +403,7 @@
             this.btn_products_update.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn_products_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_products_update.ForeColor = System.Drawing.Color.Black;
-            this.btn_products_update.Location = new System.Drawing.Point(491, 550);
+            this.btn_products_update.Location = new System.Drawing.Point(104, 527);
             this.btn_products_update.Margin = new System.Windows.Forms.Padding(2);
             this.btn_products_update.Name = "btn_products_update";
             this.btn_products_update.Size = new System.Drawing.Size(108, 34);
@@ -451,7 +448,7 @@
             // 
             this.lbl_products_materials.AutoSize = true;
             this.lbl_products_materials.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_products_materials.Location = new System.Drawing.Point(419, 339);
+            this.lbl_products_materials.Location = new System.Drawing.Point(419, 349);
             this.lbl_products_materials.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_materials.Name = "lbl_products_materials";
             this.lbl_products_materials.Size = new System.Drawing.Size(101, 20);
@@ -545,7 +542,7 @@
             this.suppliers_tab.Margin = new System.Windows.Forms.Padding(2);
             this.suppliers_tab.Name = "suppliers_tab";
             this.suppliers_tab.Padding = new System.Windows.Forms.Padding(2);
-            this.suppliers_tab.Size = new System.Drawing.Size(789, 502);
+            this.suppliers_tab.Size = new System.Drawing.Size(789, 1070);
             this.suppliers_tab.TabIndex = 1;
             this.suppliers_tab.Text = "Suppliers";
             this.suppliers_tab.UseVisualStyleBackColor = true;
@@ -706,7 +703,7 @@
             this.dgv_suppliers_table.Name = "dgv_suppliers_table";
             this.dgv_suppliers_table.RowHeadersWidth = 51;
             this.dgv_suppliers_table.RowTemplate.Height = 24;
-            this.dgv_suppliers_table.Size = new System.Drawing.Size(768, 264);
+            this.dgv_suppliers_table.Size = new System.Drawing.Size(785, 264);
             this.dgv_suppliers_table.TabIndex = 3;
             // 
             // materials_tab
@@ -732,7 +729,7 @@
             this.materials_tab.Location = new System.Drawing.Point(4, 31);
             this.materials_tab.Margin = new System.Windows.Forms.Padding(2);
             this.materials_tab.Name = "materials_tab";
-            this.materials_tab.Size = new System.Drawing.Size(789, 502);
+            this.materials_tab.Size = new System.Drawing.Size(789, 1070);
             this.materials_tab.TabIndex = 2;
             this.materials_tab.Text = "Materials";
             // 
@@ -926,7 +923,7 @@
             this.dgv_rawmaterials_table.Name = "dgv_rawmaterials_table";
             this.dgv_rawmaterials_table.RowHeadersWidth = 51;
             this.dgv_rawmaterials_table.RowTemplate.Height = 24;
-            this.dgv_rawmaterials_table.Size = new System.Drawing.Size(772, 264);
+            this.dgv_rawmaterials_table.Size = new System.Drawing.Size(789, 264);
             this.dgv_rawmaterials_table.TabIndex = 4;
             // 
             // tc_main_sales
@@ -1004,11 +1001,78 @@
             this.ADD.UseVisualStyleBackColor = false;
             this.ADD.Click += new System.EventHandler(this.ADD_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(479, 380);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "NAME";
+            this.label2.Click += new System.EventHandler(this.label2_Click_3);
+            // 
+            // cmb_products_material
+            // 
+            this.cmb_products_material.FormattingEnabled = true;
+            this.cmb_products_material.Location = new System.Drawing.Point(550, 375);
+            this.cmb_products_material.Name = "cmb_products_material";
+            this.cmb_products_material.Size = new System.Drawing.Size(198, 30);
+            this.cmb_products_material.TabIndex = 30;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(445, 414);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 20);
+            this.label3.TabIndex = 31;
+            this.label3.Text = "QUANTITY";
+            // 
+            // txt_products_material_quantity
+            // 
+            this.txt_products_material_quantity.Location = new System.Drawing.Point(550, 410);
+            this.txt_products_material_quantity.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_products_material_quantity.Name = "txt_products_material_quantity";
+            this.txt_products_material_quantity.Size = new System.Drawing.Size(108, 28);
+            this.txt_products_material_quantity.TabIndex = 32;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(439, 442);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(138, 26);
+            this.button3.TabIndex = 33;
+            this.button3.Text = "ADD MATERIAL";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Location = new System.Drawing.Point(591, 442);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(157, 27);
+            this.button4.TabIndex = 34;
+            this.button4.Text = "DELETE MATERIAL";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1063, 657);
+            this.ClientSize = new System.Drawing.Size(1063, 741);
             this.Controls.Add(this.tc_main_inventory);
             this.Controls.Add(this.tc_main_sales);
             this.Controls.Add(this.panel2);
@@ -1028,7 +1092,7 @@
             this.tc_main_inventory.ResumeLayout(false);
             this.product_tab.ResumeLayout(false);
             this.product_tab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_materials_added)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_products_table)).EndInit();
             this.suppliers_tab.ResumeLayout(false);
             this.suppliers_tab.PerformLayout();
@@ -1113,7 +1177,12 @@
         private System.Windows.Forms.Button ADD;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dgv_materials_added;
+        private System.Windows.Forms.ComboBox cmb_products_material;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_products_material_quantity;
+        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

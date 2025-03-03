@@ -57,7 +57,7 @@ namespace RAC_IMS.Backend.ObjectServices
             await _RawMaterialCollection.DeleteOneAsync(p => p._id == id);
         }
 
-
+        /*
         public async Task UpdateRawMaterialStock(string productId, int stockDifference)
         {
             var product = await productService.GetProductById(productId);
@@ -84,7 +84,7 @@ namespace RAC_IMS.Backend.ObjectServices
                 await UpdateRawMaterial(rawMaterialId, rawMaterial);
             }
         }
-
+        */
         public async Task UpdateRawMaterialSupplier(string rawMaterialId)
         {
             var material = await GetRawMaterialById(rawMaterialId);
