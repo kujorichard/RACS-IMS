@@ -172,6 +172,12 @@
     <Compile Include="Login and Register\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main Panel\OrderReceiptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Panel\OrderReceiptForm.Designer.cs">
+      <DependentUpon>OrderReceiptForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main Panel\MaterialForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </Compile>
     <EmbeddedResource Include="Login and Register\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main Panel\OrderReceiptForm.resx">
+      <DependentUpon>OrderReceiptForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main Panel\MaterialForm.resx">
       <DependentUpon>MaterialForm.cs</DependentUpon>
