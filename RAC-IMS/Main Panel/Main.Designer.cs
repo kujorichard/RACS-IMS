@@ -504,8 +504,8 @@
             // 
             // dgv_products_table
             // 
+            this.dgv_products_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgv_products_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_products_table.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv_products_table.Location = new System.Drawing.Point(2, 2);
             this.dgv_products_table.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_products_table.Name = "dgv_products_table";
@@ -698,6 +698,7 @@
             // 
             // dgv_suppliers_table
             // 
+            this.dgv_suppliers_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_suppliers_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_suppliers_table.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv_suppliers_table.Location = new System.Drawing.Point(2, 2);
@@ -917,6 +918,7 @@
             // 
             // dgv_rawmaterials_table
             // 
+            this.dgv_rawmaterials_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_rawmaterials_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_rawmaterials_table.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv_rawmaterials_table.Location = new System.Drawing.Point(0, 0);
