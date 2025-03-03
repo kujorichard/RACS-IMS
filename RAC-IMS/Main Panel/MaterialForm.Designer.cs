@@ -32,12 +32,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.cmb_products_material = new System.Windows.Forms.ComboBox();
+            this.txt_products_material_quantity = new System.Windows.Forms.TextBox();
+            this.btn_products_add_material = new System.Windows.Forms.Button();
+            this.btn_products_rem_material = new System.Windows.Forms.Button();
+            this.btn_products_cancel_material = new System.Windows.Forms.Button();
+            this.btn_products_save_material = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,73 +86,73 @@
             this.dataGridView1.Size = new System.Drawing.Size(612, 131);
             this.dataGridView1.TabIndex = 3;
             // 
-            // comboBox1
+            // cmb_products_material
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(189, 50);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(415, 32);
-            this.comboBox1.TabIndex = 4;
+            this.cmb_products_material.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_products_material.FormattingEnabled = true;
+            this.cmb_products_material.Location = new System.Drawing.Point(189, 50);
+            this.cmb_products_material.Name = "cmb_products_material";
+            this.cmb_products_material.Size = new System.Drawing.Size(415, 32);
+            this.cmb_products_material.TabIndex = 4;
             // 
-            // textBox1
+            // txt_products_material_quantity
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(189, 95);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(94, 34);
-            this.textBox1.TabIndex = 5;
+            this.txt_products_material_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_products_material_quantity.Location = new System.Drawing.Point(189, 95);
+            this.txt_products_material_quantity.Multiline = true;
+            this.txt_products_material_quantity.Name = "txt_products_material_quantity";
+            this.txt_products_material_quantity.Size = new System.Drawing.Size(94, 34);
+            this.txt_products_material_quantity.TabIndex = 5;
             // 
-            // button1
+            // btn_products_add_material
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(18, 149);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 29);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Add Material";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_products_add_material.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_products_add_material.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_add_material.ForeColor = System.Drawing.Color.Black;
+            this.btn_products_add_material.Location = new System.Drawing.Point(18, 149);
+            this.btn_products_add_material.Name = "btn_products_add_material";
+            this.btn_products_add_material.Size = new System.Drawing.Size(143, 29);
+            this.btn_products_add_material.TabIndex = 6;
+            this.btn_products_add_material.Text = "Add Material";
+            this.btn_products_add_material.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btn_products_rem_material
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(177, 149);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(172, 29);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Remove Material";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn_products_rem_material.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_products_rem_material.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_rem_material.ForeColor = System.Drawing.Color.Black;
+            this.btn_products_rem_material.Location = new System.Drawing.Point(177, 149);
+            this.btn_products_rem_material.Name = "btn_products_rem_material";
+            this.btn_products_rem_material.Size = new System.Drawing.Size(172, 29);
+            this.btn_products_rem_material.TabIndex = 7;
+            this.btn_products_rem_material.Text = "Remove Material";
+            this.btn_products_rem_material.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btn_products_cancel_material
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(448, 149);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(88, 29);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Cancel";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_products_cancel_material.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_products_cancel_material.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_cancel_material.ForeColor = System.Drawing.Color.Black;
+            this.btn_products_cancel_material.Location = new System.Drawing.Point(448, 149);
+            this.btn_products_cancel_material.Name = "btn_products_cancel_material";
+            this.btn_products_cancel_material.Size = new System.Drawing.Size(88, 29);
+            this.btn_products_cancel_material.TabIndex = 8;
+            this.btn_products_cancel_material.Text = "Cancel";
+            this.btn_products_cancel_material.UseVisualStyleBackColor = false;
+            this.btn_products_cancel_material.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btn_products_save_material
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(542, 149);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(88, 29);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Save";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_products_save_material.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_products_save_material.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_products_save_material.ForeColor = System.Drawing.Color.Black;
+            this.btn_products_save_material.Location = new System.Drawing.Point(542, 149);
+            this.btn_products_save_material.Name = "btn_products_save_material";
+            this.btn_products_save_material.Size = new System.Drawing.Size(88, 29);
+            this.btn_products_save_material.TabIndex = 9;
+            this.btn_products_save_material.Text = "Save";
+            this.btn_products_save_material.UseVisualStyleBackColor = false;
+            this.btn_products_save_material.Click += new System.EventHandler(this.button4_Click);
             // 
             // MaterialForm
             // 
@@ -160,12 +160,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(642, 327);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.btn_products_save_material);
+            this.Controls.Add(this.btn_products_cancel_material);
+            this.Controls.Add(this.btn_products_rem_material);
+            this.Controls.Add(this.btn_products_add_material);
+            this.Controls.Add(this.txt_products_material_quantity);
+            this.Controls.Add(this.cmb_products_material);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -186,11 +186,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox cmb_products_material;
+        private System.Windows.Forms.TextBox txt_products_material_quantity;
+        private System.Windows.Forms.Button btn_products_add_material;
+        private System.Windows.Forms.Button btn_products_rem_material;
+        private System.Windows.Forms.Button btn_products_cancel_material;
+        private System.Windows.Forms.Button btn_products_save_material;
     }
 }
