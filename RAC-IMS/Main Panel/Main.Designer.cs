@@ -263,11 +263,11 @@
             this.tc_main_inventory.Controls.Add(this.suppliers_tab);
             this.tc_main_inventory.Controls.Add(this.materials_tab);
             this.tc_main_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tc_main_inventory.Location = new System.Drawing.Point(267, 628);
+            this.tc_main_inventory.Location = new System.Drawing.Point(267, 60);
             this.tc_main_inventory.Margin = new System.Windows.Forms.Padding(2);
             this.tc_main_inventory.Name = "tc_main_inventory";
             this.tc_main_inventory.SelectedIndex = 0;
-            this.tc_main_inventory.Size = new System.Drawing.Size(797, 537);
+            this.tc_main_inventory.Size = new System.Drawing.Size(797, 1105);
             this.tc_main_inventory.TabIndex = 0;
             // 
             // product_tab
@@ -298,7 +298,7 @@
             this.product_tab.Margin = new System.Windows.Forms.Padding(2);
             this.product_tab.Name = "product_tab";
             this.product_tab.Padding = new System.Windows.Forms.Padding(2);
-            this.product_tab.Size = new System.Drawing.Size(789, 502);
+            this.product_tab.Size = new System.Drawing.Size(789, 1070);
             this.product_tab.TabIndex = 0;
             this.product_tab.Text = "Products";
             this.product_tab.Click += new System.EventHandler(this.product_tab_Click);
@@ -732,7 +732,7 @@
             this.materials_tab.Location = new System.Drawing.Point(4, 31);
             this.materials_tab.Margin = new System.Windows.Forms.Padding(2);
             this.materials_tab.Name = "materials_tab";
-            this.materials_tab.Size = new System.Drawing.Size(789, 1103);
+            this.materials_tab.Size = new System.Drawing.Size(789, 502);
             this.materials_tab.TabIndex = 2;
             this.materials_tab.Text = "Materials";
             // 
@@ -926,7 +926,7 @@
             this.dgv_rawmaterials_table.Name = "dgv_rawmaterials_table";
             this.dgv_rawmaterials_table.RowHeadersWidth = 51;
             this.dgv_rawmaterials_table.RowTemplate.Height = 24;
-            this.dgv_rawmaterials_table.Size = new System.Drawing.Size(789, 264);
+            this.dgv_rawmaterials_table.Size = new System.Drawing.Size(772, 264);
             this.dgv_rawmaterials_table.TabIndex = 4;
             // 
             // tc_main_sales

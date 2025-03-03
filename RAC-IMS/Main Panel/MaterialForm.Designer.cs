@@ -38,6 +38,7 @@
             this.btn_products_rem_material = new System.Windows.Forms.Button();
             this.btn_products_cancel_material = new System.Windows.Forms.Button();
             this.btn_products_save_material = new System.Windows.Forms.Button();
+            this.cmb_products_name = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,11 +48,11 @@
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(13, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 25);
+            this.label1.Size = new System.Drawing.Size(148, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Add Material";
+            this.label1.Text = "Product Name";
             // 
             // label2
             // 
@@ -59,7 +60,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 52);
+            this.label2.Location = new System.Drawing.Point(13, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(148, 25);
             this.label2.TabIndex = 1;
@@ -71,7 +72,7 @@
             this.label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 98);
+            this.label3.Location = new System.Drawing.Point(13, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(171, 25);
             this.label3.TabIndex = 2;
@@ -90,7 +91,7 @@
             // 
             this.cmb_products_material.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_products_material.FormattingEnabled = true;
-            this.cmb_products_material.Location = new System.Drawing.Point(189, 50);
+            this.cmb_products_material.Location = new System.Drawing.Point(189, 58);
             this.cmb_products_material.Name = "cmb_products_material";
             this.cmb_products_material.Size = new System.Drawing.Size(415, 32);
             this.cmb_products_material.TabIndex = 4;
@@ -98,7 +99,7 @@
             // txt_products_material_quantity
             // 
             this.txt_products_material_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_products_material_quantity.Location = new System.Drawing.Point(189, 95);
+            this.txt_products_material_quantity.Location = new System.Drawing.Point(189, 102);
             this.txt_products_material_quantity.Multiline = true;
             this.txt_products_material_quantity.Name = "txt_products_material_quantity";
             this.txt_products_material_quantity.Size = new System.Drawing.Size(94, 34);
@@ -154,12 +155,22 @@
             this.btn_products_save_material.UseVisualStyleBackColor = false;
             this.btn_products_save_material.Click += new System.EventHandler(this.button4_Click);
             // 
+            // cmb_products_name
+            // 
+            this.cmb_products_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_products_name.FormattingEnabled = true;
+            this.cmb_products_name.Location = new System.Drawing.Point(189, 12);
+            this.cmb_products_name.Name = "cmb_products_name";
+            this.cmb_products_name.Size = new System.Drawing.Size(415, 32);
+            this.cmb_products_name.TabIndex = 10;
+            // 
             // MaterialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(642, 327);
+            this.Controls.Add(this.cmb_products_name);
             this.Controls.Add(this.btn_products_save_material);
             this.Controls.Add(this.btn_products_cancel_material);
             this.Controls.Add(this.btn_products_rem_material);
@@ -192,5 +203,6 @@
         private System.Windows.Forms.Button btn_products_rem_material;
         private System.Windows.Forms.Button btn_products_cancel_material;
         private System.Windows.Forms.Button btn_products_save_material;
+        private System.Windows.Forms.ComboBox cmb_products_name;
     }
 }
