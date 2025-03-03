@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using RAC_IMS.Backend.ObjectServices;
 using MongoDB.Driver;
 using RAC_IMS.Backend;
+using RAC_IMS.Backend.ObjectModels;
 
 namespace RAC_IMS.Backend.ObjectModels
 {
@@ -30,14 +31,15 @@ namespace RAC_IMS.Backend.ObjectModels
         public double total_price { get; set; }
 
 
-        public double ComputeTotalPrice(MongoDBService mongoDBService)
+        public async void ComputeTotalPrice(ProductsService productsService)
         {
-            var productCollection = mongoDBService.GetProductsCollection(); // Get the MongoDB collection
+
+            var productCollection = productsService.GetAllProducts(); // Get the MongoDB collection
             double total = 0;
 
             foreach (var po in products_ordered)
             {
-                var product = productCollection.Find(p => p._id == po.product_id).FirstOrDefault();
+                Product product = await productsService.GetProductById(po.product_id); // Get the product by ID
                 if (product == null) continue; // Skip if product not found
 
                 double price = 0;
@@ -61,7 +63,7 @@ namespace RAC_IMS.Backend.ObjectModels
                 total += price * po.quantity; // Multiply price by quantity and add to total
             }
 
-            return total;
+            total_price = total; // Set the total price
         }
 
 

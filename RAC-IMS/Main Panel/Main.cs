@@ -22,6 +22,7 @@ namespace RAC_IMS.Main_Panel
         private readonly ProductsService productService;
         private readonly RawMaterialsService rawMaterialService;
         private readonly SuppliersService supplierService;
+        private readonly OrdersService orderService;
 
         public Main()
         {
@@ -33,6 +34,7 @@ namespace RAC_IMS.Main_Panel
             productService = new ProductsService(mongoDBService);
             rawMaterialService = new RawMaterialsService(mongoDBService);
             supplierService = new SuppliersService(mongoDBService);
+            orderService = new OrdersService(mongoDBService);
             Load_Tables();
         }
 
@@ -42,6 +44,7 @@ namespace RAC_IMS.Main_Panel
             dgv_products_table.DataSource = await productService.GetAllProducts();
             dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
             dgv_suppliers_table.DataSource = await supplierService.GetAllSuppliers();
+            dgv_orders_table.DataSource = await orderService.GetAllOrders();
         }
         private void Main_Load(object sender, EventArgs e)
         {
@@ -820,6 +823,18 @@ namespace RAC_IMS.Main_Panel
             MaterialForm material = new MaterialForm();
             material.FormClosed += (s, args) => this.Show();
             material.ShowDialog();
+        }
+
+
+        // Orders tab datagrid view
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dgv_orders_table.DataSource = orderService.GetAllOrders();
         }
     }
 }
