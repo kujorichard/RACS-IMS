@@ -530,8 +530,8 @@
             // 
             // dgv_products_table
             // 
+            this.dgv_products_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgv_products_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_products_table.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv_products_table.Location = new System.Drawing.Point(2, 2);
             this.dgv_products_table.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_products_table.Name = "dgv_products_table";
@@ -571,7 +571,7 @@
             this.suppliers_tab.Margin = new System.Windows.Forms.Padding(2);
             this.suppliers_tab.Name = "suppliers_tab";
             this.suppliers_tab.Padding = new System.Windows.Forms.Padding(2);
-            this.suppliers_tab.Size = new System.Drawing.Size(789, 502);
+            this.suppliers_tab.Size = new System.Drawing.Size(789, 1103);
             this.suppliers_tab.TabIndex = 1;
             this.suppliers_tab.Text = "Suppliers";
             this.suppliers_tab.UseVisualStyleBackColor = true;
@@ -724,6 +724,7 @@
             // 
             // dgv_suppliers_table
             // 
+            this.dgv_suppliers_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_suppliers_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_suppliers_table.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv_suppliers_table.Location = new System.Drawing.Point(2, 2);
@@ -731,7 +732,7 @@
             this.dgv_suppliers_table.Name = "dgv_suppliers_table";
             this.dgv_suppliers_table.RowHeadersWidth = 51;
             this.dgv_suppliers_table.RowTemplate.Height = 24;
-            this.dgv_suppliers_table.Size = new System.Drawing.Size(768, 264);
+            this.dgv_suppliers_table.Size = new System.Drawing.Size(785, 264);
             this.dgv_suppliers_table.TabIndex = 3;
             // 
             // materials_tab
@@ -757,7 +758,7 @@
             this.materials_tab.Location = new System.Drawing.Point(4, 31);
             this.materials_tab.Margin = new System.Windows.Forms.Padding(2);
             this.materials_tab.Name = "materials_tab";
-            this.materials_tab.Size = new System.Drawing.Size(789, 502);
+            this.materials_tab.Size = new System.Drawing.Size(789, 1103);
             this.materials_tab.TabIndex = 2;
             this.materials_tab.Text = "Materials";
             // 
@@ -943,6 +944,7 @@
             // 
             // dgv_rawmaterials_table
             // 
+            this.dgv_rawmaterials_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_rawmaterials_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_rawmaterials_table.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv_rawmaterials_table.Location = new System.Drawing.Point(0, 0);
@@ -950,7 +952,7 @@
             this.dgv_rawmaterials_table.Name = "dgv_rawmaterials_table";
             this.dgv_rawmaterials_table.RowHeadersWidth = 51;
             this.dgv_rawmaterials_table.RowTemplate.Height = 24;
-            this.dgv_rawmaterials_table.Size = new System.Drawing.Size(772, 264);
+            this.dgv_rawmaterials_table.Size = new System.Drawing.Size(789, 264);
             this.dgv_rawmaterials_table.TabIndex = 4;
             // 
             // tc_main_sales
