@@ -49,13 +49,11 @@
             this.btn_products_add = new System.Windows.Forms.Button();
             this.btn_products_select = new System.Windows.Forms.Button();
             this.btn_products_update = new System.Windows.Forms.Button();
-            this.cmb_products_supplier = new System.Windows.Forms.ComboBox();
             this.txt_products_retail = new System.Windows.Forms.TextBox();
             this.txt_products_wholesale = new System.Windows.Forms.TextBox();
             this.txt_products_resell = new System.Windows.Forms.TextBox();
             this.txt_products_name = new System.Windows.Forms.TextBox();
             this.lbl_products_materials = new System.Windows.Forms.Label();
-            this.lbl_products_supplier = new System.Windows.Forms.Label();
             this.lbl_products_retail = new System.Windows.Forms.Label();
             this.lbl_products_wholesale = new System.Windows.Forms.Label();
             this.lbl_products_resell = new System.Windows.Forms.Label();
@@ -285,13 +283,11 @@
             this.product_tab.Controls.Add(this.btn_products_add);
             this.product_tab.Controls.Add(this.btn_products_select);
             this.product_tab.Controls.Add(this.btn_products_update);
-            this.product_tab.Controls.Add(this.cmb_products_supplier);
             this.product_tab.Controls.Add(this.txt_products_retail);
             this.product_tab.Controls.Add(this.txt_products_wholesale);
             this.product_tab.Controls.Add(this.txt_products_resell);
             this.product_tab.Controls.Add(this.txt_products_name);
             this.product_tab.Controls.Add(this.lbl_products_materials);
-            this.product_tab.Controls.Add(this.lbl_products_supplier);
             this.product_tab.Controls.Add(this.lbl_products_retail);
             this.product_tab.Controls.Add(this.lbl_products_wholesale);
             this.product_tab.Controls.Add(this.lbl_products_resell);
@@ -310,7 +306,7 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(423, 424);
+            this.dataGridView2.Location = new System.Drawing.Point(423, 389);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(347, 108);
             this.dataGridView2.TabIndex = 28;
@@ -320,7 +316,7 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(550, 374);
+            this.button3.Location = new System.Drawing.Point(550, 333);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(198, 34);
@@ -331,7 +327,7 @@
             // 
             // txt_products_stock
             // 
-            this.txt_products_stock.Location = new System.Drawing.Point(550, 331);
+            this.txt_products_stock.Location = new System.Drawing.Point(550, 293);
             this.txt_products_stock.Margin = new System.Windows.Forms.Padding(2);
             this.txt_products_stock.Name = "txt_products_stock";
             this.txt_products_stock.Size = new System.Drawing.Size(198, 28);
@@ -341,7 +337,7 @@
             // 
             this.lbl_products_stock.AutoSize = true;
             this.lbl_products_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_products_stock.Location = new System.Drawing.Point(419, 342);
+            this.lbl_products_stock.Location = new System.Drawing.Point(419, 298);
             this.lbl_products_stock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_stock.Name = "lbl_products_stock";
             this.lbl_products_stock.Size = new System.Drawing.Size(62, 20);
@@ -419,17 +415,6 @@
             this.btn_products_update.UseVisualStyleBackColor = false;
             this.btn_products_update.Click += new System.EventHandler(this.btn_products_update_Click);
             // 
-            // cmb_products_supplier
-            // 
-            this.cmb_products_supplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmb_products_supplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmb_products_supplier.FormattingEnabled = true;
-            this.cmb_products_supplier.Location = new System.Drawing.Point(550, 288);
-            this.cmb_products_supplier.Margin = new System.Windows.Forms.Padding(2);
-            this.cmb_products_supplier.Name = "cmb_products_supplier";
-            this.cmb_products_supplier.Size = new System.Drawing.Size(198, 30);
-            this.cmb_products_supplier.TabIndex = 16;
-            // 
             // txt_products_retail
             // 
             this.txt_products_retail.Location = new System.Drawing.Point(195, 424);
@@ -466,23 +451,12 @@
             // 
             this.lbl_products_materials.AutoSize = true;
             this.lbl_products_materials.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_products_materials.Location = new System.Drawing.Point(419, 383);
+            this.lbl_products_materials.Location = new System.Drawing.Point(419, 339);
             this.lbl_products_materials.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_products_materials.Name = "lbl_products_materials";
             this.lbl_products_materials.Size = new System.Drawing.Size(101, 20);
             this.lbl_products_materials.TabIndex = 8;
             this.lbl_products_materials.Text = "MATERIALS";
-            // 
-            // lbl_products_supplier
-            // 
-            this.lbl_products_supplier.AutoSize = true;
-            this.lbl_products_supplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_products_supplier.Location = new System.Drawing.Point(419, 298);
-            this.lbl_products_supplier.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_products_supplier.Name = "lbl_products_supplier";
-            this.lbl_products_supplier.Size = new System.Drawing.Size(89, 20);
-            this.lbl_products_supplier.TabIndex = 7;
-            this.lbl_products_supplier.Text = "SUPPLIER";
             // 
             // lbl_products_retail
             // 
@@ -571,7 +545,7 @@
             this.suppliers_tab.Margin = new System.Windows.Forms.Padding(2);
             this.suppliers_tab.Name = "suppliers_tab";
             this.suppliers_tab.Padding = new System.Windows.Forms.Padding(2);
-            this.suppliers_tab.Size = new System.Drawing.Size(789, 502);
+            this.suppliers_tab.Size = new System.Drawing.Size(789, 1103);
             this.suppliers_tab.TabIndex = 1;
             this.suppliers_tab.Text = "Suppliers";
             this.suppliers_tab.UseVisualStyleBackColor = true;
@@ -731,7 +705,7 @@
             this.dgv_suppliers_table.Name = "dgv_suppliers_table";
             this.dgv_suppliers_table.RowHeadersWidth = 51;
             this.dgv_suppliers_table.RowTemplate.Height = 24;
-            this.dgv_suppliers_table.Size = new System.Drawing.Size(768, 264);
+            this.dgv_suppliers_table.Size = new System.Drawing.Size(785, 264);
             this.dgv_suppliers_table.TabIndex = 3;
             // 
             // materials_tab
@@ -757,7 +731,7 @@
             this.materials_tab.Location = new System.Drawing.Point(4, 31);
             this.materials_tab.Margin = new System.Windows.Forms.Padding(2);
             this.materials_tab.Name = "materials_tab";
-            this.materials_tab.Size = new System.Drawing.Size(789, 502);
+            this.materials_tab.Size = new System.Drawing.Size(789, 1103);
             this.materials_tab.TabIndex = 2;
             this.materials_tab.Text = "Materials";
             // 
@@ -950,7 +924,7 @@
             this.dgv_rawmaterials_table.Name = "dgv_rawmaterials_table";
             this.dgv_rawmaterials_table.RowHeadersWidth = 51;
             this.dgv_rawmaterials_table.RowTemplate.Height = 24;
-            this.dgv_rawmaterials_table.Size = new System.Drawing.Size(772, 264);
+            this.dgv_rawmaterials_table.Size = new System.Drawing.Size(789, 264);
             this.dgv_rawmaterials_table.TabIndex = 4;
             // 
             // tc_main_sales
@@ -1089,13 +1063,11 @@
         private System.Windows.Forms.Label lbl_products_retail;
         private System.Windows.Forms.Label lbl_products_wholesale;
         private System.Windows.Forms.Label lbl_products_resell;
-        private System.Windows.Forms.Label lbl_products_supplier;
         private System.Windows.Forms.Label lbl_products_materials;
         private System.Windows.Forms.TextBox txt_products_retail;
         private System.Windows.Forms.TextBox txt_products_wholesale;
         private System.Windows.Forms.TextBox txt_products_resell;
         private System.Windows.Forms.TextBox txt_products_name;
-        private System.Windows.Forms.ComboBox cmb_products_supplier;
         private System.Windows.Forms.Button btn_products_update;
         private System.Windows.Forms.Button btn_products_clear;
         private System.Windows.Forms.Button btn_products_delete;
