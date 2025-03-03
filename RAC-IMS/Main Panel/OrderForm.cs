@@ -55,7 +55,7 @@ namespace RAC_IMS.Main_Panel
             {
                 customer = txt_order_customerName.Text,
                 products_ordered = products_ordered,
-                status = "pending",
+                status = "Pending",
             };
 
             new_order.ComputeTotalPrice(productService); // Compute total price of the order
@@ -64,6 +64,8 @@ namespace RAC_IMS.Main_Panel
             MessageBox.Show("Order successfully placed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Close();
+
+
         }
 
 

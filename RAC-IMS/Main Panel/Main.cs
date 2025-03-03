@@ -834,9 +834,9 @@ namespace RAC_IMS.Main_Panel
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
-            dgv_orders_table.DataSource = orderService.GetAllOrders();
+            await RefreshOrdersTable();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -945,6 +945,50 @@ namespace RAC_IMS.Main_Panel
                 string order_id = selected_order._id;
                 OrderReceiptForm order_details_form = new OrderReceiptForm(order_id);
                 order_details_form.Show(); // Open the details form
+            }
+        }
+
+        private async Task RefreshOrdersTable()
+        {
+            try
+            {
+                dgv_orders_table.DataSource = null; // Clear existing data
+                var orders = await orderService.GetAllOrders(); // Fetch latest orders
+                dgv_orders_table.DataSource = orders; // Bind to DataGridView
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error refreshing orders: {ex.Message}");
+            }
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            if (dgv_orders_table.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an order to delete.");
+                return;
+            }
+
+            // Get selected order ID (Assumes the first column has the _id)
+            string orderId = dgv_orders_table.SelectedRows[0].Cells[0].Value.ToString();
+            if (string.IsNullOrEmpty(orderId))
+            {
+                MessageBox.Show("Order ID is missing. Cannot delete.");
+                return;
+            }
+
+            DialogResult confirmResult = MessageBox.Show(
+                "Are you sure you want to delete this order?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirmResult == DialogResult.Yes)
+            {
+                    await orderService.DeleteOrder(orderId);
+                    MessageBox.Show("Order deleted successfully!");
+                    await RefreshOrdersTable(); // Refresh DataGridView
             }
         }
     }
