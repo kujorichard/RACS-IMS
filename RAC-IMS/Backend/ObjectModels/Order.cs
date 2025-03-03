@@ -11,24 +11,24 @@ using RAC_IMS.Backend;
 
 namespace RAC_IMS.Backend.ObjectModels
 {
+    public class ProductOrder
+    {
+        public string product_id { get; set; }
+        public int quantity { get; set; }
+        public string price_type { get; set; }
+    }
+
     internal class Order
     {
         [BsonId] // Marks this as the MongoDB document ID
         [BsonRepresentation(BsonType.ObjectId)] // Ensures it works as a string
         public string _id { get; set; }
 
-        public int customer_id { get; set; }
+        public string customer { get; set; }
         public List<ProductOrder> products_ordered { get; set; }
         public string status { get; set; }
         public double total_price { get; set; }
 
-
-        public class ProductOrder
-        {
-            public string product_id { get; set; }
-            public int quantity { get; set; }
-            public string price_type { get; set; }
-        }
 
         public double ComputeTotalPrice(MongoDBService mongoDBService)
         {
@@ -42,7 +42,6 @@ namespace RAC_IMS.Backend.ObjectModels
 
                 double price = 0;
 
-                // Traditional switch statement for C# 8.0
                 switch (po.price_type)
                 {
                     case "retail":
