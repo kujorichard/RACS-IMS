@@ -135,7 +135,6 @@ namespace RAC_IMS.Main_Panel
                 wholesale_price = double.Parse(txt_products_wholesale.Text),
                 retail_price = double.Parse(txt_products_retail.Text),
                 stock = int.Parse(txt_products_stock.Text),
-                supplier = cmb_products_supplier.Text
 
             };
 
@@ -684,8 +683,6 @@ namespace RAC_IMS.Main_Panel
                 existingProduct.retail_price = retail_price;
             if (int.TryParse(txt_products_stock.Text, out int stock))
                 existingProduct.stock = stock;
-            if (!string.IsNullOrWhiteSpace(cmb_products_supplier.Text))
-                existingProduct.supplier = cmb_products_supplier.Text.Trim();
             
 
                 try
