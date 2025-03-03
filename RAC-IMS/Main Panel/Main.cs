@@ -578,7 +578,6 @@ namespace RAC_IMS.Main_Panel
             txt_products_retail.Text = "";
             txt_products_wholesale.Text = "";
             txt_products_stock.Text = "";
-            cmb_products_supplier.Text = "";
 
             dgv_products_table.DataSource = null;
             dgv_products_table.DataSource = await productService.GetAllProducts();

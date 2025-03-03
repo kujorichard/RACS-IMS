@@ -59,14 +59,22 @@ namespace RAC_IMS.Backend.ObjectServices
         public async Task UpdateRawMaterialStock(string productId, int stockDifference)
         {
             var product = await productService.GetProductById(productId);
-            if (product == null) return; // Skip if product not found
 
-            foreach (var rawMaterialId in product.raw_material_id)
+            if (product == null)
+                return; // Skip if product not found
+
+            foreach (var entry in product.raw_material_id)
             {
-                var rawMaterial = await GetRawMaterialById(rawMaterialId);
-                if (rawMaterial == null) continue; // Skip if raw material not found
+                string rawMaterialId = entry.Key;
+                int quantity = entry.Value;
 
-                rawMaterial.stock -= stockDifference; // Adjust stock
+                var rawMaterial = await GetRawMaterialById(rawMaterialId);
+
+                if (rawMaterial == null)
+                    continue; // Skip if raw material not found
+
+                // Adjust stock based on the quantity needed for each product
+                rawMaterial.stock -= stockDifference * quantity;
 
                 if (rawMaterial.stock < 0)
                     rawMaterial.stock = 0; // Prevent negative stock
