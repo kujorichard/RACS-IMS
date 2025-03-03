@@ -160,6 +160,7 @@
     <Compile Include="Backend\ObjectModels\Supplier.cs" />
     <Compile Include="Backend\ObjectModels\User.cs" />
     <Compile Include="Backend\ObjectServices\CustomersService.cs" />
+    <Compile Include="Backend\ObjectServices\OrdersService.cs" />
     <Compile Include="Backend\ObjectServices\ProductsService.cs" />
     <Compile Include="Backend\ObjectServices\RawMaterialsService.cs" />
     <Compile Include="Backend\ObjectServices\SuppliersService.cs" />

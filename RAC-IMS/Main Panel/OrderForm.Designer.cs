@@ -33,12 +33,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txt_order_customerName = new System.Windows.Forms.TextBox();
+            this.txt_order_qty = new System.Windows.Forms.TextBox();
+            this.cmb_order_price_type = new System.Windows.Forms.ComboBox();
+            this.btn_order_cancel = new System.Windows.Forms.Button();
+            this.btn_order_finish = new System.Windows.Forms.Button();
+            this.cmb_order_product = new System.Windows.Forms.ComboBox();
+            this.btn_order_add_item = new System.Windows.Forms.Button();
+            this.btn_order_remove_item = new System.Windows.Forms.Button();
+            this.dgv_order_products_selected = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_order_products_selected)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -71,7 +75,7 @@
             this.label3.BackColor = System.Drawing.SystemColors.Desktop;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(13, 88);
+            this.label3.Location = new System.Drawing.Point(13, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 25);
             this.label3.TabIndex = 2;
@@ -83,7 +87,7 @@
             this.label4.BackColor = System.Drawing.SystemColors.Desktop;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(13, 164);
+            this.label4.Location = new System.Drawing.Point(13, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 25);
             this.label4.TabIndex = 4;
@@ -95,92 +99,129 @@
             this.label5.BackColor = System.Drawing.SystemColors.Desktop;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(13, 126);
+            this.label5.Location = new System.Drawing.Point(13, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 25);
             this.label5.TabIndex = 3;
             this.label5.Text = "Quantity";
             // 
-            // textBox1
+            // txt_order_customerName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(204, 42);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(556, 33);
-            this.textBox1.TabIndex = 5;
+            this.txt_order_customerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_order_customerName.Location = new System.Drawing.Point(204, 42);
+            this.txt_order_customerName.Multiline = true;
+            this.txt_order_customerName.Name = "txt_order_customerName";
+            this.txt_order_customerName.Size = new System.Drawing.Size(556, 33);
+            this.txt_order_customerName.TabIndex = 5;
             // 
-            // textBox2
+            // txt_order_qty
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(204, 81);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(556, 33);
-            this.textBox2.TabIndex = 6;
+            this.txt_order_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_order_qty.Location = new System.Drawing.Point(204, 138);
+            this.txt_order_qty.Multiline = true;
+            this.txt_order_qty.Name = "txt_order_qty";
+            this.txt_order_qty.Size = new System.Drawing.Size(61, 33);
+            this.txt_order_qty.TabIndex = 7;
             // 
-            // textBox3
+            // cmb_order_price_type
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(204, 120);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(61, 33);
-            this.textBox3.TabIndex = 7;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmb_order_price_type.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmb_order_price_type.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_order_price_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_order_price_type.FormattingEnabled = true;
+            this.cmb_order_price_type.Items.AddRange(new object[] {
             "Wholesale",
             "Reseller",
             "Retail"});
-            this.comboBox1.Location = new System.Drawing.Point(204, 162);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 32);
-            this.comboBox1.TabIndex = 8;
+            this.cmb_order_price_type.Location = new System.Drawing.Point(204, 180);
+            this.cmb_order_price_type.Name = "cmb_order_price_type";
+            this.cmb_order_price_type.Size = new System.Drawing.Size(177, 32);
+            this.cmb_order_price_type.TabIndex = 8;
             // 
-            // button1
+            // btn_order_cancel
             // 
-            this.button1.BackColor = System.Drawing.Color.Firebrick;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(641, 157);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 32);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "CANCEL ORDER";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_order_cancel.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_order_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_order_cancel.ForeColor = System.Drawing.Color.White;
+            this.btn_order_cancel.Location = new System.Drawing.Point(641, 157);
+            this.btn_order_cancel.Name = "btn_order_cancel";
+            this.btn_order_cancel.Size = new System.Drawing.Size(147, 32);
+            this.btn_order_cancel.TabIndex = 9;
+            this.btn_order_cancel.Text = "CANCEL ORDER";
+            this.btn_order_cancel.UseVisualStyleBackColor = false;
+            this.btn_order_cancel.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_order_finish
             // 
-            this.button2.BackColor = System.Drawing.Color.ForestGreen;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(641, 195);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 32);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "FINISH ORDER";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_order_finish.BackColor = System.Drawing.Color.ForestGreen;
+            this.btn_order_finish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_order_finish.ForeColor = System.Drawing.Color.White;
+            this.btn_order_finish.Location = new System.Drawing.Point(641, 195);
+            this.btn_order_finish.Name = "btn_order_finish";
+            this.btn_order_finish.Size = new System.Drawing.Size(147, 32);
+            this.btn_order_finish.TabIndex = 10;
+            this.btn_order_finish.Text = "FINISH ORDER";
+            this.btn_order_finish.UseVisualStyleBackColor = false;
+            this.btn_order_finish.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // cmb_order_product
+            // 
+            this.cmb_order_product.FormattingEnabled = true;
+            this.cmb_order_product.Location = new System.Drawing.Point(204, 106);
+            this.cmb_order_product.Name = "cmb_order_product";
+            this.cmb_order_product.Size = new System.Drawing.Size(273, 21);
+            this.cmb_order_product.TabIndex = 11;
+            this.cmb_order_product.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // btn_order_add_item
+            // 
+            this.btn_order_add_item.BackColor = System.Drawing.Color.ForestGreen;
+            this.btn_order_add_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_order_add_item.ForeColor = System.Drawing.Color.White;
+            this.btn_order_add_item.Location = new System.Drawing.Point(18, 228);
+            this.btn_order_add_item.Name = "btn_order_add_item";
+            this.btn_order_add_item.Size = new System.Drawing.Size(147, 32);
+            this.btn_order_add_item.TabIndex = 12;
+            this.btn_order_add_item.Text = "ADD ITEM";
+            this.btn_order_add_item.UseVisualStyleBackColor = false;
+            this.btn_order_add_item.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btn_order_remove_item
+            // 
+            this.btn_order_remove_item.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_order_remove_item.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_order_remove_item.ForeColor = System.Drawing.Color.White;
+            this.btn_order_remove_item.Location = new System.Drawing.Point(184, 228);
+            this.btn_order_remove_item.Name = "btn_order_remove_item";
+            this.btn_order_remove_item.Size = new System.Drawing.Size(147, 32);
+            this.btn_order_remove_item.TabIndex = 13;
+            this.btn_order_remove_item.Text = "REMOVE ITEM";
+            this.btn_order_remove_item.UseVisualStyleBackColor = false;
+            // 
+            // dgv_order_products_selected
+            // 
+            this.dgv_order_products_selected.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_order_products_selected.Location = new System.Drawing.Point(18, 266);
+            this.dgv_order_products_selected.Name = "dgv_order_products_selected";
+            this.dgv_order_products_selected.Size = new System.Drawing.Size(770, 231);
+            this.dgv_order_products_selected.TabIndex = 14;
+            this.dgv_order_products_selected.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderForm_Load_1);
             // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(800, 239);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(800, 509);
+            this.Controls.Add(this.dgv_order_products_selected);
+            this.Controls.Add(this.btn_order_remove_item);
+            this.Controls.Add(this.btn_order_add_item);
+            this.Controls.Add(this.cmb_order_product);
+            this.Controls.Add(this.btn_order_finish);
+            this.Controls.Add(this.btn_order_cancel);
+            this.Controls.Add(this.cmb_order_price_type);
+            this.Controls.Add(this.txt_order_qty);
+            this.Controls.Add(this.txt_order_customerName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -189,6 +230,8 @@
             this.Name = "OrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Order Form";
+            this.Load += new System.EventHandler(this.OrderForm_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_order_products_selected)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,11 +244,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txt_order_customerName;
+        private System.Windows.Forms.TextBox txt_order_qty;
+        private System.Windows.Forms.ComboBox cmb_order_price_type;
+        private System.Windows.Forms.Button btn_order_cancel;
+        private System.Windows.Forms.Button btn_order_finish;
+        private System.Windows.Forms.ComboBox cmb_order_product;
+        private System.Windows.Forms.Button btn_order_add_item;
+        private System.Windows.Forms.Button btn_order_remove_item;
+        private System.Windows.Forms.DataGridView dgv_order_products_selected;
     }
 }
