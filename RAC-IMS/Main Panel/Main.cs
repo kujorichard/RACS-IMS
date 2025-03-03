@@ -128,6 +128,12 @@ namespace RAC_IMS.Main_Panel
                 return;
             }
 
+            if (!clb_products_materials.CheckedItems.OfType<RawMaterial>().Any())
+            {
+                MessageBox.Show("Please select at least one raw material.");
+                return;
+            }
+
             List<string> selectedRawMaterialIds = new List<string>();
 
             foreach (var item in clb_products_materials.CheckedItems)
@@ -299,12 +305,29 @@ namespace RAC_IMS.Main_Panel
                     return;
                 }
 
+                if (!clb_materials_supplier.CheckedItems.OfType<Supplier>().Any())
+                {
+                    MessageBox.Show("Please select at least one supplier.");
+                    return;
+                }
+
+                List<string> selectedSupplierIDs = new List<string>();
+
+                foreach (var item in clb_materials_supplier.CheckedItems)
+                {
+                    if (item is Supplier supplier)
+                    {
+                        selectedSupplierIDs.Add(supplier._id);
+                    }
+                }
+
                 RawMaterial new_raw_material = new RawMaterial
                 {
                     name = txt_materials_name.Text.Trim(),
                     price_per_weight = price,
                     stock = stock,
-                    unit = cmb_materials_unit.Text.Trim()
+                    unit = cmb_materials_unit.Text.Trim(),
+                    supplier_id = selectedSupplierIDs
                 };
 
                 await rawMaterialService.InsertRawMaterial(new_raw_material);
@@ -379,6 +402,16 @@ namespace RAC_IMS.Main_Panel
                 return;
             }
 
+            List<string> selectedSupplierIds = new List<string>();
+
+            foreach (var item in clb_materials_supplier.CheckedItems)
+            {
+                if (item is Supplier supplier)
+                {
+                    selectedSupplierIds.Add(supplier._id);
+                }
+            }
+
             // Update specific fields
             if (!string.IsNullOrWhiteSpace(txt_materials_name.Text))
                 existingMaterial.name = txt_materials_name.Text.Trim();
@@ -391,6 +424,10 @@ namespace RAC_IMS.Main_Panel
 
             if (!string.IsNullOrWhiteSpace(cmb_materials_unit.Text))
                 existingMaterial.unit = cmb_materials_unit.Text.Trim();
+            
+            if (selectedSupplierIds.Any())
+                existingMaterial.supplier_id.Clear();
+                existingMaterial.supplier_id = selectedSupplierIds;
 
             try
             {
