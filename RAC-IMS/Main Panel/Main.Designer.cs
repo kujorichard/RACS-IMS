@@ -265,11 +265,11 @@
             this.tc_main_inventory.Controls.Add(this.suppliers_tab);
             this.tc_main_inventory.Controls.Add(this.materials_tab);
             this.tc_main_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tc_main_inventory.Location = new System.Drawing.Point(267, 27);
+            this.tc_main_inventory.Location = new System.Drawing.Point(267, 15);
             this.tc_main_inventory.Margin = new System.Windows.Forms.Padding(2);
             this.tc_main_inventory.Name = "tc_main_inventory";
             this.tc_main_inventory.SelectedIndex = 0;
-            this.tc_main_inventory.Size = new System.Drawing.Size(797, 1138);
+            this.tc_main_inventory.Size = new System.Drawing.Size(797, 1150);
             this.tc_main_inventory.TabIndex = 0;
             // 
             // product_tab
@@ -302,7 +302,7 @@
             this.product_tab.Margin = new System.Windows.Forms.Padding(2);
             this.product_tab.Name = "product_tab";
             this.product_tab.Padding = new System.Windows.Forms.Padding(2);
-            this.product_tab.Size = new System.Drawing.Size(789, 1103);
+            this.product_tab.Size = new System.Drawing.Size(789, 1115);
             this.product_tab.TabIndex = 0;
             this.product_tab.Text = "Products";
             this.product_tab.Click += new System.EventHandler(this.product_tab_Click);
@@ -571,7 +571,7 @@
             this.suppliers_tab.Margin = new System.Windows.Forms.Padding(2);
             this.suppliers_tab.Name = "suppliers_tab";
             this.suppliers_tab.Padding = new System.Windows.Forms.Padding(2);
-            this.suppliers_tab.Size = new System.Drawing.Size(789, 502);
+            this.suppliers_tab.Size = new System.Drawing.Size(789, 1103);
             this.suppliers_tab.TabIndex = 1;
             this.suppliers_tab.Text = "Suppliers";
             this.suppliers_tab.UseVisualStyleBackColor = true;
@@ -731,7 +731,7 @@
             this.dgv_suppliers_table.Name = "dgv_suppliers_table";
             this.dgv_suppliers_table.RowHeadersWidth = 51;
             this.dgv_suppliers_table.RowTemplate.Height = 24;
-            this.dgv_suppliers_table.Size = new System.Drawing.Size(768, 264);
+            this.dgv_suppliers_table.Size = new System.Drawing.Size(785, 264);
             this.dgv_suppliers_table.TabIndex = 3;
             // 
             // materials_tab
