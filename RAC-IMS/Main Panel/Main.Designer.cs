@@ -29,14 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_main_overview = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btn_main_sales = new System.Windows.Forms.Button();
-            this.btn_main_exit = new System.Windows.Forms.Button();
-            this.btn_main_inventory = new System.Windows.Forms.Button();
             this.lbl_login_inventorytext = new System.Windows.Forms.Label();
-            this.pb_login_logo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tc_main_inventory = new System.Windows.Forms.TabControl();
             this.product_tab = new System.Windows.Forms.TabPage();
@@ -98,9 +93,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.ADD = new System.Windows.Forms.Button();
+            this.btn_main_overview = new System.Windows.Forms.Button();
+            this.btn_main_sales = new System.Windows.Forms.Button();
+            this.btn_main_exit = new System.Windows.Forms.Button();
+            this.btn_main_inventory = new System.Windows.Forms.Button();
+            this.pb_login_logo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_login_logo)).BeginInit();
             this.tc_main_inventory.SuspendLayout();
             this.product_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -112,6 +111,7 @@
             this.tc_main_sales.SuspendLayout();
             this.orders_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_login_logo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -130,25 +130,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 657);
             this.panel1.TabIndex = 0;
-            // 
-            // btn_main_overview
-            // 
-            this.btn_main_overview.BackColor = System.Drawing.Color.Black;
-            this.btn_main_overview.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_main_overview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_main_overview.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_main_overview.ForeColor = System.Drawing.Color.White;
-            this.btn_main_overview.Image = global::RAC_IMS.Properties.Resources.table_32px;
-            this.btn_main_overview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_main_overview.Location = new System.Drawing.Point(34, 172);
-            this.btn_main_overview.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_main_overview.Name = "btn_main_overview";
-            this.btn_main_overview.Size = new System.Drawing.Size(200, 41);
-            this.btn_main_overview.TabIndex = 9;
-            this.btn_main_overview.Text = "OVERVIEW";
-            this.btn_main_overview.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_main_overview.UseVisualStyleBackColor = false;
-            this.btn_main_overview.Click += new System.EventHandler(this.btn_main_overview_Click);
             // 
             // tabControl1
             // 
@@ -171,59 +152,6 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btn_main_sales
-            // 
-            this.btn_main_sales.BackColor = System.Drawing.Color.Black;
-            this.btn_main_sales.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_main_sales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_main_sales.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_main_sales.ForeColor = System.Drawing.Color.White;
-            this.btn_main_sales.Image = global::RAC_IMS.Properties.Resources.sales_32px;
-            this.btn_main_sales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_main_sales.Location = new System.Drawing.Point(34, 233);
-            this.btn_main_sales.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_main_sales.Name = "btn_main_sales";
-            this.btn_main_sales.Size = new System.Drawing.Size(200, 41);
-            this.btn_main_sales.TabIndex = 8;
-            this.btn_main_sales.Text = "SALES";
-            this.btn_main_sales.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_main_sales.UseVisualStyleBackColor = false;
-            this.btn_main_sales.Click += new System.EventHandler(this.btn_main_sales_Click);
-            // 
-            // btn_main_exit
-            // 
-            this.btn_main_exit.BackColor = System.Drawing.Color.Black;
-            this.btn_main_exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_main_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_main_exit.ForeColor = System.Drawing.Color.Black;
-            this.btn_main_exit.Image = global::RAC_IMS.Properties.Resources.exit_32px;
-            this.btn_main_exit.Location = new System.Drawing.Point(26, 585);
-            this.btn_main_exit.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_main_exit.Name = "btn_main_exit";
-            this.btn_main_exit.Size = new System.Drawing.Size(47, 37);
-            this.btn_main_exit.TabIndex = 7;
-            this.btn_main_exit.UseVisualStyleBackColor = false;
-            this.btn_main_exit.Click += new System.EventHandler(this.btn_main_exit_Click);
-            // 
-            // btn_main_inventory
-            // 
-            this.btn_main_inventory.BackColor = System.Drawing.Color.Black;
-            this.btn_main_inventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_main_inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_main_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_main_inventory.ForeColor = System.Drawing.Color.White;
-            this.btn_main_inventory.Image = global::RAC_IMS.Properties.Resources.checklists_32px;
-            this.btn_main_inventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_main_inventory.Location = new System.Drawing.Point(34, 297);
-            this.btn_main_inventory.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_main_inventory.Name = "btn_main_inventory";
-            this.btn_main_inventory.Size = new System.Drawing.Size(201, 41);
-            this.btn_main_inventory.TabIndex = 6;
-            this.btn_main_inventory.Text = "INVENTORY";
-            this.btn_main_inventory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_main_inventory.UseVisualStyleBackColor = false;
-            this.btn_main_inventory.Click += new System.EventHandler(this.btn_main_inventory_Click);
-            // 
             // lbl_login_inventorytext
             // 
             this.lbl_login_inventorytext.AutoSize = true;
@@ -235,17 +163,6 @@
             this.lbl_login_inventorytext.Size = new System.Drawing.Size(227, 17);
             this.lbl_login_inventorytext.TabIndex = 5;
             this.lbl_login_inventorytext.Text = "Inventory Management System";
-            // 
-            // pb_login_logo
-            // 
-            this.pb_login_logo.Image = global::RAC_IMS.Properties.Resources.brand_logo_200pxX172px;
-            this.pb_login_logo.Location = new System.Drawing.Point(34, 15);
-            this.pb_login_logo.Margin = new System.Windows.Forms.Padding(2);
-            this.pb_login_logo.Name = "pb_login_logo";
-            this.pb_login_logo.Size = new System.Drawing.Size(201, 140);
-            this.pb_login_logo.TabIndex = 4;
-            this.pb_login_logo.TabStop = false;
-            this.pb_login_logo.Click += new System.EventHandler(this.pb_login_logo_Click);
             // 
             // panel2
             // 
@@ -263,11 +180,11 @@
             this.tc_main_inventory.Controls.Add(this.suppliers_tab);
             this.tc_main_inventory.Controls.Add(this.materials_tab);
             this.tc_main_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tc_main_inventory.Location = new System.Drawing.Point(267, 15);
+            this.tc_main_inventory.Location = new System.Drawing.Point(267, 27);
             this.tc_main_inventory.Margin = new System.Windows.Forms.Padding(2);
             this.tc_main_inventory.Name = "tc_main_inventory";
             this.tc_main_inventory.SelectedIndex = 0;
-            this.tc_main_inventory.Size = new System.Drawing.Size(797, 1150);
+            this.tc_main_inventory.Size = new System.Drawing.Size(797, 1138);
             this.tc_main_inventory.TabIndex = 0;
             // 
             // product_tab
@@ -298,7 +215,7 @@
             this.product_tab.Margin = new System.Windows.Forms.Padding(2);
             this.product_tab.Name = "product_tab";
             this.product_tab.Padding = new System.Windows.Forms.Padding(2);
-            this.product_tab.Size = new System.Drawing.Size(789, 1115);
+            this.product_tab.Size = new System.Drawing.Size(789, 1103);
             this.product_tab.TabIndex = 0;
             this.product_tab.Text = "Products";
             this.product_tab.Click += new System.EventHandler(this.product_tab_Click);
@@ -504,7 +421,7 @@
             // 
             // dgv_products_table
             // 
-            this.dgv_products_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgv_products_table.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_products_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_products_table.Location = new System.Drawing.Point(2, 2);
             this.dgv_products_table.Margin = new System.Windows.Forms.Padding(2);
@@ -969,6 +886,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.Location = new System.Drawing.Point(2, 2);
@@ -1002,6 +920,89 @@
             this.ADD.UseVisualStyleBackColor = false;
             this.ADD.Click += new System.EventHandler(this.ADD_Click);
             // 
+            // btn_main_overview
+            // 
+            this.btn_main_overview.BackColor = System.Drawing.Color.Black;
+            this.btn_main_overview.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_main_overview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_main_overview.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_main_overview.ForeColor = System.Drawing.Color.White;
+            this.btn_main_overview.Image = global::RAC_IMS.Properties.Resources.table_32px;
+            this.btn_main_overview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_main_overview.Location = new System.Drawing.Point(34, 172);
+            this.btn_main_overview.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_main_overview.Name = "btn_main_overview";
+            this.btn_main_overview.Size = new System.Drawing.Size(200, 41);
+            this.btn_main_overview.TabIndex = 9;
+            this.btn_main_overview.Text = "OVERVIEW";
+            this.btn_main_overview.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_main_overview.UseVisualStyleBackColor = false;
+            this.btn_main_overview.Click += new System.EventHandler(this.btn_main_overview_Click);
+            // 
+            // btn_main_sales
+            // 
+            this.btn_main_sales.BackColor = System.Drawing.Color.Black;
+            this.btn_main_sales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_main_sales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_main_sales.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_main_sales.ForeColor = System.Drawing.Color.White;
+            this.btn_main_sales.Image = global::RAC_IMS.Properties.Resources.sales_32px;
+            this.btn_main_sales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_main_sales.Location = new System.Drawing.Point(34, 233);
+            this.btn_main_sales.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_main_sales.Name = "btn_main_sales";
+            this.btn_main_sales.Size = new System.Drawing.Size(200, 41);
+            this.btn_main_sales.TabIndex = 8;
+            this.btn_main_sales.Text = "SALES";
+            this.btn_main_sales.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_main_sales.UseVisualStyleBackColor = false;
+            this.btn_main_sales.Click += new System.EventHandler(this.btn_main_sales_Click);
+            // 
+            // btn_main_exit
+            // 
+            this.btn_main_exit.BackColor = System.Drawing.Color.Black;
+            this.btn_main_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_main_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_main_exit.ForeColor = System.Drawing.Color.Black;
+            this.btn_main_exit.Image = global::RAC_IMS.Properties.Resources.exit_32px;
+            this.btn_main_exit.Location = new System.Drawing.Point(26, 585);
+            this.btn_main_exit.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_main_exit.Name = "btn_main_exit";
+            this.btn_main_exit.Size = new System.Drawing.Size(47, 37);
+            this.btn_main_exit.TabIndex = 7;
+            this.btn_main_exit.UseVisualStyleBackColor = false;
+            this.btn_main_exit.Click += new System.EventHandler(this.btn_main_exit_Click);
+            // 
+            // btn_main_inventory
+            // 
+            this.btn_main_inventory.BackColor = System.Drawing.Color.Black;
+            this.btn_main_inventory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_main_inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_main_inventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_main_inventory.ForeColor = System.Drawing.Color.White;
+            this.btn_main_inventory.Image = global::RAC_IMS.Properties.Resources.checklists_32px;
+            this.btn_main_inventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_main_inventory.Location = new System.Drawing.Point(34, 297);
+            this.btn_main_inventory.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_main_inventory.Name = "btn_main_inventory";
+            this.btn_main_inventory.Size = new System.Drawing.Size(201, 41);
+            this.btn_main_inventory.TabIndex = 6;
+            this.btn_main_inventory.Text = "INVENTORY";
+            this.btn_main_inventory.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_main_inventory.UseVisualStyleBackColor = false;
+            this.btn_main_inventory.Click += new System.EventHandler(this.btn_main_inventory_Click);
+            // 
+            // pb_login_logo
+            // 
+            this.pb_login_logo.Image = global::RAC_IMS.Properties.Resources.brand_logo_200pxX172px;
+            this.pb_login_logo.Location = new System.Drawing.Point(34, 15);
+            this.pb_login_logo.Margin = new System.Windows.Forms.Padding(2);
+            this.pb_login_logo.Name = "pb_login_logo";
+            this.pb_login_logo.Size = new System.Drawing.Size(201, 140);
+            this.pb_login_logo.TabIndex = 4;
+            this.pb_login_logo.TabStop = false;
+            this.pb_login_logo.Click += new System.EventHandler(this.pb_login_logo_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1022,7 +1023,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_login_logo)).EndInit();
             this.tc_main_inventory.ResumeLayout(false);
             this.product_tab.ResumeLayout(false);
             this.product_tab.PerformLayout();
@@ -1037,6 +1037,7 @@
             this.tc_main_sales.ResumeLayout(false);
             this.orders_tab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_login_logo)).EndInit();
             this.ResumeLayout(false);
 
         }
