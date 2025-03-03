@@ -45,7 +45,6 @@ namespace RAC_IMS.Main_Panel
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            LoadRawMaterialsProductListBox();
             LoadSupplierRawMaterialListBox();
         }
 
@@ -128,22 +127,6 @@ namespace RAC_IMS.Main_Panel
                 return;
             }
 
-            if (!clb_products_materials.CheckedItems.OfType<RawMaterial>().Any())
-            {
-                MessageBox.Show("Please select at least one raw material.");
-                return;
-            }
-
-            List<string> selectedRawMaterialIds = new List<string>();
-
-            foreach (var item in clb_products_materials.CheckedItems)
-            {
-                if (item is RawMaterial rawMaterial)
-                {
-                    selectedRawMaterialIds.Add(rawMaterial._id);
-                }
-            }
-
 
             Product newProduct = new Product
             {
@@ -152,8 +135,7 @@ namespace RAC_IMS.Main_Panel
                 wholesale_price = double.Parse(txt_products_wholesale.Text),
                 retail_price = double.Parse(txt_products_retail.Text),
                 stock = int.Parse(txt_products_stock.Text),
-                supplier = cmb_products_supplier.Text,
-                raw_material_id = selectedRawMaterialIds
+                supplier = cmb_products_supplier.Text
 
             };
 
@@ -179,6 +161,9 @@ namespace RAC_IMS.Main_Panel
             tc_main_sales.Dock = DockStyle.None;
             tc_main_sales.Size = new Size(798,305);
             tc_main_sales.Location = new Point(267,27);
+
+            orders_tab.AutoScroll = false;
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -333,7 +318,6 @@ namespace RAC_IMS.Main_Panel
                 await rawMaterialService.InsertRawMaterial(new_raw_material);
                 MessageBox.Show("Raw Material successfully added!");
                 dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
-                LoadRawMaterialsProductListBox();
                 ClearFields_Materials();
             }
             catch (Exception ex)
@@ -369,7 +353,6 @@ namespace RAC_IMS.Main_Panel
                     await rawMaterialService.DeleteRawMaterial(id);
                     MessageBox.Show("Raw material deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
-                    LoadRawMaterialsProductListBox();
                 }
                 catch (Exception ex)
                 {
@@ -434,7 +417,6 @@ namespace RAC_IMS.Main_Panel
                 await rawMaterialService.UpdateRawMaterial(id, existingMaterial);
                 MessageBox.Show("Raw material updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgv_rawmaterials_table.DataSource = await rawMaterialService.GetAllRawMaterials();
-                LoadRawMaterialsProductListBox();
                 ClearFields_Materials();
             }
             catch (Exception ex)
@@ -691,16 +673,6 @@ namespace RAC_IMS.Main_Panel
                 return;
             }
 
-            List<string> selectedRawMaterialIds = new List<string>();
-
-            foreach (var item in clb_products_materials.CheckedItems)
-            {
-                if (item is RawMaterial rawMaterial)
-                {
-                    selectedRawMaterialIds.Add(rawMaterial._id);
-                }
-            }
-
             // Update specific field
             if (!string.IsNullOrWhiteSpace(txt_products_name.Text))
                 existingProduct.name = txt_products_name.Text.Trim();
@@ -714,9 +686,6 @@ namespace RAC_IMS.Main_Panel
                 existingProduct.stock = stock;
             if (!string.IsNullOrWhiteSpace(cmb_products_supplier.Text))
                 existingProduct.supplier = cmb_products_supplier.Text.Trim();
-            if (selectedRawMaterialIds.Any())
-                existingProduct.raw_material_id.Clear();
-                existingProduct.raw_material_id = selectedRawMaterialIds;
             
 
                 try
@@ -804,20 +773,6 @@ namespace RAC_IMS.Main_Panel
 
         }
 
-        private async void LoadRawMaterialsProductListBox()
-        {
-            var rawMaterials = await rawMaterialService.GetAllRawMaterials();
-
-            if (rawMaterials == null || rawMaterials.Count == 0)
-            {
-                return;
-            }
-
-            clb_products_materials.DataSource = rawMaterials; 
-            clb_products_materials.DisplayMember = "name";  
-            clb_products_materials.ValueMember = "_id";  
-        }
-
         private async void LoadSupplierRawMaterialListBox()
         {
             var suppliers = await supplierService.GetAllSuppliers();
@@ -855,6 +810,20 @@ namespace RAC_IMS.Main_Panel
             OrderForm order = new OrderForm();
             order.FormClosed += (s, args) => this.Show();
             order.ShowDialog();
+        }
+
+        private void label2_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            MaterialForm material = new MaterialForm();
+            material.FormClosed += (s, args) => this.Show();
+            material.ShowDialog();
         }
     }
 }
