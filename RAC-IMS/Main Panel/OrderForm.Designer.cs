@@ -188,6 +188,7 @@
             this.btn_order_remove_item.TabIndex = 13;
             this.btn_order_remove_item.Text = "REMOVE ITEM";
             this.btn_order_remove_item.UseVisualStyleBackColor = false;
+            this.btn_order_remove_item.Click += new System.EventHandler(this.btn_order_remove_item_Click);
             // 
             // dgv_order_products_selected
             // 
